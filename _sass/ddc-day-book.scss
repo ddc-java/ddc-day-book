@@ -567,9 +567,9 @@ div.wrapper {
 
     position: fixed;
     left: 50%;
-    width: 170px;
-    margin: -44px 0 0 -600px;
-    padding: 10px;
+    width: 220px;
+    margin: -39px 0 0 -640px;
+    padding: 5px;
     z-index: 500;
 
     > input[type='checkbox'] {
@@ -987,7 +987,7 @@ footer {
 }
 
 
-@media print, screen and (max-width: 1200px) {
+@media print, screen and (max-width: 1300px) {
 
   h1 {
 
