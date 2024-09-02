@@ -1,0 +1,96 @@
+{%- assign delimiter = include.delimiter | default: "|" -%}
+{%- assign delimiter_length = delimiter | size -%}
+{%- assign pages_in_section = site.pages | where_exp: "p", "p.dir == include.parent_dir_path" | sort: "order" -%}
+
+{%- if pages_in_section.size > 0 -%}
+
+  {%- capture pairs_list -%}
+  
+    {%- for p in pages_in_section -%}
+    
+      {%- capture hierarchy_title %}{{ hierarchy_prefix }}{{ p.title }}{% endcapture -%}
+
+      {%- if p.content_dir -%}
+
+        {%- capture content_path %}{{ include.parent_dir_path }}{{ p.content_dir }}/{% endcapture -%}       
+        
+        {%- include navigation-prev-next.html parent_dir_path=content_path delimiter=delimiter -%}
+      
+      {%- else -%}
+      
+        {{ p.title }}#{{ p.url | relative_url }}{{ delimiter }}
+      
+      {%- endif -%}
+        
+    {%- endfor -%}
+    
+  {%- endcapture -%}
+
+  {%- if include.parent_dir_path == "/" -%}
+
+    {%- assign current_url = page.url | relative_url -%}
+    {%- assign pairs = pairs_list | split: delimiter -%}
+    {%- assign upper_bound = pairs | size | minus: 1 -%}
+
+    {%- capture current_position -%}
+    
+      {%- for i in (0..upper_bound) -%}
+
+        {%- assign pair = pairs[i] -%}
+        {%- assign parts = pair | split: "#" -%}
+        {%- assign title = parts[0] -%}
+        {%- assign url = parts[1] -%}
+        
+        {%- if url == current_url -%}
+        
+          {{ i }}
+          
+          {%- break -%}
+          
+        {%- endif -%}
+
+      {%- endfor -%}
+
+    {%- endcapture -%}
+
+    {%- assign previous_position = current_position | minus: 1 -%}
+    
+    {%- if previous_position >= 0 -%}
+      
+      {%- assign previous_pair = pairs[previous_position] -%}
+      {%- assign parts = previous_pair | split: "#" -%}
+      {%- assign title = parts[0] -%}
+      {%- assign url = parts[1] -%}
+
+      <a class="previous-page" href="{{ url }}">{{ title }}</a>
+
+    {%- else -%}
+
+      <span>&nbsp;</span>
+    
+    {%- endif -%}
+    
+    {%- assign next_position = current_position | plus: 1 -%}
+    
+    {%- if next_position <= upper_bound -%}
+    
+      {%- assign next_pair = pairs[next_position] -%}
+      {%- assign parts = next_pair | split: "#" -%}
+      {%- assign title = parts[0] -%}
+      {%- assign url = parts[1] -%}
+
+      <a class="next-page" href="{{ url }}">{{ title }}</a>
+
+    {%- else -%}
+
+      <span>&nbsp;</span>
+    
+    {%- endif -%}
+
+  {%- else -%}
+  
+    {{ pairs_list }}
+    
+  {%- endif -%}
+  
+{%- endif -%}

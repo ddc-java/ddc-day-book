@@ -1,0 +1,56 @@
+{%- assign pages_in_section = site.pages 
+    | where_exp: "p", "p.dir == include.parent_dir_path" 
+    | where_exp: "p", "p.exclude_from_toc != true" 
+    | sort: "order" -%}
+{%- assign current_url = page.url | relative_url -%}
+
+{%- if pages_in_section.size > 0 -%}
+
+  {%- if include.parent_dir_path == "/" -%}
+    <input id="toc-root" type="checkbox" checked><label for="toc-root" aria-label="Table of contents"><img src="{{ '/assets/images/menu-open.svg' | relative_url }}"></label> 
+  {%- endif -%}
+  
+  <ul>
+
+    {%- for p in pages_in_section -%}
+    
+      {%- if p.content_dir -%}
+      
+        {%- unless p.content_dir contains "/" -%}
+        
+          {%- assign item_id = p.url | slugify: "latin" -%}
+          {%- capture content_path %}{{ include.parent_dir_path }}{{ p.content_dir }}/{% endcapture -%}
+          
+          {%- if page.dir contains content_path -%}
+            {%- assign item_checked = "checked" -%}
+            {%- assign section_variation = "expanded" -%}
+          {%- else -%}
+            {%- assign item_checked = "" -%}
+            {%- assign section_variation = "" -%}
+          {%- endif -%}
+          
+          <li class="toc-section {{ section_variation }}"><input type="checkbox" id="{{ item_id }}" {{ item_checked }}><label for="{{ item_id }}" aria-label="{{ p.subtitle | p.description }}">{{ p.title }}</label>
+            {%- include navigation-toc.html parent_dir_path=content_path -%}
+          </li>
+
+        {%- endunless -%}
+        
+      {%- else -%}
+
+        {%- assign dest_url = p.url | relative_url -%}
+        
+        {%- if p.href -%}
+          <li class="toc-page external"><a href="{{ p.href }}">{{p.title}}</a></li>
+        {%- elsif dest_url == current_url -%}
+          <li class="toc-page current">{{p.title}}</li>
+        {%- else -%}
+          <li class="toc-page"><a href="{{ dest_url }}">{{p.title}}</a></li>          
+        {%- endif -%}
+
+      {%- endif -%}
+
+    {%- endfor -%}
+    
+  </ul>
+
+{%- endif -%}

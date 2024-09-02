@@ -1,0 +1,27 @@
+{%- assign hash_list = include.hash_list -%}
+{%- assign list_prefix = include.list_prefix | default: "<ul>" -%}
+{%- assign list_suffix = include.list_suffix | default: "</ul>" -%}
+{%- assign item_prefix = include.item_prefix | default: "<li>" -%}
+{%- assign item_suffix = include.item_suffix | default: "</li>" -%}
+{%- assign content_prefix = include.content_prefix | default: "" -%}
+{%- assign content_suffix = include.content_suffix | default: "" -%}
+    
+{%- if hash_list -%}
+  {{ list_prefix }}
+  {%- for info_hash in hash_list -%}
+    {%- for info in info_hash -%}
+      {%- assign key = info[0] -%}
+      {%- assign value = info[1] -%}
+      {%- if value -%}
+        {{ item_prefix }}
+        {%- if value.first -%}
+          {{ content_prefix }}{{ key }}{{ content_suffix }}{%- include data-list.html hash_list=value -%}
+        {%- else -%}
+          {{ content_prefix }}{{ key }}: {{ value }}{{ content_suffix }}
+        {%- endif -%}
+        {{ item_suffix }}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endfor -%}
+  {{ list_suffix }}
+{%- endif -%}
