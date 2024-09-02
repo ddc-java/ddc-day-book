@@ -193,7 +193,8 @@ When viewing the repository in GitHub, this is displayed as
 > {:.no_toc}
 > 
 > ## Overview
-> 
+> {:.no_toc}
+>
 > An introduction to recursion in Java, using two well-known problems:
 > 
 > * Computing factorials.
@@ -205,6 +206,7 @@ When viewing the repository in GitHub, this is displayed as
 > This is a curriculum module of the [Deep Dive Coding](https://deepdivecoding.com/) [Java + Android bootcamp](https://deepdivecoding.com/java-android/).
 > 
 > ## Credits & copyright
+> {:.no_toc}
 > 
 > This curriculum module was written by Nick Bennett, with Todd Nordquist and Rishita Hariyani.
 > 
