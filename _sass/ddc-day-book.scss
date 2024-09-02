@@ -507,6 +507,7 @@ header {
 
     display: inline-block;
     position: relative;
+    max-width: 815px;
     font-size: 36px;
     line-height: 48px;
     color: $base-dark-color;
@@ -1040,6 +1041,7 @@ footer {
 
     h1 {
       font-size: 28px;
+      max-width: 640px;
       line-height: 42px;
       padding: 0;
     }
@@ -1113,6 +1115,7 @@ footer {
 
     h1 {
       font-size: 24px;
+      max-width: 630px;
       margin-bottom: 0;
     }
 
@@ -1171,7 +1174,7 @@ footer {
 
 }
 
-@media print, screen and (max-width: 720px) {
+@media print, screen and (max-width: 670px) {
 
   header {
 
@@ -1185,13 +1188,17 @@ footer {
 
       line-height: 32px;
       color: $deep-dive-yellow;
-      
+
       a {
+
+        .site-title {
+          display: none;
+        }
 
         span {
           color: unset;
         }
-        
+
         &:visited {
           color: unset;
         }
@@ -1217,35 +1224,6 @@ footer {
     nav.toc {
       margin-top: -30px;
     }
-
-  }
-
-}
-
-
-@media print, screen and (max-width: 670px) {
-
-  header {
-
-    h1 {
-
-      a {
-
-        .site-title {
-          display: none;
-        }
-
-      }
-
-    }
-
-    p {
-      display: none;
-    }
-
-  }
-
-  div.wrapper {
 
     section {
 
