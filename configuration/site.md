@@ -190,6 +190,7 @@ This curriculum module was written by Nick Bennett, with Todd Nordquist and Rish
 When viewing the repository in GitHub, this is displayed as
 
 > # Recursion
+> {:.no_toc}
 > 
 > ## Overview
 > 

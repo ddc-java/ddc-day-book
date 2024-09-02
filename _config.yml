@@ -1,4 +1,4 @@
-title: DDC Day Book Theme
+title: DDC Day Book
 description: "Theme for Deep Dive Coding Java + Android Bootcamp curricular content—especially modules with several pages—hosted on GitHub Pages."
 
 author: # Author information displayed/linked in the footer, alongside DDC link.
@@ -11,11 +11,6 @@ favicon: # Set a value to override the Deep Dive Coding dive helmet logo
 repository_link: # Omit for default value (true) of repository_link.enabled.
   enabled: true # Set this to false if repository link is not wanted on a public repository.
 
-heading_navigator: # Omit for default value (true) of heading_navigator.enabled.
-  enabled: true # Set this to false if intra-page navigator is not wanted.
-  from: # Set this to an explicit value if the navigator should start at a heading level other than 2 (inclusive).
-  to: # Set this to an explicit value if the navigator should end at a heading level other than 2 (inclusive).
-
 page_navigator: # Omit for default value (false) of page_navigator.enabled.
   enabled: true # Set this to false if an inter-page navigator is not wanted.
 
@@ -24,6 +19,7 @@ prev_next_navigation:
 
 google_analytics: # Tracking ID, e.g. "UA-000000-01"; ignore if Google Analytics not needed.
 
+# Example data hash list used in documentation
 assignment:
 - Format: "Java Gradle project"
 - Value:
