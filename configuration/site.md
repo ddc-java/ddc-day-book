@@ -72,7 +72,7 @@ Site-level configuration is done in `_config.yml`, and supports the following pr
 
 `remote_theme` (**required**)
 
-: To use this theme, this property must be assigned the value `ddc-java/ddc-day-book`.
+: To use this theme, this property must be assigned the value `ddc-java/ddc-day-book@v1`.
 
 `repository_link.enabled`
 
