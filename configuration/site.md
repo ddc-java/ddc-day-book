@@ -93,7 +93,7 @@ Additional properties may be defined in `_config.yml`, and referenced (with the 
 Of course, values of the above properties must be specified as properly formatted YAML. Below is an example `_config.yml` file for a site based on this theme. (Note that some properties are not specified, and thus take their default values, or are specified at the page level, as described above.)
 
 ```yaml
-remote_theme: ddc-java/ddc-day
+remote_theme: ddc-java/ddc-day@v1
 title: Recursion
 author:
   name: Nick Bennett
