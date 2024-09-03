@@ -1,6 +1,6 @@
 ---
 title: Additional resources
-subtitle: "Links to external documentation and examples"
+subtitle: "Links to external documentation and examples."
 order: 60
 ---
 

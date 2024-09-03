@@ -1,6 +1,6 @@
 ---
 title: Site
-subtitle: "Enabling and configuring theme on a GitHub Pages site"
+subtitle: "Enabling and configuring theme on a GitHub Pages site."
 order: 10
 ---
 

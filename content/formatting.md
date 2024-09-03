@@ -1,6 +1,6 @@
 ---
 title: Formatting content
-subtitle: "Formatting curriculum content (code, mathematical expressions, pseudocode, etc.)"
+subtitle: "Formatting different types of curriculum content."
 order: 50
 ---
 

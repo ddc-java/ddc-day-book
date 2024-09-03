@@ -1,6 +1,6 @@
 ---
 title: Page sections
-subtitle: "Typical sections included in assignments, tutorials, practical exam problems, etc."
+subtitle: "Typical sections included in assignments, tutorials, and exam problems."
 order: 30
 ---
 

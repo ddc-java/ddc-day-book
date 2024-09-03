@@ -1,6 +1,6 @@
 ---
 title: Introduction
-description: "A custom theme for curricular content used in the Deep Dive Coding Java Enterprise & Mobile Bootcamp"
+description: "Theme for GitHub Pages content used in the DDC Java bootcamps & related programs."
 order: 0
 ---
 

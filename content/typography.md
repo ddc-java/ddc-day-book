@@ -1,6 +1,6 @@
 ---
 title: Typography
-subtitle: "Fonts, styles, and symbols"
+subtitle: "Fonts, styles, and symbols in the theme."
 order: 40
 ---
 
