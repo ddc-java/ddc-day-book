@@ -665,12 +665,10 @@ div.wrapper {
 
             &::after {
               display: inline-block;
-              content: '\2304';
+              content: url("../images/chevron-down.svg");
+              width: 1em;
+              height: 1em;
               padding-left: 0.5em;
-              vertical-align: 35%;
-              font-size: 125%;
-              font-weight: bold;
-              line-height: 60%;
             }
 
           }
@@ -688,12 +686,10 @@ div.wrapper {
 
               + label::after {
                 display: inline-block;
-                content: '\2303';
+                content: url("../images/chevron-up.svg");
+                width: 1em;
+                height: 1em;
                 padding-left: 0.5em;
-                vertical-align: -35%;
-                font-size: 125%;
-                font-weight: bold;
-                line-height: 60%;
               }
 
               ~ ul {
