@@ -1,6 +1,7 @@
 var sectionHeight = function() {
   var total = $(window).height();
-  var $section = $('section').css('height','auto');
+  var $section = $('section');
+
   if ($section.outerHeight(true) < total) {
     var margin = $section.outerHeight(true) - $section.height();
     $section.height(total - margin - 20);
@@ -32,13 +33,4 @@ $(document).ready(function() {
   if ($('div#banner > a.repo').css('display') == 'none') {
     $('nav.toc > input[type="checkbox"]').prop('checked', false);
   }
-  var config = {
-    theme: 'forest',
-    flowchart:{
-      useMaxWidth:false,
-      htmlLabels:true
-    }
-  };
-  mermaid.initialize(config);
-  window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
 });

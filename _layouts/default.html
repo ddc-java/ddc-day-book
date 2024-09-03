@@ -34,8 +34,6 @@
 
     <script src="https://use.fontawesome.com/c858e278cf.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@11.1.0/dist/mermaid.min.js"></script>
-
     <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
     
     <script type="text/x-mathjax-config">
@@ -97,7 +95,7 @@
 
     </header>
 
-    <nav class="wrapper">
+    <div class="wrapper">
 
       {%- if page.page_navigator -%}
         {%- assign show_page_navigator = page.page_navigator.enabled -%}
@@ -128,13 +126,13 @@
         {%- endif -%}
 
         {%- if prev_next_navigation_top -%}
-          <nav class="space-between">{{ prev_next_links }}</nav>
+          <nav class="space-between">{{ prev_next_links }}</div>
         {%- endif %}
         
         {{ content }}
 
         {% if prev_next_navigation_bottom -%}
-          <nav class="space-between">{{ prev_next_links }}</nav>
+          <nav class="space-between">{{ prev_next_links }}</div>
         {%- endif -%}
 
       </section>
@@ -174,6 +172,6 @@
         ga('send', 'pageview');
       </script>
     {% endif %}
-
+    
   </body>
 </html>
