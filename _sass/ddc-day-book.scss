@@ -658,12 +658,6 @@ div.wrapper {
             cursor: pointer;
             font-weight: 500;
 
-            &:hover {
-              color: #6c6f6f;
-              text-decoration-line: underline;
-              text-decoration-style: solid;
-            }
-
             &::after {
               display: inline-block;
               content: url("../images/chevron-down.svg");
@@ -673,10 +667,12 @@ div.wrapper {
               vertical-align: -36.5%;
               opacity: 0.25;
 
-              &:hover {
+            }
+
+            &:hover {
+              &::after {
                 opacity: 1.0;
               }
-
             }
 
           }
