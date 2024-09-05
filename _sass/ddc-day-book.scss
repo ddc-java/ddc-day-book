@@ -695,7 +695,7 @@ div.wrapper {
               ~ ul {
                 height: 100%;
                 transform-origin: top;
-                transition: transform .2s ease-out;
+                transition: transform .1s ease-out;
                 transform: scaleY(1);
               }
 
@@ -712,11 +712,15 @@ div.wrapper {
     > input[type="checkbox"] {
 
       ~ ul {
-        display: none;
+        height: 0;
+        transform: scaleY(0);
       }
 
       &:checked ~ ul {
-        display: block;
+        height: 100%;
+        transform-origin: top;
+        transition: transform .2s ease-out;
+        transform: scaleY(1);
       }
 
     }
