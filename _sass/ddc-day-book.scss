@@ -682,7 +682,6 @@ div.wrapper {
             display: none;
 
             & ~ ul {
-              height: 0;
               transform-origin: top;
               transition-property: transform;
               transition-duration: 0.15s;
@@ -697,7 +696,6 @@ div.wrapper {
               }
 
               ~ ul {
-                height: 100%;
                 transition-timing-function: ease-out;
                 transform: scaleY(1);
               }
