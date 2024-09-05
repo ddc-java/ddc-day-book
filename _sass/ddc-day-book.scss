@@ -677,11 +677,11 @@ div.wrapper {
 
           }
 
-          input[type="checkbox"]{
+          > input[type="checkbox"]{
 
             display: none;
 
-            & ~ ul {
+            ~ ul {
               height: 0;
               transform: scaleY(0);
               transform-origin: top;
@@ -720,15 +720,17 @@ div.wrapper {
         height: 0;
         transform: scaleY(0);
         transform-origin: top;
-        transition-property: transform;
-        transition-duration: 0.2s;
-        transition-timing-function: ease-in;
+        transition-property: transform, height;
+        transition-duration: 0.2s, 0.2s;
+        transition-timing-function: ease-in, ease-in;
+        transition-delay: 0s, 0.03s;
       }
 
       &:checked ~ ul {
         height: 100%;
         transform: scaleY(1);
-        transition-timing-function: ease-out;
+        transition-property: height, transform;
+        transition-timing-function: ease-out, ease-out;
       }
 
     }
