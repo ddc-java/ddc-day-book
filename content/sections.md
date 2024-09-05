@@ -22,9 +22,9 @@ The kramdown parser used by default in this theme supports the usual Markdown he
 
 * As a rule, any HTML page should have only a single level-1 heading. In this theme, the header at the top of every page includes an `<h1>` tag generated automatically using the page- and/or site-level `title` property; thus, _none_ of the source pages (whether Markdown or HTML) should include a level-1 heading in the page content. 
 
-## Page-level table of contents
+## Table of contents
 
-For complex pages with more than a handful of headings, or with a deeply-nested headline structure, a table of contents (TOC) for the page should be considered.
+For pages with more than a handful of headings, or with a deeply-nested headline structure, a table of contents (TOC) for the page should be considered.
 
 ### Inclusion
 
