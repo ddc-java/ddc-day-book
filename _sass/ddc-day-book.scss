@@ -684,7 +684,9 @@ div.wrapper {
             & ~ ul {
               height: 0;
               transform-origin: top;
-              transition: transform 0.1s ease-in;
+              transition-property: transform;
+              transition-duration: 0.15s;
+              transition-timing-function: ease-in;
               transform: scaleY(0);
             }
 
@@ -696,7 +698,7 @@ div.wrapper {
 
               ~ ul {
                 height: 100%;
-                transition: transform 0.15s ease-out;
+                transition-timing-function: ease-out;
                 transform: scaleY(1);
               }
 
