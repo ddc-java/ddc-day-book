@@ -688,7 +688,7 @@ div.wrapper {
               transition-property: transform, height;
               transition-duration: 0.2s, 0.2s;
               transition-timing-function: ease-in, ease-in;
-              transition-delay: 0s, 0.05s;
+              transition-delay: 0s, 0.03s;
             }
 
             &:checked {
@@ -701,9 +701,7 @@ div.wrapper {
                 height: 100%;
                 transform: scaleY(1);
                 transition-property: height, transform;
-                transition-duration: 0.2s, 0.2s;
                 transition-timing-function: ease-out, ease-out;
-                transition-delay: 0s, 0.05s;
               }
 
             }
