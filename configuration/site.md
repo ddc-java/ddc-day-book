@@ -176,8 +176,6 @@ An introduction to recursion in Java, using two well-known problems:
 
 * Testing strings to determine whether they are palindromes.
 
-For details, see [docs](docs/).
-
 This is a curriculum module of the [Deep Dive Coding](https://deepdivecoding.com/) [Java + Android bootcamp](https://deepdivecoding.com/java-android/).
 
 ## Credits & copyright
@@ -200,8 +198,6 @@ When viewing the repository in GitHub, this is displayed as
 > * Computing factorials.
 > 
 > * Testing strings to determine whether they are palindromes.
-> 
-> For details, see [docs](docs/).
 > 
 > This is a curriculum module of the [Deep Dive Coding](https://deepdivecoding.com/) [Java + Android bootcamp](https://deepdivecoding.com/java-android/).
 > 

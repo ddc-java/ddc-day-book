@@ -290,7 +290,7 @@ The first reference to linked content (whether an attachment included in the mod
 On internal links to non-HTML content (i.e. attachments) and all external links, this theme automatically displays a thumbnail, corresponding to the extension portion (if any) of the link destination. If this thumbnail should not be displayed, use a kramdown span _inline attribute list_ (IAL) specifying the `omit-thumbnail` class. For example, this Markdown includes an internal link to another page, an internal link to a non-HTML attachment, an external link with an automatic thumbnail, and an external link with the thumbnail omitted.
 
 ```markdown
-* [Resources](resources.md) <!-- Inline link to internal HTML content, w/o thumbnail. -->
+* [Resources](../resources.md) <!-- Inline link to internal HTML content, w/o thumbnail. -->
 * [Deep Dive Coding logo](assets/images/ddc.png) <!-- Inline link to internal non-HTML content, w/ thumbnail. -->
 * [Deep Dive Coding](https://deepdivecoding.com/) <!-- Inline link to external resource, w/ thumbnail. -->
 * [CNM Ingenuity][]{:.omit-thumbnail} <!-- Reference link to external resource, w/o thumbnail. -->
@@ -300,8 +300,8 @@ On internal links to non-HTML content (i.e. attachments) and all external links,
 
 The above is rendered as
 
-> * [Resources](resources.md) <!-- Inline link to internal HTML content, w/o thumbnail. -->
-> * [Deep Dive Coding logo](assets/images/ddc.png) <!-- Inline link to internal non-HTML content, w/ thumbnail. -->
+> * [Resources]({{ "/resources" | relative_url }}) <!-- Inline link to internal HTML content, w/o thumbnail. -->
+> * [Deep Dive Coding logo]({{ "/assets/images/ddc.png" | relative_url }}) <!-- Inline link to internal non-HTML content, w/ thumbnail. -->
 > * [Deep Dive Coding](https://deepdivecoding.com/) <!-- Inline link to external resource, w/ thumbnail. -->
 > * [CNM Ingenuity][]{:.omit-thumbnail} <!-- Reference link to external resource, w/o thumbnail. -->
 {:.render-example}
@@ -444,7 +444,7 @@ This is rendered as
 
 ## Pseudocode
 
-Steps in an algorithm or computational process should be specified as _pseudocode_, and should follow the [pseudocode guidelines](/style-guide/pseudocode) in the [DDC style guide](/style-guide). See the details and examples in that resource for further information.
+Steps in an algorithm or computational process should be specified as _pseudocode_, and should follow the [pseudocode guidelines](https://ddc-java.github.io/style-guide/pseudocode) in the [DDC style guide](https://ddc-java.github.io/style-guide/). See the details and examples in that resource for further information.
 
 ## Test cases
 

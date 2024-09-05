@@ -70,7 +70,7 @@ order: 30
 
 ## Table of contents
 
-For information on creating a table of contents within a page, see ["Page sections: Table of contents"](sections#table-of-contents)
+For information on creating a table of contents within a page, see ["Page sections: Table of contents"]({{ "/content/sections#table-of-contents" | relative_url }})
 
 ## Guidelines
 

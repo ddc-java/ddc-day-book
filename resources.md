@@ -15,7 +15,7 @@ order: 60
 ## Platform
 
 * [GitHub Pages](https://pages.github.com/)
-* [Working with GitHub Pages](https://docs.github.com/en/github/working-with-github-pages)
+* [GitHub Pages documentation](https://docs.github.com/en/pages)
 * [Jekyll](https://jekyllrb.com/)
 * [Liquid](https://shopify.github.io/liquid/)
 
@@ -24,13 +24,13 @@ order: 60
 ### Basic
 
 * [Markdown](https://daringfireball.net/projects/markdown/)
-* [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
+* [Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 * [kramdown](https://kramdown.gettalong.org/)
 * [kramdown Quick Reference](https://kramdown.gettalong.org/quickref.html)
 
 ### Code
 
-* [Rouge](http://rouge.jneen.net/)
+* [Rouge](https://rouge.jneen.net/)
 * [Rouge: List of supported languages and lexers](https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers)
 
 ### Mathematics
