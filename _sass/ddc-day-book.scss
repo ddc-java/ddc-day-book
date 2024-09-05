@@ -684,7 +684,7 @@ div.wrapper {
             & ~ ul {
               height: 0;
               transform-origin: top;
-              transition-property: transform;
+              transition-property: transform, height;
               transition-duration: 0.15s;
               transition-timing-function: ease-in;
               transform: scaleY(0);
