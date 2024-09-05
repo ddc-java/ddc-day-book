@@ -687,7 +687,7 @@ div.wrapper {
               transform-origin: top;
               transition-property: transform, height;
               transition-duration: 0.20s, 0.15s;
-              transition-timing-function: ease-in;
+              transition-timing-function: ease-in, ease-in;
               transition-delay: 0s, 0.5s;
             }
 
@@ -702,7 +702,7 @@ div.wrapper {
                 transform: scaleY(1);
                 transition-property: height, transform;
                 transition-duration: 0.20s, 0.15s;
-                transition-timing-function: ease-out;
+                transition-timing-function: ease-out, ease-out;
                 transition-delay: 0s, 0.5s;
               }
 
