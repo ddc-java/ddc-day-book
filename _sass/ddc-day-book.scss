@@ -683,11 +683,12 @@ div.wrapper {
 
             & ~ ul {
               height: 0;
+              transform: scaleY(0);
               transform-origin: top;
               transition-property: transform, height;
-              transition-duration: 0.15s;
+              transition-duration: 0.20s, 0.15s;
               transition-timing-function: ease-in;
-              transform: scaleY(0);
+              transition-delay: 0s, 0.5s;
             }
 
             &:checked {
@@ -698,8 +699,11 @@ div.wrapper {
 
               ~ ul {
                 height: 100%;
-                transition-timing-function: ease-out;
                 transform: scaleY(1);
+                transition-property: height, transform;
+                transition-duration: 0.20s, 0.15s;
+                transition-timing-function: ease-out;
+                transition-delay: 0s, 0.5s;
               }
 
             }
@@ -716,18 +720,17 @@ div.wrapper {
 
       ~ ul {
         height: 0;
+        transform: scaleY(0);
         transform-origin: top;
         transition-property: transform;
         transition-duration: 0.2s;
         transition-timing-function: ease-in;
-        transform: scaleY(0);
       }
 
       &:checked ~ ul {
         height: 100%;
-        transition-duration: 0.15s;
-        transition-timing-function: ease-out;
         transform: scaleY(1);
+        transition-timing-function: ease-out;
       }
 
     }
