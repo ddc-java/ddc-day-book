@@ -11,6 +11,8 @@
     {%- endif -%}
   {%- endcapture -%}
   {%- capture terminated_parent_path -%}{{ parent_path }}/{%- endcapture -%}
+  {{ terminated_parent_path }} --> {{ content_dir }}
+  
   {%- assign section_page = site.pages 
       | where_exp: 'p', 'p.dir == terminated_parent_path' 
       | where_exp: 'p', 'p.content_dir == content_dir' -%}
