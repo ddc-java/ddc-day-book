@@ -23,16 +23,13 @@
     
     {%- capture location_components -%}{%- include navigation-location.html -%}{%- endcapture -%}
     {%- assign locations = location_components | split: '||' | reverse -%}
-    <!-- {{ locations }} -->
     {%- capture name_components -%}
       {%- for location in locations -%}
         {{ location | split: '|' | first }}|
       {%- endfor -%}
     {%- endcapture -%}
     
-    <!-- {{ name_components }} -->
-    
-    <title>{{ name_components | split: '|' | join: ': ' }}</title>
+    <title>{{ name_components | split: '|' | reverse | join: ' | ' }}</title>
     
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ site.favicon | default: '/assets/images/favicon.ico' | relative_url }}">
@@ -94,19 +91,17 @@
 
       </div>
 
-      {%- if site.title and page.title -%}
-        {%- capture headline_text -%}
-          <span class="site-title">{{ site.title }}:</span>
-          {{ page.title }}
-        {%- endcapture -%}
-      {%- elsif site.title -%}
-        {%- assign headline_text = site.title -%}
-      {%- elsif page.title -%}
-        {%- assign headline_text = page.title -%}
-      {%- else -%}
-        {%- assign headline_text = site.github.repository_name -%}
-      {%- endif -%}
-      <h1><a href="{{ '/' | relative_url }}">{{ headline_text }}</a></h1>
+      <h1>
+        {%- for location in locations -%}
+          {%- assign location_parts = location | split: '|' -%}
+          {%- assign location_name = location_parts | first -%}
+          {%- if location_parts.size > 1 -%}
+            <a href="{{ location_parts | last | relative_url }}">{{ location_name }}: </a>
+          {%- else -%}
+            {{ location_name }}
+          {%- endif -%}
+        {%- endfor -%}
+      </h1>
       <p>{{ page.subtitle | default: page.description | default: site.description | default: site.github.project_tagline | markdownify }}</p>
 
     </header>

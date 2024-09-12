@@ -524,12 +524,9 @@ header {
 
       font-family: unset;
       color: unset;
+      font-size: 0.6em;
+      vertical-align: 0.3em;
 
-      span {
-        font-family: unset;
-        color: unset;
-      }
-      
       &:visited {
         color: unset;
         text-decoration: none;
@@ -1154,22 +1151,9 @@ footer {
 
       a {
 
-        .site-title {
-          display: none;
-        }
-
-        span {
-          color: unset;
-        }
-
-        &:visited {
-          color: unset;
-        }
-
-        &:hover {
-          color: unset;
-        }
-
+        color: unset;
+        display: none;
+      
       }
 
     }
