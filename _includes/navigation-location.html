@@ -3,18 +3,18 @@
   {%- assign path_components = include.path | split: '/' -%}
   {%- assign content_dir = path_components | last -%}
   {%- assign parent_path = path_components | pop | join: '/' -%}
-  {%- capture prefix -%}
-    {%- if parent_path != '' -%}
-      {%- include navigation-location.html delimiter=delimiter path=parent_path -%}
-      {{ delimiter }}
-    {%- endif -%}
-  {%- endcapture -%}
   {%- capture terminated_parent_path -%}{{ parent_path }}/{%- endcapture -%}
   <!-- {{ parent_path }} | {{ content_dir }} | {{ terminated_parent_path }} -->
   {%- assign section_page = site.pages 
       | where_exp: 'p', 'p.dir == terminated_parent_path' 
       | where_exp: 'p', 'p.content_dir == content_dir' 
       | first -%}
+  {%- capture prefix -%}
+    {%- if parent_path != '' -%}
+      {%- include navigation-location.html delimiter=delimiter path=parent_path -%}
+      {{ delimiter }}
+    {%- endif -%}
+  {%- endcapture -%}
   {{ prefix }}{{ section_page.title }}
 {%- else -%}
   {% assign path = page.dir | split: '/' | join: '/' %}
