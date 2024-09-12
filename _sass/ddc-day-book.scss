@@ -447,6 +447,7 @@ header {
   left:0;
   right:0;
   width: auto;
+  height: 86px;
   text-align: center;
   background-color: $base-dark-color;
   background-image: none;
@@ -504,7 +505,6 @@ header {
   }
 
   h1 {
-
     display: inline-block;
     position: absolute;
     max-width: 790px;
@@ -521,44 +521,25 @@ header {
     -o-text-overflow: ellipsis;
     -ms-text-overflow: ellipsis;
     z-index: 300;
-
-    a {
-
-      font-family: unset;
-      color: unset;
-      font-size: 0.6em;
-      vertical-align: 0.3em;
-
-      &:visited {
-        color: unset;
-        text-decoration: none;
-      }
-
-      &:hover {
-        color: unset;
-        text-decoration: none;
-      }
-
-    }
-
   }
 
   h2 {
 
     display: inline-block;
     position: absolute;
-    max-width: 815px;
+    max-width: 790px;
     top: 20px;
     left: 50%;
     margin-left: -395px;
-    font-size: 20px;
+    margin-top: 0!important;
+    font-size: 18px;
     color: $base-dark-color;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     -o-text-overflow: ellipsis;
     -ms-text-overflow: ellipsis;
-    z-index: 300;
+    z-index: 250;
 
     a {
 
@@ -580,10 +561,13 @@ header {
   }
 
   p {
-    font-family: $title-fonts;
-    color: $base-light-color;
-    font-size: 18px;
+    position: absolute;
+    width: 100%;
+    bottom: 14px;
     margin: 0;
+    font-family: $title-fonts;
+    font-size: 18px;
+    color: $base-light-color;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
