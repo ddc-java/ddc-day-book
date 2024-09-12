@@ -508,8 +508,8 @@ header {
     display: inline-block;
     position: absolute;
     max-width: 790px;
-    right: 50%;
-    margin-right: -395px;
+    left: 50%;
+    margin-left: -395px;
     font-size: 36px;
     line-height: 48px;
     color: $base-dark-color;
@@ -529,8 +529,8 @@ header {
     position: absolute;
     max-width: 790px;
     top: 20px;
-    left: 50%;
-    margin-left: -395px;
+    right: 50%;
+    margin-right: -395px;
     margin-top: 0!important;
     font-size: 18px;
     color: $base-dark-color;
@@ -562,8 +562,10 @@ header {
 
   p {
     position: absolute;
-    width: 100%;
     bottom: 14px;
+    max-width: 790px;
+    left: 50%;
+    margin-left: -395px
     margin: 0;
     font-family: $title-fonts;
     font-size: 18px;
