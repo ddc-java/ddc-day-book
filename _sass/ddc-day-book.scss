@@ -471,24 +471,23 @@ header {
 
     a {
 
-      position: relative;
+      position: absolute;
       display: inline-block;
       text-decoration: none;
       font-family: inherit;
       top: 7px;
-      float: right;
 
       &.org {
-        right: 7px;
+        right: 910px;
       }
 
       &.repo {
-        left: -840px;
+        right: 43px;
       }
 
       span.logo {
 
-        position: relative;
+        position: absolute;
         height: 36px;
         width: 36px;
         display: inline-block;
