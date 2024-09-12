@@ -2,7 +2,8 @@
 {%- if include.path -%}
   {%- assign path_components = include.path | split: '/' -%}
   {%- assign content_dir = path_components | last -%}
-  {%- assign parent_path = path_components | pop | join: '/' %}
+  {%- assign parent_path = path_components | pop | join: '/' -%}
+  <!-- {{ parent_path }}|{{ content_dir }} -->
   {%- capture prefix -%}
     {%- if parent_path != '' -%}
       {%- include navigation-location.html delimiter=delimiter path=parent_path -%}
