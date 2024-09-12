@@ -22,11 +22,15 @@
     {% seo title=false %}
     
     {%- capture location_components -%}{%- include navigation-location.html -%}{%- endcapture -%}
+    {%- assign locations = location_components | split: '||' | reverse -%}
+    <!-- {{ locations }} -->
     {%- capture name_components -%}
-      {%- for component in location_components | split: '||' | reverse %}
-        {{ component | split: '|' | first }}|
-      {% endfor %}
+      {%- for location in locations -%}
+        {{ location | split: '|' | first }}|
+      {%- endfor -%}
     {%- endcapture -%}
+    
+    <!-- {{ name_components }} -->
     
     <title>{{ name_components | split: '|' | join: ': ' }}</title>
     
@@ -103,7 +107,6 @@
         {%- assign headline_text = site.github.repository_name -%}
       {%- endif -%}
       <h1><a href="{{ '/' | relative_url }}">{{ headline_text }}</a></h1>
-      <!-- {%- include navigation-location.html -%} -->
       <p>{{ page.subtitle | default: page.description | default: site.description | default: site.github.project_tagline | markdownify }}</p>
 
     </header>
