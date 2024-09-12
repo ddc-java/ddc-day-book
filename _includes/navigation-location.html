@@ -7,7 +7,9 @@
     {%- if parent_path == '/' -%}
       {{ site.title }}
     {%- else -%}
-      {%- include navigation-location.html delimiter=delimiter path=parent_path -%}
+      {%- comment -%}
+        {%- include navigation-location.html delimiter=delimiter path=parent_path -%}
+      {%- endcomment -%}
     {%- endif -%}
   {%- endcapture -%}
   {%- capture terminated_parent_path -%}{{ parent_path }}/{%- endcapture -%}
