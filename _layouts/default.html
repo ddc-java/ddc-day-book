@@ -19,7 +19,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    {% seo %}
+    {% seo title=false %}
+    
+    {%- capture location_components -%}{%- include navigation-location.html -%}{%- endcapture -%}
+    {%- capture name_components -%}
+      {%- for component in location_components | split: '||' | reverse %}
+        {{ component | split: '|' | first }}|
+      {% endfor %}
+    {%- endcapture -%}
+    
+    <title>{{ name_components | split: '|' | join: ': ' }}</title>
+    
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ site.favicon | default: '/assets/images/favicon.ico' | relative_url }}">
 
