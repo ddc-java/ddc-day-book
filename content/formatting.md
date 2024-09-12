@@ -228,7 +228,7 @@ A portion of a glossary of basic Git-related terms could be written as follows:
 
 ```markdown
 Branch
-: A named sub-tree of revisions within a repository. Every non-empty repository includes at least one branch (usually `master`). Changes to content in one branch do not directly affect content in other branches, unless/until those branches are merged.
+: A named sub-tree of revisions within a repository. Every non-empty repository includes at least one branch (usually `main` or `master`). Changes to content in one branch do not directly affect content in other branches, unless/until those branches are merged.
 
 Commit 
 : A timestamped record of a set of changes (new files, deleted files, modified files) recorded in a repository.
@@ -255,7 +255,7 @@ Version control system (VCS)
 The list above will be rendered as 
 
 > Branch
-> : A named sub-tree of revisions within a repository. Every non-empty repository includes at least one branch (usually `master`). Changes to content in one branch do not directly affect content in other branches, unless/until those branches are merged.
+> : A named sub-tree of revisions within a repository. Every non-empty repository includes at least one branch (usually `main` or `master`). Changes to content in one branch do not directly affect content in other branches, unless/until those branches are merged.
 > 
 > Commit 
 > : A timestamped record of a set of changes (new files, deleted files, modified files) recorded in a repository.
