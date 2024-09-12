@@ -1,11 +1,10 @@
 {%- assign delimiter = include.delimiter | default: ': ' -%}
 {%- if include.path -%}
-  Invoked with path={{include.path}}:
   {%- assign path_components = include.path | split: '/' -%}
   {%- assign content_dir = path_components | last -%}
   {%- assign parent_path = path_components | pop | join: '/' %}
   {%- capture prefix -%}
-    {%- if parent_path == '/' -%}
+    {%- if parent_path == '' -%}
       {{ site.title }}
     {%- else -%}
       {%- comment -%}
@@ -19,10 +18,9 @@
       | where_exp: 'p', 'p.content_dir == content_dir' -%}
   {{ prefix }}{{ delimiter }}{{ section_page.title }}
 {%- else -%}
-  Invoked without path; page.dir={{page.dir}}:
   {% assign path = page.dir | split: '/' | join: '/' %}
   {%- capture prefix -%}
-    {%- if path == '/' -%}
+    {%- if path == '' -%}
       {{ site.title }}
     {%- else -%}
       {%- include navigation-location.html delimiter=delimiter path=path -%}
