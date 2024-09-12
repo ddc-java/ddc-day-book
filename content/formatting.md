@@ -1,5 +1,5 @@
 ---
-title: Formatting content
+title: Formatting
 subtitle: "Formatting different types of curriculum content."
 order: 50
 ---
