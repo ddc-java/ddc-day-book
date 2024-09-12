@@ -10,7 +10,7 @@
       | first -%}
 
   {%- capture components -%}
-    {{ section_page.title }}|{{ section_page.dir }}{{ section_page.content_dir }}/
+    {{ section_page.title }}|{{ section_page.dir }}{{ section_page.content_dir }}/{{ section_page.default_page }}
     {%- if parent_path != '' -%}
       ||{%- include navigation-location.html path=parent_path -%}
     {%- else -%}

@@ -506,8 +506,10 @@ header {
   h1 {
 
     display: inline-block;
-    position: relative;
-    max-width: 815px;
+    position: absolute;
+    max-width: 790px;
+    right: 50%;
+    margin-right: -395px;
     font-size: 36px;
     line-height: 48px;
     color: $base-dark-color;
@@ -535,6 +537,42 @@ header {
       &:hover {
         color: unset;
         text-decoration: none;
+      }
+
+    }
+
+  }
+
+  h2 {
+
+    display: inline-block;
+    position: absolute;
+    max-width: 815px;
+    top: 20px;
+    left: 50%;
+    margin-left: -395px;
+    font-size: 20px;
+    color: $base-dark-color;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    z-index: 300;
+
+    a {
+
+      font-family: unset;
+      color: unset;
+
+      &:visited {
+        color: unset;
+        text-decoration: none;
+      }
+
+      &:hover {
+        color: unset;
+        text-decoration: underline;
       }
 
     }

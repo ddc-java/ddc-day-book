@@ -92,17 +92,18 @@
       </div>
 
       <h1>{{ locations | last }}</h1>
-      
+
+      {%- assign parent_locations = locations | pop -%}
       {%- capture parent_links -%}
-        {%- for location in locations | pop -%}
+        {%- for location in parent_locations -%}
           {%- assign location_parts = location | split: '|' -%}
           {%- assign location_name = location_parts | first -%}
           <a href="{{ location_parts | last | relative_url }}">{{ location_name }}</a>|
         {%- endfor -%}
       {%- endcapture -%}
-      
+
       <h2>{{ parent_links | split: '|' | join: ': '}}</h2>
-      
+
       {{ page.subtitle | default: page.description | default: site.description | default: site.github.project_tagline | markdownify }}
 
     </header>
