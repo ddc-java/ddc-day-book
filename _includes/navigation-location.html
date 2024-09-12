@@ -1,0 +1,28 @@
+{%- assign delimiter = include.delimiter | default: ': ' -%}
+{%- if include.path -%}
+  {%- assign path_components = include.path | split: '/' -%}
+  {%- assign content_dir = path_components | last -%}
+  {%- assign parent_path = path_components | pop | join: '/' %}
+  {%- capture prefix -%}
+    {%- if parent_path == '/' -%}
+      {{ site.title }}
+    {%- else -%}
+      {%- include navigation-location.html delimiter=delimiter path=parent_path -%}
+    {%- endif -%}
+  {%- endcapture -%}
+  {%- capture terminated_parent_path -%}{{ parent_path }}/{%- endcapture -%}
+  {%- assign section_page = site.pages 
+      | where_exp: 'p', 'p.dir == terminated_parent_path' 
+      | where_exp: 'p', 'p.content_dir == content_dir' -%}
+  {{ prefix }}{{ delimiter }}{{ section_page.title }}
+{%- else -%}
+  {% assign path = page.dir | split: '/' | join: '/' %}
+  {%- capture prefix -%}
+    {%- if path == '/' -%}
+      {{ site.title }}
+    {%- else -%}
+      {%- include navigation-location.html delimiter=delimiter path=path -%}
+    {%- endif -%}
+  {%- endcapture -%}
+  {{ prefix }}{{ delimiter }}{{ page.title }}
+{%- endif -%}
