@@ -504,7 +504,7 @@ header {
 
   }
 
-  h1 {
+  > h1 {
     display: inline-block;
     position: absolute;
     max-width: 790px;
@@ -523,7 +523,7 @@ header {
     z-index: 300;
   }
 
-  h2 {
+  > h2 {
 
     display: inline-block;
     position: absolute;
@@ -560,12 +560,12 @@ header {
 
   }
 
-  p {
+  > p {
     position: absolute;
     bottom: 14px;
     max-width: 790px;
     left: 50%;
-    margin-left: -395px;
+    margin-left: -395px!important;
     margin: 0;
     font-family: $title-fonts;
     font-size: 18px;
