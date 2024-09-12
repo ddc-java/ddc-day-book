@@ -1,5 +1,6 @@
 {%- assign delimiter = include.delimiter | default: ': ' -%}
 {%- if include.path -%}
+  Invoked with path={{include.path}}:
   {%- assign path_components = include.path | split: '/' -%}
   {%- assign content_dir = path_components | last -%}
   {%- assign parent_path = path_components | pop | join: '/' %}
@@ -18,6 +19,7 @@
       | where_exp: 'p', 'p.content_dir == content_dir' -%}
   {{ prefix }}{{ delimiter }}{{ section_page.title }}
 {%- else -%}
+  Invoked without path; page.dir={{page.dir}}:
   {% assign path = page.dir | split: '/' | join: '/' %}
   {%- capture prefix -%}
     {%- if path == '/' -%}
