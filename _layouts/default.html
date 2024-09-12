@@ -82,8 +82,8 @@
 
       {%- if site.title and page.title -%}
         {%- capture headline_text -%}
-          <span class="site-title">{{ site.title }}: </span>
-          {%- include navigation-location.html delimiter=': ' -%}
+          <span class="site-title">{{ site.title }}:</span>
+          {{ page.title }}
         {%- endcapture -%}
       {%- elsif site.title -%}
         {%- assign headline_text = site.title -%}
@@ -93,6 +93,7 @@
         {%- assign headline_text = site.github.repository_name -%}
       {%- endif -%}
       <h1><a href="{{ '/' | relative_url }}">{{ headline_text }}</a></h1>
+      <!-- {%- include navigation-location.html -%} -->
       <p>{{ page.subtitle | default: page.description | default: site.description | default: site.github.project_tagline | markdownify }}</p>
 
     </header>
