@@ -4,10 +4,9 @@
   {%- assign content_dir = path_components | last -%}
   {%- assign parent_path = path_components | pop | join: '/' %}
   {%- capture prefix -%}
-    {%- if parent_path == '' -%}
-      {{ site.title }}
-    {%- else -%}
+    {%- if parent_path != '' -%}
       {%- include navigation-location.html delimiter=delimiter path=parent_path -%}
+      {{ delimiter }}
     {%- endif -%}
   {%- endcapture -%}
   {%- capture terminated_parent_path -%}{{ parent_path }}/{%- endcapture -%}
@@ -15,15 +14,14 @@
       | where_exp: 'p', 'p.dir == terminated_parent_path' 
       | where_exp: 'p', 'p.content_dir == content_dir' 
       | first -%}
-  {{ prefix }}{{ delimiter }}{{ section_page.title }}
+  {{ prefix }}{{ section_page.title }}
 {%- else -%}
   {% assign path = page.dir | split: '/' | join: '/' %}
   {%- capture prefix -%}
-    {%- if path == '' -%}
-      {{ site.title }}
-    {%- else -%}
+    {%- if path != '' -%}
       {%- include navigation-location.html delimiter=delimiter path=path -%}
+      {{ delimiter }}
     {%- endif -%}
   {%- endcapture -%}
-  {{ prefix }}{{ delimiter }}{{ page.title }}
+  {{ prefix }}{{ page.title }}
 {%- endif -%}
