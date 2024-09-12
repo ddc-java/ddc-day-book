@@ -13,6 +13,8 @@
     {{ section_page.title }}|{{ section_page.dir }}{{ section_page.content_dir }}/
     {%- if parent_path != '' -%}
       ||{%- include navigation-location.html path=parent_path -%}
+    {%- else -%}
+      ||{{ site.title | default: site.github.repository_name }}|/
     {%- endif -%}
   {%- endcapture -%}
 
@@ -24,6 +26,8 @@
     {{ page.title }}
     {%- if path != '' -%}
       ||{%- include navigation-location.html path=path -%}
+    {%- else -%}
+      ||{{ site.title | default: site.github.repository_name }}|/
     {%- endif -%}
   {%- endcapture -%}
 
