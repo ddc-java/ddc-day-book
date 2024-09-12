@@ -14,6 +14,7 @@
   {%- assign section_page = site.pages 
       | where_exp: 'p', 'p.dir == terminated_parent_path' 
       | where_exp: 'p', 'p.content_dir == content_dir' -%}
+  {{ section_page }}
   {{ prefix }}{{ delimiter }}{{ section_page.title }}
 {%- else -%}
   {% assign path = page.dir | split: '/' | join: '/' %}
