@@ -1043,7 +1043,7 @@ footer {
 
     }
 
-    h1 {
+    > h1 {
       font-size: 28px;
       max-width: 600px;
       line-height: 42px;
@@ -1052,13 +1052,13 @@ footer {
       margin-left: -321px;
     }
 
-    h2 {
+    > h2 {
       top: 15px;
       right: 0;
       margin-right: 15px;
     }
     
-    p {
+    > p {
       font-size: 16px;
       padding: 0;
       bottom: 10px;
@@ -1126,14 +1126,14 @@ footer {
 
     }
 
-    h1 {
+    > h1 {
       font-size: 24px;
       max-width: 630px;
       margin-bottom: 0;
       margin-left: -318px;
     }
 
-    p {
+    > p {
       margin-left: -315px!important;
     }
 
@@ -1148,7 +1148,7 @@ footer {
       left: 0;
       padding: 0;
 
-      input[type="checkbox"] {
+      > input[type="checkbox"] {
 
         + label {
           margin-bottom: 2px;
@@ -1189,31 +1189,36 @@ footer {
 
 }
 
-@media print, screen and (max-width: 660px) {
+@media print, screen and (max-width: 840px) {
 
   header {
 
     padding: 5px 0 0 0;
+    height: 55px;
 
     div#banner {
       display: none;
     }
 
-    h1 {
+    > h1 {
 
+      top: 25px;
+      left: 40px;
+      margin-left: unset;
+      
       line-height: 32px;
       color: $deep-dive-yellow;
 
-      a {
-
-        color: unset;
-        display: none;
-      
-      }
-
     }
 
-    p {
+    > h2 {
+      top: 5px;
+      right: 10px;
+      margin-right: 0;
+      color: $deep-dive-yellow;
+    }
+    
+    > p {
       display: none;
     }
 
@@ -1224,7 +1229,17 @@ footer {
     margin-top: -100px;
 
     nav.toc {
-      margin-top: -30px;
+
+      margin-top: -15px;
+
+      > input[type="checkbox"] {
+
+        + label {
+          margin-bottom: 6px;
+        }
+
+      }
+
     }
 
     section {
