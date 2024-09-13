@@ -500,7 +500,7 @@ header {
 
         + a {
           &.org {
-            margin-right: 955px;
+            right: 955px;
           }
         }
 
@@ -1042,7 +1042,6 @@ footer {
       > a {
 
         right: unset;
-        margin-right: unset;
 
         &.org {
           left: 10px;
