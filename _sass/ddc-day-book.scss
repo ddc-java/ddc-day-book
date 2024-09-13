@@ -608,9 +608,8 @@ div.wrapper {
   > nav.toc {
 
     position: fixed;
-    left: 50%;
-    width: 220px;
-    margin: -39px 0 0 -640px;
+    right: 50%;
+    margin: -39px 420px 0 0;
     padding: 5px;
     z-index: 500;
 
@@ -1104,7 +1103,7 @@ footer {
 
     nav.toc {
 
-      margin-left: -550px;
+      margin-right: 330px;
       margin-top: -35px;
 
       > input[type="checkbox"] {
@@ -1158,6 +1157,8 @@ footer {
 
     nav.toc {
 
+      right: unset;
+      margin-right: unset;
       margin-left: 5px;
       margin-top: -16px;
       left: 0;
