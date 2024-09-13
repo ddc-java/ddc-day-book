@@ -28,6 +28,15 @@
         {{ location | split: '|' | first }}|
       {%- endfor -%}
     {%- endcapture -%}
+    {%- assign current_location = locations | last | split: '|' | first -%}
+    {%- assign parent_locations = locations | pop -%}
+    {%- capture parent_links -%}
+      {%- for location in parent_locations -%}
+        {%- assign location_parts = location | split: '|' -%}
+        {%- assign location_name = location_parts | first -%}
+        <a href="{{ location_parts | last | relative_url }}">{{ location_name }}</a>|
+      {%- endfor -%}
+    {%- endcapture -%}
     
     <title>{{ name_components | split: '|' | reverse | join: ' | ' }}</title>
     
@@ -68,9 +77,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
   </head>
+
   <body>
 
-    <header>
+    {%- if page.page_navigator -%}
+      {%- assign show_page_navigator = page.page_navigator.enabled -%}
+    {%- elsif site.page_navigator -%}
+      {%- assign show_page_navigator = site.page_navigator.enabled -%}
+    {%- else -%}
+      {%- assign show_page_navigator = false -%}
+    {%- endif -%}
+
+    {% if show_page_navigator -%}
+      <header>
+    {%- else -%}
+      <header class="no-nav">
+    {%- endif %}
 
       <div id="banner">
 
@@ -90,24 +112,6 @@
         <a class="org" href="https://deepdivecoding.com/"><span class="logo" style="background-image: url('{{ icon_url }}');"></span></a>
         
       </div>
-
-      {%- assign current_location = locations | last | split: '|' | first -%}
-      {%- assign parent_locations = locations | pop -%}
-      {%- capture parent_links -%}
-        {%- for location in parent_locations -%}
-          {%- assign location_parts = location | split: '|' -%}
-          {%- assign location_name = location_parts | first -%}
-          <a href="{{ location_parts | last | relative_url }}">{{ location_name }}</a>|
-        {%- endfor -%}
-      {%- endcapture -%}
-
-      {%- if page.page_navigator -%}
-        {%- assign show_page_navigator = page.page_navigator.enabled -%}
-      {%- elsif site.page_navigator -%}
-        {%- assign show_page_navigator = site.page_navigator.enabled -%}
-      {%- else -%}
-        {%- assign show_page_navigator = false -%}
-      {%- endif -%}
 
       {% if show_page_navigator -%}
         <h1>{{ current_location }}</h1>
