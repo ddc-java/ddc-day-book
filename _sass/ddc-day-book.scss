@@ -147,7 +147,7 @@ ul, ol, dl {
     margin-bottom: 0.75em;
   }
 
-  li {  
+  li {
     p {
       margin-bottom: 0.5em;
     }
@@ -500,14 +500,10 @@ header {
         right: 50%;
         margin-right: 355px
 
-        + a {
-        
-          &.org {
-            margin-right: 395px
-          }
-          
+        + a.org {
+          margin-right: 395px
         }
-        
+
       }
 
       span.logo {
@@ -1047,21 +1043,17 @@ footer {
 
         right: unset;
         margin-right: unset;
-        
+
         &.org {
           left: 10px;
         }
 
         &.repo {
-        
+
           left: 50px;
 
-          + a {
-          
-            &.org {
-              left: 10px;
-            }
-
+          + a.org {
+            left: 10px;
           }
 
         }
@@ -1084,7 +1076,7 @@ footer {
       right: 0;
       margin-right: 15px;
     }
-    
+
     > p {
       font-size: 16px;
       padding: 0;
@@ -1161,7 +1153,7 @@ footer {
   div.wrapper {
 
     nav.toc {
-  
+
       margin-left: 5px;
       margin-top: -16px;
       left: 0;
@@ -1249,7 +1241,7 @@ footer {
       top: 25px;
       left: 40px;
       margin-left: unset;
-      
+
       line-height: 32px;
       color: $deep-dive-yellow;
 
@@ -1261,7 +1253,7 @@ footer {
       margin-right: 0;
       color: $deep-dive-yellow;
     }
-    
+
     > p {
       display: none;
     }
