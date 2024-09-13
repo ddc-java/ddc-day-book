@@ -22,7 +22,7 @@
     {% seo title=false %}
     
     {%- capture location_components -%}{%- include navigation-location.html -%}{%- endcapture -%}
-    {%- assign locations = location_components | split: '||' | reverse -%}
+    {%- assign locations = location_components | split: '||' | reverse | join: '||' | split: '||' -%}
     {%- capture name_components -%}
       {%- for location in locations -%}
         {{ location | split: '|' | first }}|
