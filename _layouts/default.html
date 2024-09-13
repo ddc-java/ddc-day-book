@@ -91,7 +91,7 @@
         
       </div>
 
-      <h1>{{ locations | last }}</h1>
+      <h1>{{ locations | last | split: '|' | first }}</h1>
 
       {%- assign parent_locations = locations | pop -%}
       {%- capture parent_links -%}
