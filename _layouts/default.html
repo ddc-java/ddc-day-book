@@ -109,12 +109,12 @@
         {%- assign show_page_navigator = false -%}
       {%- endif -%}
 
-      {% if show_page_navigator %}
+      {% if show_page_navigator -%}
         <h1>{{ current_location }}</h1>
         <h2>{{ parent_links | split: '|' | join: ': '}}</h2>
-      {% else %}
+      {%- else -%}
         <h1 class="no-nav">{{ current_location }}</h1>
-      {% endif %}
+      {%- endif %}
 
       {{ page.subtitle | default: page.description | default: site.description | default: site.github.project_tagline | markdownify }}
 
