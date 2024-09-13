@@ -1108,7 +1108,7 @@ footer {
 
 }
 
-@media print, screen and (max-width: 1100px) {
+@media print, screen and (max-width: 1120px) {
 
   body {
     padding-bottom: 5px;
@@ -1117,14 +1117,6 @@ footer {
   header {
 
     padding: 7px;
-
-    div#banner {
-
-      a.repo {
-        display: none;
-      }
-
-    }
 
     > h1 {
       font-size: 24px;
@@ -1189,7 +1181,32 @@ footer {
 
 }
 
+
 @media print, screen and (max-width: 840px) {
+
+    div#banner {
+
+      a.repo {
+        display: none;
+      }
+
+    }
+
+}
+
+@media print, screen and (max-width: 800px) {
+
+    div#banner {
+
+      a.org {
+        display: none;
+      }
+
+    }
+
+}
+
+@media print, screen and (max-width: 660px) {
 
   header {
 
@@ -1231,14 +1248,6 @@ footer {
     nav.toc {
 
       margin-top: -15px;
-
-      > input[type="checkbox"] {
-
-        + label {
-          margin-bottom: 6px;
-        }
-
-      }
 
     }
 
