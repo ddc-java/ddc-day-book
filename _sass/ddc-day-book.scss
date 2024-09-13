@@ -1063,7 +1063,7 @@ footer {
       padding: 0;
       bottom: 10px;
       margin: 0 0 0 -319px!important;
-      max-width: 600px;
+      max-width: unset;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -1108,7 +1108,7 @@ footer {
 
 }
 
-@media print, screen and (max-width: 1120px) {
+@media print, screen and (max-width: 1100px) {
 
   body {
     padding-bottom: 5px;
@@ -1142,24 +1142,26 @@ footer {
   div.wrapper {
 
     nav.toc {
-
+  
       margin-left: 5px;
-      margin-top: -14px;
+      margin-top: -16px;
       left: 0;
       padding: 0;
 
       input[type="checkbox"] {
 
         + label {
-          margin-bottom: 0;
+          margin-bottom: 2px;
           margin-left: 2px;
         }
 
       }
 
       > ul {
+        position: relative;
         padding: 5px;
         margin-top: -2px;
+        margin-left: -5px;
         background-color: $base-light-color;
         border: 1px solid $base-dark-color;
         box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.09);
