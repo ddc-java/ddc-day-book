@@ -1058,7 +1058,7 @@ footer {
           }
 
         }
-        
+
         > span {
           left: 0;
         }
@@ -1250,6 +1250,10 @@ footer {
       font-size: 24px;
       line-height: 32px;
       color: $deep-dive-yellow;
+
+      &.no-nav {
+        left: 10px;
+      }
 
     }
 

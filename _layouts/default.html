@@ -91,8 +91,7 @@
         
       </div>
 
-      <h1>{{ locations | last | split: '|' | first }}</h1>
-
+      {%- assign current_location = locations | last | split: '|' | first -%}
       {%- assign parent_locations = locations | pop -%}
       {%- capture parent_links -%}
         {%- for location in parent_locations -%}
@@ -102,14 +101,6 @@
         {%- endfor -%}
       {%- endcapture -%}
 
-      <h2>{{ parent_links | split: '|' | join: ': '}}</h2>
-
-      {{ page.subtitle | default: page.description | default: site.description | default: site.github.project_tagline | markdownify }}
-
-    </header>
-
-    <div class="wrapper">
-
       {%- if page.page_navigator -%}
         {%- assign show_page_navigator = page.page_navigator.enabled -%}
       {%- elsif site.page_navigator -%}
@@ -117,6 +108,19 @@
       {%- else -%}
         {%- assign show_page_navigator = false -%}
       {%- endif -%}
+
+      {% if show_page_navigator %}
+        <h1>{{ current_location }}</h1>
+        <h2>{{ parent_links | split: '|' | join: ': '}}</h2>
+      {% else %}
+        <h1 class="no-nav">{{ current_location }}</h1>
+      {% endif %}
+
+      {{ page.subtitle | default: page.description | default: site.description | default: site.github.project_tagline | markdownify }}
+
+    </header>
+
+    <div class="wrapper">
 
       {% if show_page_navigator %}
         <nav class="toc">
