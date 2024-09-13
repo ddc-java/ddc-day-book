@@ -482,7 +482,7 @@ header {
     border-radius: 0 2px 2px 0;
     padding: 0;
 
-    a {
+    > a {
 
       position: absolute;
       display: inline-block;
@@ -491,11 +491,23 @@ header {
       top: 7px;
 
       &.org {
-        right: 910px;
+        right: 50%;
+        margin-right: 355px
       }
 
       &.repo {
-        right: 43px;
+
+        right: 50%;
+        margin-right: 355px
+
+        + a {
+        
+          &.org {
+            margin-right: 395px
+          }
+          
+        }
+        
       }
 
       span.logo {
@@ -539,10 +551,10 @@ header {
 
     display: inline-block;
     position: absolute;
-    max-width: 790px;
+    max-width: 880px;
     top: 20px;
     right: 50%;
-    margin-right: -395px;
+    margin-right: -445px;
     margin-top: 0!important;
     font-size: 18px;
     color: $base-dark-color;
@@ -1031,14 +1043,29 @@ footer {
       width: 100%;
       top: 0;
 
-      a.org {
-        left: 10px;
+      > a {
+
         right: unset;
-      }
-      
-      a.repo {
-        left: 55px;
-        right: unset;
+        margin-right: unset;
+        
+        &.org {
+          left: 10px;
+        }
+
+        &.repo {
+        
+          left: 50px;
+
+          + a {
+          
+            &.org {
+              left: 10px;
+            }
+
+          }
+
+        }
+
       }
 
     }
@@ -1182,7 +1209,7 @@ footer {
 }
 
 
-@media print, screen and (max-width: 840px) {
+@media print, screen and (max-width: 835px) {
 
     div#banner {
 
