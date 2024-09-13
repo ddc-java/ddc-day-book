@@ -1030,9 +1030,12 @@ footer {
       width: 100%;
       top: 0;
 
+      a.org {
+        left: 10px;
+      }
+      
       a.repo {
-        float: left;
-        left: 7px;
+        left: 55px;
       }
 
     }
@@ -1055,7 +1058,7 @@ footer {
     p {
       font-size: 16px;
       padding: 0;
-      margin: 0;
+      margin: 0 0 0 -319px!important;
       max-width: 600px;
       white-space: nowrap;
       overflow: hidden;
