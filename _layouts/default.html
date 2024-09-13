@@ -74,9 +74,6 @@
 
       <div id="banner">
 
-        {%- assign icon_url = site.icon | default: '/assets/images/ddc.png' | relative_url -%}
-        <a class="org" href="https://deepdivecoding.com/"><span class="logo" style="background-image: url('{{ icon_url }}');"></span></a>
-        
         {% unless site.github.private %}
           {%- if site.repository_link -%}
             {%- assign show_repository_link = site.repository_link.enabled -%}
@@ -89,6 +86,9 @@
           {% endif %}
         {% endunless %}
 
+        {%- assign icon_url = site.icon | default: '/assets/images/ddc.png' | relative_url -%}
+        <a class="org" href="https://deepdivecoding.com/"><span class="logo" style="background-image: url('{{ icon_url }}');"></span></a>
+        
       </div>
 
       <h1>{{ locations | last }}</h1>
