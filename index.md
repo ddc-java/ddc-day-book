@@ -9,8 +9,9 @@ order: 0
 ## Contents
 {:.no_toc.collapser}
 
+{:.collapsible}
 * TOC
-{:toc}{:.collapsible}
+{:toc}
 
 ## Overview
 
