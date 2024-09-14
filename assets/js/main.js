@@ -1,9 +1,16 @@
+function copyNodeStyle(sourceNode, targetNode) {
+  const computedStyle = window.getComputedStyle(sourceNode);
+  Array.from(computedStyle).forEach((key) => 
+      targetNode.style.setProperty(key, computedStyle.getPropertyValue(key), 
+                                   computedStyle.getPropertyPriority(key)));
+}
+
 var sectionHeight = function() {
-  var total = $(window).height();
-  var $section = $('section');
+  const total = $(window).height();
+  const $section = $('section');
 
   if ($section.outerHeight(true) < total) {
-    var margin = $section.outerHeight(true) - $section.height();
+    const margin = $section.outerHeight(true) - $section.height();
     $section.height(total - margin - 20);
   } else {
     $section.css('height','auto');
@@ -18,7 +25,6 @@ $(function() {
   $("*[autolink][href]").wrap(function() {
     return "<a href='" + $(this).attr("href") + "'></a>";
   });
-
 });
 
 $(document).ready(function() {
@@ -33,4 +39,10 @@ $(document).ready(function() {
   if ($('#nav-default-closed-flag').css('display') == 'none') {
     $('nav.toc > input[type="checkbox"]').prop('checked', false);
   }
+  $('.collapsible').prev().forEach((node) => {
+    const text = node.text();
+    const id = Math.random().toString(36).replace(/^0\./, 'checkbox_');
+    const html = `<input id="${id}" type="checkbox"><label for="${id}" aria-label="Expand/collapse">${text}</label>`;
+    
+  });
 });

@@ -7,7 +7,7 @@ order: 0
 {% include ddc-abbreviations.md %}
 
 ## Contents
-{:.no_toc.collapser}
+{:.no_toc}
 
 {:.collapsible}
 * TOC
