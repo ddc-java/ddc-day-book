@@ -6,7 +6,7 @@ order: 60
 
 {% include ddc-abbreviations.md %}
 
-## Topics
+## Contents
 {:.no_toc}
 
 * TOC
@@ -41,7 +41,7 @@ order: 60
 * [MathJax](https://www.mathjax.org/)
 * [MathJax Documentation](http://docs.mathjax.org/en/latest/)
 
-## Content
+## Practices
 
 ### Style Guides
 

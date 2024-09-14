@@ -2,7 +2,7 @@
 
 ## Overview
 
-**DDC Day Book** is a GitHub Pages theme, intended for publication and distribution of tutorials, lecture notes, homework assignments, practical exam problems, etc. in the [Deep Dive Coding](https://deepdivecoding.com) Java + Android Bootcamp. It is intended, in particular, for modules with several pages.
+**DDC Day Book** is a GitHub Pages theme, intended for publication and distribution of tutorials, lecture notes, homework assignments, practical exam problems, etc. in the [Deep Dive Coding](https://deepdivecoding.com) Java training programs. It is intended, in particular, for modules with several pages---but it is usable even for single-page modules.
 
 [Instructions &amp; usage guidelines](https://ddc-java.github.io/ddc-day-book/)
 

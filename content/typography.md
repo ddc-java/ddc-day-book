@@ -6,8 +6,8 @@ order: 40
 
 {% include ddc-abbreviations.md %}
 
-## Topics
-{:.no_toc}
+## Contents
+{:.no_toc.collapsible}
 
 * TOC
 {:toc}
