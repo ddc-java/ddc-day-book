@@ -658,8 +658,8 @@ div.wrapper {
 
         &.toc-page {
 
-          padding-right: 1.5em;
-          
+          padding-right: 1.5ch;
+
           &.current {
 
             padding-right: 0;
@@ -667,8 +667,10 @@ div.wrapper {
 
             &::after {
               display: inline-block;
+              position: relative;
+              width: 1ch;
               content: '\25CF';
-              padding-left: 0.5em;
+              padding-left: 0.5ch;
               opacity: 0.35;
             }
 
@@ -704,10 +706,11 @@ div.wrapper {
 
             &::after {
               display: inline-block;
+              position: relative;
               content: url("../images/chevron-down.svg");
-              width: 1em;
-              height: 1em;
-              padding-left: 0.5em;
+              width: 1ch;
+              height: 1ch;
+              padding-left: 0.5ch;
               vertical-align: -36.5%;
               opacity: 0.35;
 
