@@ -43,6 +43,6 @@ $(document).ready(function() {
     const text = node.text();
     const id = Math.random().toString(36).replace(/^0\./, 'checkbox_');
     const html = `<input id="${id}" type="checkbox"><label for="${id}" aria-label="Expand/collapse">${text}</label>`;
-    
+    $(node).replaceWith(html);
   });
 });
