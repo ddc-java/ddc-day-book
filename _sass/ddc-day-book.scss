@@ -658,9 +658,12 @@ div.wrapper {
 
         &.toc-page {
 
+          padding-right: 1.5em;
+          
           &.current {
 
-            font-weight: 500;
+            padding-right: 0;
+            font-weight: 600;
 
             &::after {
               display: inline-block;
