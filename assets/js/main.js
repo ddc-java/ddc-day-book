@@ -50,14 +50,14 @@ function buildCollapsibles() {
     checkbox.id = this.id;
     checkbox.className = 'collapser';
     checkbox.setAttribute('type', 'checkbox');
-    if (!this.classList.contains('collapsed')) {
-      checkbox.setAttribute('checked', '');
-    }
     const label = document.createElement('label');
     label.setAttribute('for', this.id);
     label.appendChild(document.createTextNode(this.innerText));
     copyNodeStyle(this, label);
     $(this).replaceWith($([checkbox, label]));
+  });
+  $('.collapsible:not(.collapsed)').prev().prev().each(function(index) {
+    this.setAttribute('checked', '');
   });
 }
 
