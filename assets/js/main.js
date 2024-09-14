@@ -45,23 +45,19 @@ function setNavClosedByDefault() {
 }
 
 function buildCollapsibles() {
-  $('.collapsible').each(function(index) {
-    const collapsible = this;
-    const facade = $(collapsible).prev().get(0);
-    const id = facade.id;
-    const text = facade.innerText;
+  $('.collapsible').prev().each(function(index) {
     const checkbox = document.createElement('input');
-    checkbox.id = id;
+    checkbox.id = this.id;
     checkbox.className = 'collapser';
     checkbox.setAttribute('type', 'checkbox');
-    if (!collapsible.classList.contains('collapsed')) {
+    if (!this.classList.contains('collapsed')) {
       checkbox.setAttribute('checked', '');
     }
     const label = document.createElement('label');
-    label.setAttribute('for', id);
-    label.appendChild(document.createTextNode(text));
-    copyNodeStyle(facade, label);
-    $(facade).replaceWith($([checkbox, label]));
+    label.setAttribute('for', this.id);
+    label.appendChild(document.createTextNode(this.innerText));
+    copyNodeStyle(this, label);
+    $(this).replaceWith($([checkbox, label]));
   });
 }
 
