@@ -30,7 +30,7 @@ $(document).ready(function() {
       $(this).attr('target', '_blank');
     }
   });
-  if ($('div#banner > a.repo').css('display') == 'none') {
+  if ($('#nav-default-closed-flag').css('display') == 'none') {
     $('nav.toc > input[type="checkbox"]').prop('checked', false);
   }
 });
