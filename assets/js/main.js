@@ -27,7 +27,7 @@ $(function() {
   });
 });
 
-$(document).ready(function() {
+function addTargetToExternalLinks() {
   // Select all absolute links (starting with http or https)
   $('a[href^="http"], a.external').each(function() {
     // Check if the link doesn't already have a target attribute
@@ -36,18 +36,33 @@ $(document).ready(function() {
       $(this).attr('target', '_blank');
     }
   });
+}
+
+function setNavClosedByDefault() {
   if ($('#nav-default-closed-flag').css('display') == 'none') {
     $('nav.toc > input[type="checkbox"]').prop('checked', false);
   }
+}
+
+function buildCollapsibles() {
   $('.collapsible').prev().each(function(index) {
     const checkbox = document.createElement('input');
     checkbox.id = this.id;
     checkbox.className = 'collapser';
     checkbox.setAttribute('type', 'checkbox');
+    if (!this.classList.contains('collapsed')) {
+      checkbox.setAttribute('checked', '');
+    }
     const label = document.createElement('label');
     label.setAttribute('for', this.id);
     label.appendChild(document.createTextNode(this.innerText));
     copyNodeStyle(this, label);
     $(this).replaceWith($([checkbox, label]));
   });
+}
+
+$(document).ready(function() {
+  setNavClosedByDefault();
+  buildCollapsibles();
+  addTargetToExternalLinks();
 });
