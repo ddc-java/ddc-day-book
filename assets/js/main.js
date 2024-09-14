@@ -40,7 +40,13 @@ $(document).ready(function() {
     $('nav.toc > input[type="checkbox"]').prop('checked', false);
   }
   $('.collapsible').prev().each(function(index) {
-    const html = `<input id="${this.id}" type="checkbox"><label for="${this.id}" aria-label="Expand/collapse">${this.innerText}</label>`;
-    $(this).replaceWith(html);
+    const checkbox = document.createElement('input');
+    checkbox.id = this.id;
+    checkbox.setAttribute('type', 'checkbox');
+    const label = document.createElement('label');
+    label.setAttribute('for', this.id);
+    label.appendChild(document.createTextNode(this.innerText));
+    copyNodeStyle(this, label);
+    $(this).replaceWith($([checkbox, label]));
   });
 });
