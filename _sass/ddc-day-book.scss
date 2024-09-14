@@ -460,6 +460,49 @@ small {
   height: 0;
 }
 
+input[type='checkbox'] {
+
+  &.collapser {
+
+    display: none;
+    
+    + label {
+
+      cursor: pointer;
+      font-weight: 500;
+
+      &::after {
+        display: inline-block;
+        position: relative;
+        content: url("../images/chevron-down.svg");
+        width: 1ch;
+        height: 1ch;
+        padding-left: 0.5ch;
+        vertical-align: -36.5%;
+        opacity: 0.35;
+
+      }
+
+      &:hover {
+        &::after {
+          opacity: 1.0;
+        }
+      }
+
+    }
+    
+    &:checked {
+      + label {
+        &::after {
+          content: url("../images/chevron-up.svg");
+        }
+      }
+    }
+
+  }
+  
+}
+
 header {
 
   padding: 15px;

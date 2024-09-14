@@ -42,6 +42,7 @@ $(document).ready(function() {
   $('.collapsible').prev().each(function(index) {
     const checkbox = document.createElement('input');
     checkbox.id = this.id;
+    checkbox.className = 'collapser';
     checkbox.setAttribute('type', 'checkbox');
     const label = document.createElement('label');
     label.setAttribute('for', this.id);
