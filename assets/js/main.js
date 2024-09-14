@@ -39,6 +39,8 @@ $(document).ready(function() {
   if ($('#nav-default-closed-flag').css('display') == 'none') {
     $('nav.toc > input[type="checkbox"]').prop('checked', false);
   }
-  $('.collapsible').prev().replaceWith(() => 
-    `<input id="${this.id}" type="checkbox"><label for="${this.id}" aria-label="Expand/collapse">${this.innerText}</label>`);
+  $('.collapsible').prev().each(() => {
+    const html = `<input id="${this.id}" type="checkbox"><label for="${this.id}" aria-label="Expand/collapse">${this.innerText}</label>`;
+    $(this).replaceWith(html);
+  });
 });
