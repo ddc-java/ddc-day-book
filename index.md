@@ -9,7 +9,7 @@ order: 0
 ## Contents
 {:.no_toc}
 
-{:.collapsible}
+{:.collapsible.collapsed}
 * TOC
 {:toc}
 
