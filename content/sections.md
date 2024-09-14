@@ -1,7 +1,7 @@
 ---
 title: Page sections
 subtitle: "Typical sections included in assignments, tutorials, and exam problems."
-order: 30
+order: 10
 ---
 
 {% include ddc-abbreviations.md %}

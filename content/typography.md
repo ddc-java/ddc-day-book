@@ -1,7 +1,7 @@
 ---
 title: Typography
 subtitle: "Fonts, styles, and symbols in the theme."
-order: 40
+order: 20
 ---
 
 {% include ddc-abbreviations.md %}

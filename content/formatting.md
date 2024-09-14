@@ -1,7 +1,7 @@
 ---
 title: Formatting
 subtitle: "Formatting different types of curriculum content."
-order: 50
+order: 30
 ---
 
 {% include ddc-abbreviations.md %}

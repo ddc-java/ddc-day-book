@@ -1,15 +1,15 @@
 ---
 title: Pages
 subtitle: "Defining and configuring one or more pages."
-order: 20
+order: 30
 ---
 
 {% include ddc-abbreviations.md %}
 
 ## Contents
-{:.no_toc.collapsible}
 
-* TOC
+{:.collapsible.collapsed}
+- ToC
 {:toc}
 
 ## Overview
