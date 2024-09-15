@@ -23,6 +23,7 @@ The content of this site is intended not only to introduce the DDC Day Book them
 
 ## Site contents
 
+{:.collapsible.collapsed}
 * **Introduction**: This page.
 * Configuration
     * [**Site**](configuration/site.md): Site-level structure and configuration.
