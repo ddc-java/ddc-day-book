@@ -23,7 +23,8 @@ The content of this site is intended not only to introduce the DDC Day Book them
 
 ## Site contents
 
-{% include navigation-section.html parent_dir_path="{{ page.dir }}" %}
+{:.collapsible.collapsed}
+{% include navigation-section.html parent_dir_path=page.dir %}
 
 ## Notes
 
