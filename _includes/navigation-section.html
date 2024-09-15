@@ -11,7 +11,7 @@
     {%- for p in pages_in_section -%}
     
       {%- assign subtitle = p.subtitle | p.description -%}
-      {%- capture item_text -%}{{ p.title }}{%- if subtitle and subtitle.length > 0 -%}: {{ subtitle }}{%- endif -%}{%- endcapture -%}
+      {%- capture item_text -%}{{ p.title }}{%- if subtitle and subtitle.size > 0 -%}: {{ subtitle }}{%- endif -%}{%- endcapture -%}
       
       {%- if p.content_dir -%}
       
@@ -35,7 +35,7 @@
         {%- elsif dest_url == current_url -%}
           <span class="strong">{{ item_text }}</span>
         {%- else -%}
-          <a href="{{ p.href }}">{{ item_text }}</a>
+          <a href="{{ dest_url }}">{{ item_text }}</a>
         {%- endif -%}
         </li> 
         
