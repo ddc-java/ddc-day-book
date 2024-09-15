@@ -7,9 +7,10 @@ order: 20
 {% include ddc-abbreviations.md %}
 
 ## Contents
-{:.no_toc.collapsible}
+{:.no_toc.tight}
 
-* TOC
+{:.collapsible.collapsed}
+- ToC
 {:toc}
 
 ## Fonts & styles
@@ -35,7 +36,7 @@ sans-serif bold
     * First use of a term defined in the text, e.g. "_Hypertext Transfer Protocol_ (HTTP) is the primary protocol used by web traffic."
     * Emphasis (use this sparingly).
     
-`fixed-width`
+`fixed-width roman and `*`italic`*
 
 : 
     * Code fragments (in any programming/scripting, markup, or data interchange language).[^theme-defaults]

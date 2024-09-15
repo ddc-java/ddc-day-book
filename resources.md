@@ -7,9 +7,10 @@ order: 60
 {% include ddc-abbreviations.md %}
 
 ## Contents
-{:.no_toc}
+{:.no_toc.tight}
 
-* TOC
+{:.collapsible.collapsed}
+- ToC
 {:toc}
       
 ## Platform

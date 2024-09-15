@@ -7,6 +7,7 @@ order: 30
 {% include ddc-abbreviations.md %}
 
 ## Contents
+{:.no_toc.tight}
 
 {:.collapsible.collapsed}
 - ToC
