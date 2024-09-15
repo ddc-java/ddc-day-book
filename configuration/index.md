@@ -1,6 +1,6 @@
 ---
-title: Overview
-subtitle: "Basics of Jekyll/GitHub Pages configuration."
+title: Introduction
+subtitle: "Configuration of DDC Day Book-based sites for Jekyll/GitHub Pages."
 order: 0
 ---
 
