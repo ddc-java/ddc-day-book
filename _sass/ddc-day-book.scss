@@ -83,7 +83,7 @@ h2 {
   font-size: 24px;
   line-height: 1.1em;
   color: $medium-dark-color;
-  margin: 0 0 1em 0;
+  margin: 0 0 0.5em 0;
 
   &.highlighted {
     font-size: 19px;
@@ -98,7 +98,7 @@ h3 {
   font-size: 18px;
   line-height: 1.1em;
   color: $medium-dark-color;
-  margin: 0 0 1em 0;
+  margin: 0 0 0.5em 0;
 
   &.resource-heading {
     margin: 0 0 0.5em 0;
@@ -114,17 +114,17 @@ h4, h5, h6 {
   font-family: $heading-fonts;
   color: $medium-dark-color;
   font-weight: 500;
-  margin: 0 0 1.1em 0;
+  margin: 0 0 0.5em 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
 
   &:not(:first-child) {
-    margin-top: 1.1em;
+    margin-top: 0.75em;
   }
 
   &.tight {
-    margin-bottom: 0.5em;
+    margin-bottom: 0;
   }
 
   &.highlighted {
