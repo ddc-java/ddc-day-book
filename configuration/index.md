@@ -6,7 +6,7 @@ order: 0
 
 {% include ddc-abbreviations.md %}
 
-## Contents
+## Page contents
 {:.no_toc}
 
 {:.collapsible.collapsed}

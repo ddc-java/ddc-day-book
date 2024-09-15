@@ -6,7 +6,7 @@ order: 60
 
 {% include ddc-abbreviations.md %}
 
-## Contents
+## Page contents
 {:.no_toc.tight}
 
 {:.collapsible.collapsed}
