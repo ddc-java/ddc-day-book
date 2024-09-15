@@ -24,7 +24,7 @@ One general guideline, applicable to all of the rules that follow, is this:
 
 ## Abbreviations
 
-All but the most widely known abbreviations (e.g. HTML) should be defined _on first use,_ with the definition in italics; this definition should only appear once in the module, unless the module includes a glossary. In addition, a Markdown abbreviation should be defined, in every page that uses the abbreviation, to associate the definition (as tooltip text) with the abbreviation. The abbreviation syntax supported by the kramdown parser is 
+All but the most widely known abbreviations (e.g., HTML) should be defined _on first use,_ with the definition in italics; this definition should only appear once in the module, unless the module includes a glossary. In addition, a Markdown abbreviation should be defined, in every page that uses the abbreviation, to associate the definition (as tooltip text) with the abbreviation. The abbreviation syntax supported by the kramdown parser is 
 
 ```text
 *[abbreviation]: definition
@@ -288,7 +288,7 @@ The first reference to linked content (whether an attachment included in the mod
 
 * In a single-page module, where the single page is relatively long and contains several references to external resources, there should be a **Links** section near the bottom of the page. Links to all external resources---whether previously linked or not---should be presented as a list here.
 
-On internal links to non-HTML content (i.e. attachments) and all external links, this theme automatically displays a thumbnail, corresponding to the extension portion (if any) of the link destination. If this thumbnail should not be displayed, use a kramdown span _inline attribute list_ (IAL) specifying the `omit-thumbnail` class. For example, this Markdown includes an internal link to another page, an internal link to a non-HTML attachment, an external link with an automatic thumbnail, and an external link with the thumbnail omitted.
+On internal links to non-HTML content (i.e., attachments) and all external links, this theme automatically displays a thumbnail, corresponding to the extension portion (if any) of the link destination. If this thumbnail should not be displayed, use a kramdown span _inline attribute list_ (IAL) specifying the `omit-thumbnail` class. For example, this Markdown includes an internal link to another page, an internal link to a non-HTML attachment, an external link with an automatic thumbnail, and an external link with the thumbnail omitted.
 
 ```markdown
 * [Resources](../resources.md) <!-- Inline link to internal HTML content, w/o thumbnail. -->
@@ -309,7 +309,7 @@ The above is rendered as
 
 [CNM Ingenuity]: https://cnmingenuity.org/
 
-If the `omit-thumbnail` class is used on a link displayed in a list of links (e.g. in a **Links** section), it's recommended to include not only a standard Markdown link (specified with the `[…](…)` syntax), but also an _autolink_ (enclosed with `<…>`), so that the destination URL is clearly displayed. For example,
+If the `omit-thumbnail` class is used on a link displayed in a list of links (e.g., in a **Links** section), it's recommended to include not only a standard Markdown link (specified with the `[…](…)` syntax), but also an _autolink_ (enclosed with `<…>`), so that the destination URL is clearly displayed. For example,
 
 ```markdown
 * [Deep Dive Coding Java+Android Bootcamp Curriculum Theme](https://github.com/ddc-java/ddc-day/){:.omit-thumbnail} (<https://github.com/ddc-java/ddc-day/>{:.omit-thumbnail})
@@ -328,9 +328,9 @@ When the site content includes mathematical expressions, the approach used for d
 
 * If mathematical equations, formula derivations---or even simple but non-programming-language-specific computational expressions---are needed, mathematical notation should be used. For this purposes, this theme supports the use of $\rm\LaTeX$ (LaTeX) expressions embedded in Markdown or HTML content. These will be interpreted and rendered in the browser by the MathJax JavaScript library.
 
-In any case, mathematical expressions should not be written as plain text, without any typographical distinction from the rest of the content. In particular, mathematical symbols (e.g. Greek letters such as $\pi$ or $\Sigma$, or other symbols or operators such as $\in$ or $\infty$) must not be "spelled out" in English in the text, unless one or more of these conditions hold:
+In any case, mathematical expressions should not be written as plain text, without any typographical distinction from the rest of the content. In particular, mathematical symbols (e.g., Greek letters such as $\pi$ or $\Sigma$, or other symbols or operators such as $\in$ or $\infty$) must not be "spelled out" in English in the text, unless one or more of these conditions hold:
 
-* It is done for the purpose of naming and explaining the individual symbols or operators (e.g. "$\Sigma$, the upper-case Greek letter sigma, is used to denote the sum of terms in a sequence.").
+* It is done for the purpose of naming and explaining the individual symbols or operators (e.g., "$\Sigma$, the upper-case Greek letter sigma, is used to denote the sum of terms in a sequence.").
 
 * It's done to re-state a mathematical expression in words, to provide additional explanation. 
 

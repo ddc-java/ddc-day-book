@@ -28,12 +28,12 @@ sans-serif bold
 : 
     * Glossary (definition list) titles.[^theme-defaults]
     * Strong emphasis (use this very sparingly).
-    * UI control labels (e.g. window titles, button labels, menu item text, field labels).
+    * UI control labels (e.g., window titles, button labels, menu item text, field labels).
 
 {:.normal-weight .emphasized}sans-serif italic
 
 : 
-    * First use of a term defined in the text, e.g. "_Hypertext Transfer Protocol_ (HTTP) is the primary protocol used by web traffic."
+    * First use of a term defined in the text, e.g., "_Hypertext Transfer Protocol_ (HTTP) is the primary protocol used by web traffic."
     * Emphasis (use this sparingly).
     
 `fixed-width roman and `*`italic`*
@@ -79,7 +79,7 @@ Note that this list does not include mathematical symbols. These should be typed
 
 -- (en dash)
 
-: The _en dash_ (which has the same width as "N") is used between the endpoints of a range of values (e.g. numbers, dates, times). There should be no spaces immediately before or after the en dash. 
+: The _en dash_ (which has the same width as "N") is used between the endpoints of a range of values (e.g., numbers, dates, times). There should be no spaces immediately before or after the en dash. 
 
 : kramdown automatically translates a sequence of 2 hyphen characters (`--`) into an en dash. When using a Markdown processor that doesn't support this, the `&ndash;` entity should be used.
 

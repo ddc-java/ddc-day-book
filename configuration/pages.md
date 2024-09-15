@@ -33,7 +33,7 @@ Page-level configuration is done in the front matter (a YAML block preceding the
 
 : Description displayed under the page heading. Setting this property at the page level overrides the site-level setting. If not set at the site or page level, the GitHub repository description (if any) is displayed.
 
-: For a single-page site (e.g. a practical exam problem), the description can be set at the page or site level---but it must be set, in any event. For a multipage site, the description should be set in each page. 
+: For a single-page site (e.g., a practical exam problem), the description can be set at the page or site level---but it must be set, in any event. For a multipage site, the description should be set in each page. 
 
 : Note that this text should be limited to 80--90 characters; long text should be checked carefully after publication, at various screen/browser window widths, to make sure it displays as desired.
 

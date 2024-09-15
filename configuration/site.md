@@ -37,7 +37,7 @@ Site-level configuration is done in `_config.yml`, and supports the following pr
 
 : Description displayed under the page heading. Setting this property at the page level overrides the site-level setting. If not set at the site or page level, the GitHub repository description (if any) is displayed.
 
-: For a single-page site (e.g. a practical exam problem), the description can be set at the page or site level---but it must be set, in any event. For a multi-page site, the description should be set in each page.
+: For a single-page site (e.g., a practical exam problem), the description can be set at the page or site level---but it must be set, in any event. For a multi-page site, the description should be set in each page.
 
 `favicon`
 
@@ -55,11 +55,11 @@ Site-level configuration is done in `_config.yml`, and supports the following pr
 
 : This is a Boolean-valued property, used to control the generation of a left sidebar displaying the table of contents with links to all pages in the site that do not specify `exclude_from_toc` properties. If omitted, left without a value, or set to `false`, the navigator bar will not be generated.
 
-: For a single-page site (e.g. a practical exam problem), this should be omitted or set to `false`. For a multi-page site, this should be explicitly set to `true`.
+: For a single-page site (e.g., a practical exam problem), this should be omitted or set to `false`. For a multi-page site, this should be explicitly set to `true`.
 
 `remote_theme` (**required**)
 
-: To use this theme, this property must be assigned the value `ddc-java/ddc-day-book@v1`.
+: To use this theme, this property must be assigned the value `ddc-java/ddc-day-book`. A specific release, tag, branch, or commit may be specified, e.g., `ddc-java/ddc-day-book@v1`, `ddc-java/ddc-day-book@main`.
 
 `repository_link.enabled`
 
@@ -97,4 +97,4 @@ titles_from_headings:
 
 * Single-page sites should have `page_navigator.enabled` omitted or set to `false` in `_config.yml`.
 
-* Sites with multiple pages should have `page_navigator.enabled` set to `true` (implicitly or explicitly) in `_config.yml`.
+* Sites with multiple pages should have `page_navigator.enabled` set to `true` in `_config.yml`.
