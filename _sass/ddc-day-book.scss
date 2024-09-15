@@ -494,12 +494,6 @@ input[type='checkbox'] {
       + ul, ol {
           &.collapsible {
           height: 0;
-          transform: scaleY(0);
-          transform-origin: top;
-          transition-property: transform, height;
-          transition-duration: 0.2s, 0.2s;
-          transition-timing-function: ease-in, ease-in;
-          transition-delay: 0s, 0.03s;
         }
       }
 

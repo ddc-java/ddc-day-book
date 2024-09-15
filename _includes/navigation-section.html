@@ -30,13 +30,13 @@
         {%- assign dest_url = p.url | relative_url -%}
         
         <li>
-        {%- if p.href -%}
-          <a href="{{ p.href }}" class="external">{{ item_text }}</a>
-        {%- elsif dest_url == current_url -%}
-          <span class="strong">{{ item_text }}</span>
-        {%- else -%}
-          <a href="{{ dest_url }}">{{ item_text }}</a>
-        {%- endif -%}
+          {%- if p.href -%}
+            <a href="{{ p.href }}" class="external">{{ item_text }}</a>
+          {%- elsif dest_url == current_url -%}
+            <strong>{{ item_text }}</strong>
+          {%- else -%}
+            <a href="{{ dest_url }}">{{ item_text }}</a>
+          {%- endif -%}
         </li> 
         
       {%- endif -%}

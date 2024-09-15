@@ -30,3 +30,8 @@ By default, site generation for GitHub Pages relies heavily on Jekyll (which dep
 For most practical purposes, we can view the `_config.yml` file (which is, as the file extension would indicate, a YAML file) as the Jekyll entry point: Site-level configuration elements read from this file drive much of the subsequent site generation process.
 
 A significant subset of Jekyll's behavior, configured at the site level in `_config.yml`, can be overridden at the page level by including _front matter_ in the page. Front matter is a YAML section that---if present---must be located at the start of a file (the rest of the file content will generally be written in Markdown or HTML), and must be enclosed within two delimiter lines; these delimiter lines must contain exactly three hyphen characters (`---`), with no whitespace appearing before or between the hyphens, and no other non-whitespace characters allowed.
+
+## Site contents
+
+{:.collapsible.collapsed}
+{% include navigation-section.html parent_dir_path=page.dir %}
