@@ -10,7 +10,7 @@
 
     {%- for p in pages_in_section -%}
     
-      {%- assign subtitle = p.subtitle | p.description -%}
+      {%- assign subtitle = p.subtitle | default: p.description -%}
       {%- capture item_text -%}{{ p.title }}{%- if subtitle and subtitle.size > 0 -%}: {{ subtitle }}{%- endif -%}{%- endcapture -%}
       
       {%- if p.content_dir -%}
