@@ -6,13 +6,6 @@ order: 60
 
 {% include ddc-abbreviations.md %}
 
-## Page contents
-{:.no_toc}
-
-{:.collapsible.collapsed}
-- ToC
-{:toc}
-      
 ## Platform
 
 * [GitHub Pages](https://pages.github.com/)
