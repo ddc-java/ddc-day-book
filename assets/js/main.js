@@ -47,8 +47,8 @@ function setNavClosedByDefault() {
 function buildCollapsibles() {
   $('.collapsible').prev().each(function(index) {
     const checkbox = document.createElement('input');
-    const checkboxId = this.id + "-checkbox";
-    checkbox.id = checkboxIdl
+    const checkboxId = this.id + '-checkbox';
+    checkbox.id = checkboxId;
     checkbox.className = 'collapser';
     checkbox.setAttribute('type', 'checkbox');
     const label = document.createElement('label');
