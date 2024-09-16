@@ -496,10 +496,6 @@ input[type='checkbox'] {
           height: 0;
           transform: scaleY(0);
           transform-origin: top;
-          transition-property: transform, height;
-          transition-duration: 0.01s, 0.01s;
-          transition-delay: 0s, 0.01s;
-          transition-timing-function: ease-in, ease-in;
         }
       }
 
@@ -519,6 +515,7 @@ input[type='checkbox'] {
             transform: scaleY(1);
             transition-property: height, transform;
             transition-duration: 0.2s, 0.2s;
+            transition-delay: 0s, 0.01s;
             transition-timing-function: ease-out, ease-out;
           }
         }
@@ -812,10 +809,6 @@ div.wrapper {
               height: 0;
               transform: scaleY(0);
               transform-origin: top;
-              transition-property: transform, height;
-              transition-duration: 0.01s, 0.01s;
-              transition-delay: 0s, 0.01s;
-              transition-timing-function: ease-in, ease-in;
             }
 
             &:checked {
@@ -829,6 +822,7 @@ div.wrapper {
                 transform: scaleY(1);
                 transition-property: height, transform;
                 transition-duration: 0.2s, 0.2s;
+                transition-duration: 0.01s, 0.01s;
                 transition-timing-function: ease-out, ease-out;
               }
 
@@ -848,10 +842,6 @@ div.wrapper {
         height: 0;
         transform: scaleY(0);
         transform-origin: top;
-        transition-property: transform, height;
-        transition-duration: 0.01s, 0.01s;
-        transition-delay: 0s, 0.01s;
-        transition-timing-function: ease-in, ease-in;
       }
 
       &:checked ~ ul {
@@ -859,6 +849,7 @@ div.wrapper {
         transform: scaleY(1);
         transition-property: height, transform;
         transition-duration: 0.2s, 0.2s;
+        transition-delay: 0s, 0.01s;
         transition-timing-function: ease-out, ease-out;
       }
 
