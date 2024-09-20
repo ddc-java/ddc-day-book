@@ -54,7 +54,7 @@
 
     <script src="https://use.fontawesome.com/c858e278cf.js"></script>
 
-    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/main.js?v=' | append: site.github.build_revision | relative_url }}"></script>
     
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
