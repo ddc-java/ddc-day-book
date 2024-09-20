@@ -22,7 +22,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     {% seo title=false %}
-    
+
     {%- capture location_components -%}{%- include navigation-location.html -%}{%- endcapture -%}
     {%- assign locations = location_components | split: '||' | reverse | join: '||' | split: '||' -%}
     {%- capture name_components -%}
@@ -39,15 +39,15 @@
         <a href="{{ location_parts | last | relative_url }}">{{ location_name }}</a>|
       {%- endfor -%}
     {%- endcapture -%}
-    
+
     <title>{{ name_components | split: '|' | reverse | join: ' | ' }}</title>
-    
+
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ site.favicon | default: '/assets/images/favicon.ico' | relative_url }}">
 
-    <script 
-      src="https://code.jquery.com/jquery-3.7.1.min.js" 
-      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"></script>
     <script
       src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"
@@ -57,7 +57,7 @@
     <script src="https://use.fontawesome.com/c858e278cf.js"></script>
 
     <script src="{{ '/assets/js/main.js?v=' | append: site.github.build_revision | relative_url }}"></script>
-    
+
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
         tex2jax: {
@@ -65,10 +65,10 @@
           displayMath: [['$$','$$'], ['\\(','\\)'], ['\\[','\\]']],
           inlineMath: [['$','$']]
         },
-        TeX: { 
-          equationNumbers: { 
-            autoNumber: 'AMS' 
-          } 
+        TeX: {
+          equationNumbers: {
+            autoNumber: 'AMS'
+          }
         },
         displayAlign: "left",
         displayIndent: "3em"
@@ -112,7 +112,7 @@
 
         {%- assign icon_url = site.icon | default: '/assets/images/ddc.png' | relative_url -%}
         <a class="org" href="https://deepdivecoding.com/"><span class="logo" style="background-image: url('{{ icon_url }}');"></span></a>
-        
+
       </div>
 
       {% if show_page_navigator -%}
@@ -152,7 +152,7 @@
         {%- if prev_next_navigation_top -%}
           <nav class="space-between">{{ prev_next_links }}</div>
         {%- endif %}
-        
+
         {{ content }}
 
         {% if prev_next_navigation_bottom -%}
@@ -160,7 +160,7 @@
         {%- endif -%}
 
       </section>
-      
+
     </div>
 
     <footer>
@@ -185,7 +185,7 @@
 
       </p>
     </footer>
-    
+
     {% if site.google_analytics %}
       <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -196,7 +196,7 @@
         ga('send', 'pageview');
       </script>
     {% endif %}
-    
+
   </body>
 
 </html>
