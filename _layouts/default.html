@@ -15,7 +15,9 @@
 -->
 <!doctype html>
 <html lang="{{ site.lang | default: "en-US" }}">
+
   <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -113,11 +115,13 @@
         
       </div>
 
+      {%- capture heading_1 %}# {{ current_location }}{% endcapture -%}
       {% if show_page_navigator -%}
-        <h1>{{ current_location }}</h1>
-        <h2>{{ parent_links | split: '|' | join: ': '}}</h2>
+        {{ heading_1 | markdownify }}
+        {% capture heading_2 %}## {{ parent_links | split: '|' | join: ': '}}{% endcapture %}
+        {{ heading_2 | markdownify }}
       {%- else -%}
-        <h1 class="no-nav">{{ current_location }}</h1>
+        {{ heading_1 | markdownify }}{:.no-nav}
       {%- endif %}
 
       {{ page.subtitle | default: page.description | default: site.description | default: site.github.project_tagline | markdownify }}
@@ -196,4 +200,5 @@
     {% endif %}
     
   </body>
+
 </html>
