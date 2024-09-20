@@ -115,13 +115,11 @@
         
       </div>
 
-      {%- capture heading_1 %}# {{ current_location }}{% endcapture -%}
       {% if show_page_navigator -%}
-        {{ heading_1 | markdownify }}
-        {% capture heading_2 %}## {{ parent_links | split: '|' | join: ': '}}{% endcapture %}
-        {{ heading_2 | markdownify }}
+        <h1>{{ current_location }}</h1>
+        <h2>{{ parent_links | split: '|' | join: ': '}}</h2>
       {%- else -%}
-        {{ heading_1 | markdownify }}{:.no-nav}
+        <h1 class="no-nav">{{ current_location }}</h1>
       {%- endif %}
 
       {{ page.subtitle | default: page.description | default: site.description | default: site.github.project_tagline | markdownify }}
