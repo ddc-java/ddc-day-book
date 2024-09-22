@@ -10,16 +10,21 @@ section_toc:
 
 {{ content }}
 
-{% assign section_toc_flags = page.section_toc.flags | default: page.section_toc.flags | default: layout.section_toc.flags %}
+<!-- What is going on here? -->
 
-{% if section_toc_flags.show %}
+{%- assign section_toc_flags = page.section_toc.flags | default: page.section_toc.flags | default: layout.section_toc.flags -%}
 
-  {% assign section_toc_heading = page.section_toc.heading | default: page.section_toc.heading | default: layout.section_toc.heading %}
-  {% assign section_toc_level = page.section_toc.level | default: page.section_toc.level | default: layout.section_toc.level %}
-  {% assign section_toc_classes = section_toc_flags | where_exp: "flag", "flag != 'show'" | join: ' ' %}
+<!-- Flags: {{ section_toc_flags | join: ', ' }} -->
+
+{%- if section_toc_flags contains 'show' -%}
+
+
+  {%- assign section_toc_heading = page.section_toc.heading | default: page.section_toc.heading | default: layout.section_toc.heading -%}
+  {%- assign section_toc_level = page.section_toc.level | default: page.section_toc.level | default: layout.section_toc.level -%}
+  {%- assign section_toc_classes = section_toc_flags | where_exp: "flag", "flag != 'show'" | join: ' ' -%}
 
   <h{{ section_toc_level }}>{{ section_toc_heading }}</h{{ section_toc_level }}>
 
   {% include navigation-section.html parent_dir_path=page.dir classes=section_toc_classes %}
 
-{% endif %}
+{%- endif -%}

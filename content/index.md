@@ -1,6 +1,6 @@
 ---
 title: Introduction
-subtitle: "Style guide."
+subtitle: "Curriculum style guide."
 order: 0
 layout: section
 ---
