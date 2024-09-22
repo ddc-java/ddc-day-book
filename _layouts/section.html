@@ -1,0 +1,29 @@
+---
+layout: default
+section_toc:
+  flags: 
+  - show
+  - collapsible
+  heading: Section contents
+  level: 2
+---
+
+{{ content }}
+
+{% if show_page_navigator %}
+
+  {% assign section_toc_flags = page.section_toc.flags | default: page.section_toc.flags | default: layout.section_toc.flags %}
+
+  {% if section_toc_flags.show %}
+
+  {% assign section_toc_heading = page.section_toc.heading | default: page.section_toc.heading | default: layout.section_toc.heading %}
+  {% assign section_toc_level = page.section_toc.level | default: page.section_toc.level | default: layout.section_toc.level %}
+  {% assign section_toc_classes = section_toc_flags | where_exp: "flag", "flag != 'show'" | join: ' ' %}
+  
+    <h{{ section_toc_level }}>{{ section_toc_heading }}</h{{ section_toc_level }}>
+    
+    {% include navigation-section.html parent_dir_path=page.dir classes=section_toc_classes %}
+    
+  {% endif %}
+
+{% endif %}

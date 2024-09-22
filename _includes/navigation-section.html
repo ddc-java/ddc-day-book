@@ -6,7 +6,9 @@
 
 {%- if pages_in_section.size > 0 -%}
 
-  <ul>
+  {% capture classes %}{% if include.classes %} class="{{ include.classes }}"{% endif %}{% endcapture %}
+  
+  <ul{{classes}}>
 
     {%- for p in pages_in_section -%}
     
