@@ -40,7 +40,7 @@
       {%- endfor -%}
     {%- endcapture -%}
 
-    <title>{{ name_components | split: '|' | reverse | join: ' | ' }}</title>
+    <title>{{ name_components | split: '|' | reverse | join: ' | ' | strip_html }}</title>
 
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ site.favicon | default: '/assets/images/favicon.ico' | relative_url }}">
