@@ -1,7 +1,7 @@
-{% assign parent_dir_path = include.parent_dir_path | default: page.dir %}
+{% assign exp_dir_path = include.parent_dir_path | default: page.dir %}
 
 {%- assign pages_in_section = site.pages 
-    | where_exp: "p", "p.dir == parent_dir_path" 
+    | where_exp: "p", "p.dir == exp_dir_path" 
     | where_exp: "p", "p.exclude_from_toc != true" 
     | sort: "order" -%}
 {%- assign current_url = page.url | relative_url -%}
@@ -21,7 +21,7 @@
       
         {%- unless p.content_dir contains "/" -%}
         
-          {%- capture content_path %}{{ parent_dir_path }}{{ p.content_dir }}/{% endcapture -%}
+          {%- capture content_path %}{{ include.parent_dir_path | default: page.dir }}{{ p.content_dir }}/{% endcapture -%}
           
           <li>{{ item_text }}
             {%- include navigation-section.html parent_dir_path=content_path -%}
