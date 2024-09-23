@@ -10,4 +10,4 @@ This section is intended as a style guide---for creating curriculum for the Deep
 
 ## Section contents
 
-{% include navigation-section.html classes='collapsible collapsed' %}
+{% include navigation-section.html %}

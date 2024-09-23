@@ -33,4 +33,4 @@ A significant subset of Jekyll's behavior, configured at the site level in `_con
 
 ## Section contents
 
-{% include navigation-section.html classes='collapsible collapsed' %}
+{% include navigation-section.html %}
