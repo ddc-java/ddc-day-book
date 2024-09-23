@@ -2,7 +2,6 @@
 title: Introduction
 subtitle: "Configuration of DDC Day Book-based sites for Jekyll/GitHub Pages."
 order: 0
-layout: section
 ---
 
 {% include ddc-abbreviations.md %}
@@ -33,3 +32,5 @@ For most practical purposes, we can view the `_config.yml` file (which is, as th
 A significant subset of Jekyll's behavior, configured at the site level in `_config.yml`, can be overridden at the page level by including _front matter_ in the page. Front matter is a YAML section that---if present---must be located at the start of a file (the rest of the file content will generally be written in Markdown or HTML), and must be enclosed within two delimiter lines; these delimiter lines must contain exactly three hyphen characters (`---`), with no whitespace appearing before or between the hyphens, and no other non-whitespace characters allowed.
 
 ## Section contents
+
+{% include navigation-section.html classes='collapsible collapsed' %}

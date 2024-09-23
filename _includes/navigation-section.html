@@ -1,3 +1,5 @@
+{% assign parent_dir_path = include.parent_dir_path | default: page.dir %}
+
 {%- assign pages_in_section = site.pages 
     | where_exp: "p", "p.dir == include.parent_dir_path" 
     | where_exp: "p", "p.exclude_from_toc != true" 
