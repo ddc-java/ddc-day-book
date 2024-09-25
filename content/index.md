@@ -1,6 +1,6 @@
 ---
 title: Introduction
-subtitle: "Curriculum style guide."
+subtitle: "Guidelines for creation of curricular content."
 order: 0
 ---
 
