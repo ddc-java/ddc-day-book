@@ -29,7 +29,8 @@
             {%- assign section_variation = "" -%}
           {%- endif -%}
           
-          <li class="toc-section {{ section_variation }}"><input type="checkbox" id="{{ item_id }}" {{ item_checked }}><label for="{{ item_id }}" aria-label="{{ p.subtitle | p.description }}">{{ p.title }}</label>
+          {%- assign subtitle = p.subtitle | default: p.description -%}
+          <li class="toc-section {{ section_variation }}"><input type="checkbox" id="{{ item_id }}" {{ item_checked }}><label for="{{ item_id }}"{% if subtitle %} aria-label="{{ subtitle }}"{% endif %}>{{ p.title }}</label>
             {%- include navigation-toc.html parent_dir_path=content_path -%}
           </li>
 
