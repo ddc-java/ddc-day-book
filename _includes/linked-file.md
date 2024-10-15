@@ -1,4 +1,4 @@
-<a markdown="block" href="{{include.file}}">
+<a style="display: block;" markdown="block" href="{{include.file}}">
 
 ```{{ include.type }}
 {% include_relative {{ include.file }} %}
