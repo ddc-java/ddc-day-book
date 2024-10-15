@@ -1,1 +1,1 @@
-[![{{ include.alt | default: include.image }}]({{ include.image }})]({{ include.dest }})
+[![{{ include.alt | default: include.image }}]({{ include.image }})]({{ include.dest | default: include.image }})
