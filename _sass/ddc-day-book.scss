@@ -629,10 +629,10 @@ header {
     right: 50%;
     margin-right: -445px;
     margin-top: 0!important;
-    font-size: 18px;
+    font-size: 24px;
     color: $base-dark-color;
     white-space: nowrap;
-    overflow: hidden;
+    overflow-x: hidden;
     text-overflow: ellipsis;
     -o-text-overflow: ellipsis;
     -ms-text-overflow: ellipsis;

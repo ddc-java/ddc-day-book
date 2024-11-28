@@ -116,8 +116,8 @@
       </div>
 
       {% if show_page_navigator -%}
-        <h1>{{ current_location }}</h1>
-        <h2>{{ parent_links | split: '|' | join: ': '}}</h2>
+        <h1>{{ parent_links | split: '|' | join: ': '}}</h1>
+        <h2>{{ current_location }}</h2>
       {%- else -%}
         <h1 class="no-nav">{{ current_location }}</h1>
       {%- endif %}
