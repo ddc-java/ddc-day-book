@@ -80,7 +80,7 @@ h2 {
 
   font-family: $heading-fonts;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1.15em;
   color: $medium-dark-color;
   margin: 0 0 0.5em 0;
@@ -629,7 +629,7 @@ header {
     right: 50%;
     margin-right: -445px;
     margin-top: 0!important;
-    font-size: 24px;
+    font-size: 22px;
     color: $base-dark-color;
     white-space: nowrap;
     overflow: hidden;
@@ -1088,7 +1088,7 @@ footer {
 
   h2 {
 
-    font-size: 22px;
+    top: 20px;
 
     &.highlighted {
       font-size: 18px;
