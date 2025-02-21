@@ -41,7 +41,7 @@
         {%- assign dest_url = p.url | relative_url -%}
         
         {%- if p.href -%}
-          <li class="toc-page external"><a href="{{ p.href }}">{{p.title}}</a></li>
+          <li class="toc-page external"><a href="{{ p.href | relative_url }}">{{p.title}}</a></li>
         {%- elsif dest_url == current_url -%}
           <li class="toc-page current">{{p.title}}</li>
         {%- else -%}
