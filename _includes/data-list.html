@@ -17,7 +17,7 @@
         {%- if value.first -%}
           {{ content_prefix }}{{ key }}{{ content_suffix }}{%- include data-list.html hash_list=value -%}
         {%- else -%}
-          {{ content_prefix }}{{ key }}: {{ value }}{{ content_suffix }}
+          {{ content_prefix }}{{ key }}: {{ value | markdownify}}{{ content_suffix }}
         {%- endif -%}
         {{ item_suffix }}
       {%- endif -%}
