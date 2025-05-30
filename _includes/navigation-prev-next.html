@@ -18,7 +18,7 @@
 
       {%- elsif p.href -%}
 
-        {{ p.title }}#{{ p.href | absolute_url }}#external omit-thumbnail{{ delimiter }}
+        {{ p.title }}#{{ p.href | relative_url }}#external omit-thumbnail{{ delimiter }}
 
       {%- else -%}
 
@@ -85,7 +85,7 @@
       {%- assign title = parts[0] -%}
       {%- assign url = parts[1] -%}
 
-      <a class="next-page" href="{{ url }}">{{ title }}</a>
+      <a class="next-page {{ class }}" href="{{ url }}">{{ title }}</a>
 
     {%- else -%}
 
