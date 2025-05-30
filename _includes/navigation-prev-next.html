@@ -16,9 +16,13 @@
 
         {%- include navigation-prev-next.html parent_dir_path=content_path delimiter=delimiter -%}
 
+      {%- elsif p.href -%}
+
+        {{ p.title }}#{{ p.href | relative_url }}#external omit-thumbnail{{ delimiter }}
+
       {%- else -%}
 
-        {{ p.title }}#{{ p.url | relative_url }}{{ delimiter }}
+        {{ p.title }}#{{ p.url | relative_url }}#{{ delimiter }}
 
       {%- endif -%}
 
@@ -61,8 +65,9 @@
       {%- assign parts = previous_pair | split: "#" -%}
       {%- assign title = parts[0] -%}
       {%- assign url = parts[1] -%}
+      {%- capture css_class -%} previous-page {{ parts[2] }} {%- endcapture -%}
 
-      <a class="previous-page" href="{{ url }}">{{ title }}</a>
+      <a class="{{ css_class }}" href="{{ url }}">{{ title }}</a>
 
     {%- else -%}
 
@@ -78,8 +83,9 @@
       {%- assign parts = next_pair | split: "#" -%}
       {%- assign title = parts[0] -%}
       {%- assign url = parts[1] -%}
+      {%- capture css_class -%} next-page {{ parts[2] }} {%- endcapture -%}
 
-      <a class="next-page" href="{{ url }}">{{ title }}</a>
+      <a class="{{ css_class }}" href="{{ url }}">{{ title }}</a>
 
     {%- else -%}
 
