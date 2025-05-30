@@ -18,7 +18,7 @@
 
       {%- elsif p.href -%}
 
-        {{ p.title }}#{{ p.href | absolute_url }}#external{{ delimiter }}
+        {{ p.title }}#{{ p.href | absolute_url }}#external omit-thumbnail{{ delimiter }}
 
       {%- else -%}
 
