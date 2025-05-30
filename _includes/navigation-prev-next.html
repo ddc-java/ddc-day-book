@@ -36,6 +36,7 @@
     {%- assign pairs = pairs_list | split: delimiter -%}
     {%- assign upper_bound = pairs | size | minus: 1 -%}
 
+    <!-- {{ pairs_list }} -->
     {%- capture current_position -%}
 
       {%- for i in (0..upper_bound) -%}
