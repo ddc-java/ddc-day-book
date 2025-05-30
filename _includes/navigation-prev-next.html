@@ -16,9 +16,13 @@
 
         {%- include navigation-prev-next.html parent_dir_path=content_path delimiter=delimiter -%}
 
+      {%- elsif p.href -%}
+
+        {{ p.title }}#{{ p.href | absolute_url }}#external{{ delimiter }}
+
       {%- else -%}
 
-        {{ p.title }}#{{ p.url | relative_url }}{{ delimiter }}
+        {{ p.title }}#{{ p.url | relative_url }}#{{ delimiter }}
 
       {%- endif -%}
 
@@ -40,6 +44,7 @@
         {%- assign parts = pair | split: "#" -%}
         {%- assign title = parts[0] -%}
         {%- assign url = parts[1] -%}
+        {%- assign class = parts[2] -%}
 
         {%- if url == current_url -%}
 
@@ -61,8 +66,9 @@
       {%- assign parts = previous_pair | split: "#" -%}
       {%- assign title = parts[0] -%}
       {%- assign url = parts[1] -%}
+      {%- assign class = parts[2] -%}
 
-      <a class="previous-page" href="{{ url }}">{{ title }}</a>
+      <a class="previous-page {{ class }}" href="{{ url }}">{{ title }}</a>
 
     {%- else -%}
 
