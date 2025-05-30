@@ -36,7 +36,6 @@
     {%- assign pairs = pairs_list | split: delimiter -%}
     {%- assign upper_bound = pairs | size | minus: 1 -%}
 
-    <!-- {{ pairs_list }} -->
     {%- capture current_position -%}
 
       {%- for i in (0..upper_bound) -%}
@@ -45,7 +44,6 @@
         {%- assign parts = pair | split: "#" -%}
         {%- assign title = parts[0] -%}
         {%- assign url = parts[1] -%}
-        {%- assign class = parts[2] -%}
 
         {%- if url == current_url -%}
 
@@ -67,9 +65,9 @@
       {%- assign parts = previous_pair | split: "#" -%}
       {%- assign title = parts[0] -%}
       {%- assign url = parts[1] -%}
-      {%- assign class = parts[2] -%}
+      {%- capture css_class -%} previous-page {{ parts[2] }} {%- endcapture -%}
 
-      <a class="previous-page {{ class }}" href="{{ url }}">{{ title }}</a>
+      <a class="{{ css_class }}" href="{{ url }}">{{ title }}</a>
 
     {%- else -%}
 
@@ -85,8 +83,9 @@
       {%- assign parts = next_pair | split: "#" -%}
       {%- assign title = parts[0] -%}
       {%- assign url = parts[1] -%}
+      {%- capture css_class -%} next-page {{ parts[2] }} {%- endcapture -%}
 
-      <a class="next-page {{ class }}" href="{{ url }}">{{ title }}</a>
+      <a class="{{ css_class }}" href="{{ url }}">{{ title }}</a>
 
     {%- else -%}
 
