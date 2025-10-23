@@ -310,14 +310,10 @@ code {
     font-family: $code-fonts;
   }
 
-  h2 & {
-    font-size: 90%;
-  }
-
   header &, div#banner & {
     background-color: inherit;
     color: inherit;
-    font-size: inherit;
+    font-size: 95%;
     font-weight: inherit;
   }
 
