@@ -293,7 +293,7 @@ blockquote {
 code {
 
   font-family: $code-fonts;
-  font-size: 13px;
+  font-size: inherit;
   font-weight: bolder;
   text-shadow: none;
   margin: 0;
@@ -313,7 +313,6 @@ code {
   header &, div#banner & {
     background-color: inherit;
     color: inherit;
-    font-size: 95%;
     font-weight: inherit;
   }
 
