@@ -637,7 +637,7 @@ header {
     max-width: 880px;
     top: 24px;
     right: 50%;
-    margin-right: -435px;
+    margin-right: -430px;
     margin-top: 0!important;
     font-size: 26px;
     color: $base-dark-color;
@@ -1176,7 +1176,7 @@ footer {
     > h2 {
       top: 9px;
       right: 0;
-      margin-right: 25px;
+      margin-right: calc(0.75% + 2 * #{$banner-extension});
     }
 
     > p {
