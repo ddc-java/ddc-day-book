@@ -73,11 +73,11 @@ Note that this list does not include mathematical symbols. These should be typed
 
 : - On macOS, the ellipsis can be typed as _Opt_+**;** (the semicolon character). 
 
-: - On Windows, the Character Map utility can be used; however, it's rather cumbersome, and many will prefer to install and use utilities like Microsoft PowerToys QuickAccent. Alternatively, many text editors and other Windows applications support Unicode entry with a numeric keypad: _Alt_+**`8230`** (the codepoint of the ellipsis character, expressed in base 10; it **must** be typed on a numeric keypad).
+: - On Windows, the Character Map utility can be used; however, it's rather cumbersome, and many will prefer to install and use utilities like Microsoft PowerToys QuickAccent. Alternatively, many text editors and other Windows applications support Unicode entry with a numeric keypad: _Alt_+**`8230`** (the codepoint of the ellipsis character, expressed in base 10; it **must** be typed using a numeric keypad or an _Fn_-key-mapped "soft" numeric keypad).
 
 : - On Ubuntu, the ellipsis can be typed via _Ctrl_+_Shift_+**`U`** (for Unicode entry mode), then **`2026`** (the codepoint of the ellipsis character, expressed in hexadecimal), then _Enter_, _Return_ or _Space_; alternatively, [_compose key_] + **`...`** (three periods) will work as well.
 
-: - When using kramdown (as this theme does), three consecutive periods (`...`) are automatically converted to the ellipsis when rendering Markdown to HTML. This also works with a few other Markdown processors.
+: - When using kramdown (as this theme does), three consecutive periods (**`...`**) are automatically converted to the ellipsis when rendering Markdown to HTML. This also works with a few other Markdown processors.
 
 : - If writing HTML directly, or using a Markdown processor that doesn't automatically convert the substitute sequence, favor using the HTML entity `&hellip;` over using three periods.
 
@@ -91,7 +91,7 @@ Note that this list does not include mathematical symbols. These should be typed
 
 : - On Windows, Character Map or Microsoft PowerToys QuickAccent can be used. If Unicode entry via keypad is supported, then _Alt_+**`8212`** will also work.
 
-: - On Ubuntu, the em dash can be typed via _Ctrl_+_Shift_+**U** (for Unicode entry mode), then **`2014`** (the codepoint of the em dash character), then [_Enter_], [_Return_] or [_Space_]; alternatively, [_compose key_] + **---** (three hyphens) will work as well.
+: - On Ubuntu, the em dash can be typed via _Ctrl_+_Shift_+**`U`** (for Unicode entry mode), then **`2014`** (the codepoint of the em dash character), then [_Enter_], [_Return_] or [_Space_]; alternatively, [_compose key_] + **`---`** (three hyphens) will work as well.
 
 :- kramdown automatically translates a sequence of three hyphens (`---`) into an em dash. 
 
@@ -107,7 +107,7 @@ Note that this list does not include mathematical symbols. These should be typed
 
 : - On Windows, Character Map or Microsoft PowerToys QuickAccent can be used. If Unicode entry via keypad is supported, then _Alt_+**`8211`** will also work.
 
-: - On Ubuntu, the en dash can be typed via _Ctrl_+_Shift_+**U** (for Unicode entry mode), then **`2013`** (the codepoint of the en dash character), then [_Enter_], [_Return_] or [_Space_]; alternatively, [_compose key_] + **--** (two hyphens) will work as well.
+: - On Ubuntu, the en dash can be typed via _Ctrl_+_Shift_+**`U`** (for Unicode entry mode), then **`2013`** (the codepoint of the en dash character), then [_Enter_], [_Return_] or [_Space_]; alternatively, [_compose key_] + **`--`** (two hyphens) will work as well.
 
 :- kramdown automatically translates a sequence of 2 hyphen or minus characters (`--`) into an em dash. 
 
