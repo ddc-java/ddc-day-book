@@ -93,9 +93,9 @@ Note that this list does not include mathematical symbols. These should be typed
 
 : - On Ubuntu, the em dash can be typed via _Ctrl_+_Shift_+**`U`** (for Unicode entry mode), then **`2014`** (the codepoint of the em dash character), then [_Enter_], [_Return_] or [_Space_]; alternatively, [_compose key_] + **`---`** (three hyphens) will work as well.
 
-:- kramdown automatically translates a sequence of three hyphens (`---`) into an em dash. 
+: - kramdown automatically translates a sequence of three hyphens (`---`) into an em dash. 
 
-:- When writing in an HTML file, or when using a Markdown processor that doesn't convert the above substitute sequence., Some other Markdown processors do not support this conversion; when using one of these, the HTML `&mdash;` entity should be used, instead of simply using a hyphen.
+: - When writing in an HTML file, or when using a Markdown processor that doesn't convert the above substitute sequence., Some other Markdown processors do not support this conversion; when using one of these, the HTML `&mdash;` entity should be used, instead of simply using a hyphen.
 
 -- (en dash)
 
@@ -109,14 +109,12 @@ Note that this list does not include mathematical symbols. These should be typed
 
 : - On Ubuntu, the en dash can be typed via _Ctrl_+_Shift_+**`U`** (for Unicode entry mode), then **`2013`** (the codepoint of the en dash character), then [_Enter_], [_Return_] or [_Space_]; alternatively, [_compose key_] + **`--`** (two hyphens) will work as well.
 
-:- kramdown automatically translates a sequence of 2 hyphen or minus characters (`--`) into an em dash. 
+: - kramdown automatically translates a sequence of 2 hyphen or minus characters (`--`) into an en dash. 
 
-:- When writing in an HTML file, or when using a Markdown processor that doesn't convert the above substitute sequence., Some other Markdown processors do not support this conversion; when using one of these, the HTML `&mdash;` entity should be used, instead of simply using a hyphen.
-
-: kramdown automatically translates a sequence of two hyphen characters (`--`) into an en dash. When using a Markdown processor that doesn't support this, the `&ndash;` entity should be used, instead of just using a hyphen.
+: - When writing in an HTML file, or when using a Markdown processor that doesn't convert the above substitute sequence, the HTML `&ndash;` entity should be used, instead of simply using a hyphen.
 
 & (ampersand)
 
 : The _ampersand_ is used as a shorthand for "and". It should be used sparingly: acceptable uses include menu or other control text, where space is at a premium; names of products or organizational entities, where the ampersand is part of the formal name; and compound lists, where a single list item may consist of multiple terms, with the ampersand used before the last item in the sublist. 
 
-: In HTML and XML, `&` is a control character, so a literal "&" must be written using the XML/HTML entity `&amp;`. Virtually all Markdown engines accept this (and other XML/HTML entities); however, many of them---including kramdown---accept a single `&` character, replacing it with `&amp;` when the Markdown is rendered as HTML. Thus, while `&` and `&amp;` are both acceptable, the first is preferred, when possible.
+: In HTML and XML, `&` is a control character, so a literal `&` must be written using the XML/HTML entity `&amp;`. Virtually all Markdown engines accept this (and other XML/HTML entities); however, many of them---including kramdown---also accept a single `&` character, replacing it with `&amp;` when the Markdown is rendered as HTML. Thus, while `&` and `&amp;` are both acceptable, the first is preferred, when possible.
