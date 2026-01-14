@@ -69,31 +69,51 @@ Note that this list does not include mathematical symbols. These should be typed
 
 : An _ellipsis_ is used to indicate an omitted section of text, or an omitted portion of a list or sequence. (In conversational-style writing, it's also used to indicate a long pause---often in the middle of a sentence---or an incomplete thought or statement.) It's common to type 3 periods in place of an ellipsis (some style guides even prefer 3 periods---especially when using a fixed-width font); however, most modern fonts include an ellipsis character, with a width equal to that of the "M" character in that font. In general, avoid using a period immediately before or after an ellipsis, with no intervening spaces. For example, if the omitted text immediately follows a complete sentence, that sentence would end with a period (or other terminal punctuation), followed by a space, and then the ellipsis.
 
-: To use the ellipses in your content, you can do one of the following:
+: To include the ellipses in your content, you can do one of the following:
 
-: - On macOS, the ellipsis can be typed as [_Opt_]+**;** (the semicolon character). 
+: - On macOS, the ellipsis can be typed as _Opt_+**;** (the semicolon character). 
 
-: - On Windows, the Character Map utility can be used; however, it's rather cumbersome, and many will prefer to install and use utilities like Microsoft PowerToys QuickAccent. 
+: - On Windows, the Character Map utility can be used; however, it's rather cumbersome, and many will prefer to install and use utilities like Microsoft PowerToys QuickAccent. Alternatively, many text editors and other Windows applications support Unicode entry with a numeric keypad: _Alt_+**`8230`** (the codepoint of the ellipsis character, expressed in base 10; it **must** be typed on a numeric keypad).
 
-: - On Ubuntu, the ellipsis can be typed via [_Ctrl_]+[_Shift_]+**U** (for Unicode entry mode), then **`2026`** (the codepoint of the ellipsis character), then [_Enter_], [_Return_] or [_Space_]; alternatively, [_compose key_] + **...** (three periods) will work as well.
+: - On Ubuntu, the ellipsis can be typed via _Ctrl_+_Shift_+**`U`** (for Unicode entry mode), then **`2026`** (the codepoint of the ellipsis character, expressed in hexadecimal), then _Enter_, _Return_ or _Space_; alternatively, [_compose key_] + **`...`** (three periods) will work as well.
 
-: - When using kramdown (as this theme does), 3 consecutive periods (`...`) are automatically converted to the ellipsis when rendering Markdown to HTML. This also works with a few other Markdown processors.
+: - When using kramdown (as this theme does), three consecutive periods (`...`) are automatically converted to the ellipsis when rendering Markdown to HTML. This also works with a few other Markdown processors.
 
-: - If writing HTML directly, or using a Markdown processor that doesn't automatically convert the substitute sequence, using the HTML entity `&hellip;` should be favored over using 3 periods.
+: - If writing HTML directly, or using a Markdown processor that doesn't automatically convert the substitute sequence, favor using the HTML entity `&hellip;` over using three periods.
 
 --- (em dash)
 
-: The _em dash_ (so named because it is as wide as the "M" character; it's the longest of the dash characters in common use) sets off a word or clause from the surrounding text, to add emphasis or signal an interruption. It is often used (in pairs) in place of parentheses, when the enclosed clause is not essential to the surrounding text, but is still more important than parentheses would typically indicate. When an em dash follows some text on the same line, there should not be a space between the preceding text and the em dash. Similarly, when an em dash is followed by text on the same line, there should be no space between the em dash that the text that follows it.
+: The _em dash_ (so named because it is as wide as the "M" character; it's the longest of the dash characters in common use) sets off a word or clause from the surrounding text, to add emphasis or signal an interruption. It is often used (in pairs) in place of parentheses, when the enclosed clause is not essential to the surrounding text, but is still more important than parentheses would typically indicate. When an em dash follows some text on the same line, there should not be a space between the preceding text and the em dash. Similarly, when an em dash is followed by text on the same line, there should be no space between the em dash that the text that follows it. (This is our practice; some style guides require spaces around an em dash)
 
-: On macOS, the em dash can be typed as [_Opt_]+[&#x21e7;]+**-** (hyphen or dash). On Windows, Character Map or Microsoft PowerToys QuickAccent can be used. On Ubuntu, It can be typed via [_Ctrl_]+[_Shift_]+**U** (for Unicode entry mode), then **`2026`** (the codepoint of the ellipsis character), then [_Enter_], [_Return_] or [_Space_]; alternatively, [_compose key_] + **...** (three periods) will work as well.
+: To include the em dash in your content, you can do one of the following:
 
-: kramdown automatically translates a sequence of 3 hyphen or minus characters (`---`) into an em dash. Some other Markdown processors do not support this conversion; when using one of these, the HTML `&mdash;` entity should be used.
+: - On macOS, the em dash can be typed as _Opt_+&#x21e7;+**`-`** (hyphen or dash). 
+
+: - On Windows, Character Map or Microsoft PowerToys QuickAccent can be used. If Unicode entry via keypad is supported, then _Alt_+**`8212`** will also work.
+
+: - On Ubuntu, the em dash can be typed via _Ctrl_+_Shift_+**U** (for Unicode entry mode), then **`2014`** (the codepoint of the em dash character), then [_Enter_], [_Return_] or [_Space_]; alternatively, [_compose key_] + **---** (three hyphens) will work as well.
+
+:- kramdown automatically translates a sequence of three hyphens (`---`) into an em dash. 
+
+:- When writing in an HTML file, or when using a Markdown processor that doesn't convert the above substitute sequence., Some other Markdown processors do not support this conversion; when using one of these, the HTML `&mdash;` entity should be used, instead of simply using a hyphen.
 
 -- (en dash)
 
 : The _en dash_ (which has the same width as "N") is used between the endpoints of a range of values (e.g., numbers, dates, times). There should be no spaces immediately before or after the en dash. 
 
-: kramdown automatically translates a sequence of 2 hyphen characters (`--`) into an en dash. When using a Markdown processor that doesn't support this, the `&ndash;` entity should be used.
+: To include the en dash in your content, you can do one of the following:
+
+: - On macOS, the en dash can be typed as _Opt_+**`-`** (hyphen or dash). 
+
+: - On Windows, Character Map or Microsoft PowerToys QuickAccent can be used. If Unicode entry via keypad is supported, then _Alt_+**`8211`** will also work.
+
+: - On Ubuntu, the en dash can be typed via _Ctrl_+_Shift_+**U** (for Unicode entry mode), then **`2013`** (the codepoint of the en dash character), then [_Enter_], [_Return_] or [_Space_]; alternatively, [_compose key_] + **--** (two hyphens) will work as well.
+
+:- kramdown automatically translates a sequence of 2 hyphen or minus characters (`--`) into an em dash. 
+
+:- When writing in an HTML file, or when using a Markdown processor that doesn't convert the above substitute sequence., Some other Markdown processors do not support this conversion; when using one of these, the HTML `&mdash;` entity should be used, instead of simply using a hyphen.
+
+: kramdown automatically translates a sequence of two hyphen characters (`--`) into an en dash. When using a Markdown processor that doesn't support this, the `&ndash;` entity should be used, instead of just using a hyphen.
 
 & (ampersand)
 
