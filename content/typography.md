@@ -15,7 +15,7 @@ order: 20
 
 ## Fonts & styles
 
-For the most part, the DDC Day theme is responsible for the specific typefaces and styles used in curriculum module web pages. However, the general font characteristics are selected based on the block and span formatting elements included in the content by the curriculum author. Thus, it's important that the author understand the general typographical characteristics for different content types, to better understand and use the [formatting guidelines](formatting.md).
+For the most part, the DDC Day Book theme is responsible for the specific typefaces and styles used in curriculum module web pages. However, the general font characteristics are selected based on the block and span formatting elements included in the content by the curriculum author. Thus, it's important that the author understand the general typographical characteristics for different content types, to better understand and use the [formatting guidelines](formatting.md).
 
 {:.title}slab-serif
 
@@ -59,7 +59,7 @@ $\text{serif roman and }italic$
 
 ## Symbols
 
-There are a handful of characters that occur quite frequently in printed English that are not easily typed on the keyboard. Some word processing programs automatically translate to these special characters from common substitutes that are more easily typed; however, most text editors don't do that. So it is often the case that in e-mail or SMS messages, or even web pages, more easily typed (but incorrect) characters are used in place of the appropriate symbols. 
+There are a handful of characters that occur quite frequently in printed English that are not easily typed on the US English keyboard. Some word processing programs automatically translate to these special characters from common substitutes that are more easily typed; however, most text editors don't do that. So it is often the case that in e-mail or SMS messages, or even web pages, more easily typed (but incorrect) characters are used in place of the appropriate symbols. 
 
 Fortunately, most dialects of Markdown (including that supported by the kramdown parser) include some automatic translations to a few special symbols from substitute character sequences. These are listed below, along with use cases for the symbols. Whenever possible, the correct symbols should be used---whether through these Markdown translations, HTML entities, or other means.
 
@@ -69,11 +69,23 @@ Note that this list does not include mathematical symbols. These should be typed
 
 : An _ellipsis_ is used to indicate an omitted section of text, or an omitted portion of a list or sequence. (In conversational-style writing, it's also used to indicate a long pause---often in the middle of a sentence---or an incomplete thought or statement.) It's common to type 3 periods in place of an ellipsis (some style guides even prefer 3 periods---especially when using a fixed-width font); however, most modern fonts include an ellipsis character, with a width equal to that of the "M" character in that font. In general, avoid using a period immediately before or after an ellipsis, with no intervening spaces. For example, if the omitted text immediately follows a complete sentence, that sentence would end with a period (or other terminal punctuation), followed by a space, and then the ellipsis.
 
-: Conveniently, the substitute character sequence that kramdown translates to the ellipsis is, in fact, 3 consecutive periods (`...`). If using a Markdown processor other than kramdown, it may be necessary to use the HTML entity `&hellip;`; doing so is preferable to using 3 periods that are not converted to the ellipses.
+: To use the ellipses in your content, you can do one of the following:
+
+: - On macOS, the ellipsis can be typed as [_Opt_]+**;** (the semicolon character). 
+
+: - On Windows, the Character Map utility can be used; however, it's rather cumbersome, and many will prefer to install and use utilities like Microsoft PowerToys QuickAccent. 
+
+: - On Ubuntu, the ellipsis can be typed via [_Ctrl_]+[_Shift_]+**U** (for Unicode entry mode), then **`2026`** (the codepoint of the ellipsis character), then [_Enter_], [_Return_] or [_Space_]; alternatively, [_compose key_] + **...** (three periods) will work as well.
+
+: - When using kramdown (as this theme does), 3 consecutive periods (`...`) are automatically converted to the ellipsis when rendering Markdown to HTML. This also works with a few other Markdown processors.
+
+: - If writing HTML directly, or using a Markdown processor that doesn't automatically convert the substitute sequence, using the HTML entity `&hellip;` should be favored over using 3 periods.
 
 --- (em dash)
 
 : The _em dash_ (so named because it is as wide as the "M" character; it's the longest of the dash characters in common use) sets off a word or clause from the surrounding text, to add emphasis or signal an interruption. It is often used (in pairs) in place of parentheses, when the enclosed clause is not essential to the surrounding text, but is still more important than parentheses would typically indicate. When an em dash follows some text on the same line, there should not be a space between the preceding text and the em dash. Similarly, when an em dash is followed by text on the same line, there should be no space between the em dash that the text that follows it.
+
+: On macOS, the em dash can be typed as [_Opt_]+[&#x21e7;]+**-** (hyphen or dash). On Windows, Character Map or Microsoft PowerToys QuickAccent can be used. On Ubuntu, It can be typed via [_Ctrl_]+[_Shift_]+**U** (for Unicode entry mode), then **`2026`** (the codepoint of the ellipsis character), then [_Enter_], [_Return_] or [_Space_]; alternatively, [_compose key_] + **...** (three periods) will work as well.
 
 : kramdown automatically translates a sequence of 3 hyphen or minus characters (`---`) into an em dash. Some other Markdown processors do not support this conversion; when using one of these, the HTML `&mdash;` entity should be used.
 
