@@ -65,7 +65,7 @@ The DDC Day theme has a predefined list of abbreviations. These can be used in a
 ```
 {% endraw %}
 
-The contents of this list can be viewed at <https://raw.githubusercontent.com/ddc-java/ddc-day/master/_includes/ddc-abbreviations.md>. If you want to override some of these abbreviations in a module you're writing, simply use the syntax above to define (or redefine) one or more of them in any pages where the modified definition is needed.
+The contents of this list can be viewed at <https://raw.githubusercontent.com/ddc-java/ddc-day/main/_includes/ddc-abbreviations.md>. If you want to override some of these abbreviations in a module you're writing, simply use the syntax above to define (or redefine) one or more of them in any pages where the modified definition is needed.
 
 ## Code fragments
 
