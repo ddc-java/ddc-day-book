@@ -23,12 +23,15 @@ Based on Leap Day by Matt Graham.
 @import "fonts";
 @import "rouge-base16-dark";
 
-$base-dark-color: #242626;
-$medium-dark-color: #4C4E4E;
+$deep-dive-yellow: #FFD200;
+$deep-dive-blue: #3897D3;
+$deep-dive-green: #82BC00;
+$deep-dive-gray: #D1D3D4;
+$base-dark-color: #242426;
+$medium-dark-color: #434345;
 $base-light-color: #F5F5F6;
 $code-highlight-color: #EDEDEE;
-$medium-light-color: #E1E2E1;
-$deep-dive-yellow: #FFD007;
+$medium-light-color: $deep-dive-gray;
 $success-color: #00C000;
 $failure-color: #C00000;
 
@@ -159,7 +162,7 @@ ul, ol, dl {
 }
 
 a {
-  color: #3399cc;
+  color: $deep-dive-blue;
   font-weight: 400;
   text-decoration: none;
   font-family: inherit;
@@ -167,7 +170,7 @@ a {
 
 a small {
   font-size: 11px;
-  color: #666;
+  color: $deep-dive-green;
   margin-top: -0.6em;
   display: block;
 }
