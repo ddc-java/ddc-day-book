@@ -23,12 +23,13 @@ Based on Leap Day by Matt Graham.
 @import "fonts";
 @import "rouge-base16-dark";
 
+$deep-dive-black: #434345;
 $deep-dive-yellow: #FFD200;
 $deep-dive-blue: #3897D3;
 $deep-dive-green: #82BC00;
 $deep-dive-gray: #D1D3D4;
-$base-dark-color: #242426;
-$medium-dark-color: #434345;
+$base-dark-color: $deep-dive-black;
+$medium-dark-color: $deep-dive-black;
 $base-light-color: #F5F5F6;
 $code-highlight-color: #EDEDEE;
 $medium-light-color: $deep-dive-gray;
