@@ -28,6 +28,7 @@ $deep-dive-yellow: #FFD200;
 $deep-dive-blue: #3897D3;
 $deep-dive-green: #82BC00;
 $deep-dive-gray: #D1D3D4;
+
 $extra-dark-color: #242426;
 $base-dark-color: $deep-dive-black;
 $medium-dark-color: $deep-dive-black;
@@ -35,11 +36,11 @@ $base-light-color: #F5F5F7;
 $code-highlight-color: $deep-dive-gray;
 $medium-light-color: $deep-dive-gray;
 $success-color: $deep-dive-green;
-$failure-color: #E74C3C;
+$failure-color: #D64541;
 
-$title-fonts: 'Roboto Slab', Rockwell, serif;
+$title-fonts: 'Roboto Slab', Aleo, Rockwell, serif;
 $heading-fonts: $title-fonts;
-$body-fonts: Roboto, Tahoma, sans-serif;
+$body-fonts: Roboto, Lato, 'Open Sans', 'Source Sans Pro', Tahoma, sans-serif;
 $code-fonts: 'Roboto Mono', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
 $navigator-fonts: $body-fonts;
 
@@ -172,7 +173,6 @@ a {
 
 a small {
   font-size: 11px;
-  color: $deep-dive-green;
   margin-top: -0.6em;
   display: block;
 }
