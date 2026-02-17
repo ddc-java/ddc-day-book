@@ -75,13 +75,13 @@ An introduction to recursion in Java, using two well-known problems:
 
 * Testing strings to determine whether they are palindromes.
 
-This is a curriculum module of the [Deep Dive Coding](https://deepdivecoding.com/) [Java + Android bootcamp](https://deepdivecoding.com/java-android/).
+This is a curriculum module of the [Deep Dive Coding](https://deepdivecoding.com/) [Java and Kotlin](https://deepdivecoding.com/java-android/) training programs.
 
 ## Credits & copyright
 
 This curriculum module was written by Nick Bennett, with Todd Nordquist and Rishita Hariyani.
 
-&copy; 2024 CNM Ingenuity, Inc. All rights reserved.
+&copy; 2026 CNM Ingenuity, Inc. All rights reserved.
 ```
 
 When viewing the repository in GitHub, this is displayed as
@@ -98,14 +98,14 @@ When viewing the repository in GitHub, this is displayed as
 > 
 > * Testing strings to determine whether they are palindromes.
 > 
-> This is a curriculum module of the [Deep Dive Coding](https://deepdivecoding.com/) [Java + Android bootcamp](https://deepdivecoding.com/java-android/).
+> This is a curriculum module of the [Deep Dive](https://deepdivecoding.com/) [Java and Kotlin](https://deepdivecoding.com/java-android/) training programs.
 > 
 > ## Credits & copyright
 > {:.no_toc}
 > 
 > This curriculum module was written by Nick Bennett, with Todd Nordquist and Rishita Hariyani.
 > 
-> &copy; 2024 CNM Ingenuity, Inc. All rights reserved.
+> &copy; 2026 CNM Ingenuity, Inc. All rights reserved.
 {:.render-example}
 
 ## License
