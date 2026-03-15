@@ -63,8 +63,214 @@ function buildCollapsibles() {
   });
 }
 
+function initCodeSwitchers() {
+  const storageKey = 'ddc-day-book-code-language';
+  const candidates = Array.from(document.querySelectorAll('[data-code-group]'));
+  const groups = collectCodeGroups(candidates);
+
+  groups.forEach((group, index) => {
+    if (group.blocks.length > 1) {
+      enhanceCodeGroup(group, index, storageKey);
+    }
+  });
+}
+
+function collectCodeGroups(candidates) {
+  const groups = [];
+  const consumed = new Set();
+
+  candidates.forEach((block) => {
+    if (consumed.has(block)) {
+      return;
+    }
+    const groupName = block.dataset.codeGroup?.trim();
+    if (!groupName) {
+      return;
+    }
+    const group = {
+      groupName: groupName,
+      parent: block.parentElement,
+      blocks: [block]
+    };
+    consumed.add(block);
+    let sibling = nextRelevantSibling(block);
+    while (sibling && sibling.dataset.codeGroup?.trim() === groupName &&
+        sibling.parentElement === group.parent) {
+      group.blocks.push(sibling);
+      consumed.add(sibling);
+      sibling = nextRelevantSibling(sibling);
+    }
+    groups.push(group);
+  });
+  return groups;
+}
+
+function nextRelevantSibling(element) {
+  let sibling = element.nextSibling;
+  while (sibling) {
+    if (sibling.nodeType === Node.TEXT_NODE && sibling.textContent.trim() === '') {
+      sibling = sibling.nextSibling;
+      continue;
+    }
+    if (sibling.nodeType === Node.COMMENT_NODE) {
+      sibling = sibling.nextSibling;
+      continue;
+    }
+    return sibling.nodeType === Node.ELEMENT_NODE ? sibling : null;
+  }
+  return null;
+}
+
+function enhanceCodeGroup(group, groupIndex, storageKey) {
+  const switcher = document.createElement('div');
+  const tabs = document.createElement('div');
+  const panels = [];
+  const buttons = [];
+
+  switcher.className = 'code-switcher';
+  switcher.dataset.codeGroup = group.groupName;
+  tabs.className = 'code-switcher__tabs';
+  tabs.setAttribute('role', 'tablist');
+  tabs.setAttribute('aria-label', 'Code examples');
+  switcher.appendChild(tabs);
+  group.blocks[0].before(switcher);
+
+  group.blocks.forEach((block, blockIndex) => {
+    const label = getCodeLabel(block, blockIndex);
+    const key = slugify(group.groupName + '-' + label + '-' + groupIndex + '-' + blockIndex);
+    const tabId = 'code-switcher-tab-' + key;
+    const panelId = 'code-switcher-panel-' + key;
+    const button = document.createElement('button');
+    const panel = document.createElement('div');
+
+    button.type = 'button';
+    button.className = 'code-switcher__tab';
+    button.id = tabId;
+    button.setAttribute('role', 'tab');
+    button.setAttribute('aria-controls', panelId);
+    button.dataset.codeLabel = label;
+    button.textContent = label;
+
+    panel.className = 'code-switcher__panel';
+    panel.id = panelId;
+    panel.setAttribute('role', 'tabpanel');
+    panel.setAttribute('aria-labelledby', tabId);
+
+    block.removeAttribute('data-code-group');
+    block.removeAttribute('data-code-label');
+    panel.appendChild(block);
+
+    button.addEventListener('click', () => activateCodeTab(label, buttons, panels, storageKey));
+    button.addEventListener('keydown',
+        (event) => handleCodeTabKeydown(event, label, buttons, panels, storageKey));
+
+    buttons.push({label: label, element: button});
+    panels.push({label: label, element: panel});
+    tabs.appendChild(button);
+    switcher.appendChild(panel);
+  });
+
+  activateCodeTab(selectInitialCodeLabel(buttons, storageKey), buttons, panels, storageKey);
+}
+
+function handleCodeTabKeydown(event, label, buttons, panels, storageKey) {
+  const currentIndex = buttons.findIndex((button) => button.label === label);
+  let nextIndex = currentIndex;
+
+  switch (event.key) {
+    case 'ArrowLeft':
+    case 'ArrowUp':
+      nextIndex = (currentIndex + buttons.length - 1) % buttons.length;
+      break;
+    case 'ArrowRight':
+    case 'ArrowDown':
+      nextIndex = (currentIndex + 1) % buttons.length;
+      break;
+    case 'Home':
+      nextIndex = 0;
+      break;
+    case 'End':
+      nextIndex = buttons.length - 1;
+      break;
+    default:
+      return;
+  }
+
+  event.preventDefault();
+  const nextLabel = buttons[nextIndex].label;
+  activateCodeTab(nextLabel, buttons, panels, storageKey);
+  buttons[nextIndex].element.focus();
+}
+
+function activateCodeTab(label, buttons, panels, storageKey) {
+  buttons.forEach((button) => {
+    const isSelected = button.label === label;
+    button.element.classList.toggle('is-active', isSelected);
+    button.element.setAttribute('aria-selected', String(isSelected));
+    button.element.tabIndex = isSelected ? 0 : -1;
+  });
+  panels.forEach((panel) => {
+    panel.element.hidden = panel.label !== label;
+  });
+  storeCodePreference(storageKey, label);
+}
+
+function selectInitialCodeLabel(buttons, storageKey) {
+  const storedLabel = loadCodePreference(storageKey);
+  if (storedLabel && buttons.some((button) => button.label === storedLabel)) {
+    return storedLabel;
+  }
+  return buttons[0].label;
+}
+
+function getCodeLabel(block, blockIndex) {
+  return block.dataset.codeLabel?.trim() ||
+      detectCodeLanguage(block) ||
+      'Option ' + (blockIndex + 1);
+}
+
+function detectCodeLanguage(block) {
+  const classNames = [
+    block.className,
+    block.querySelector('code')?.className ?? ''
+  ].join(' ');
+  const match = classNames.match(/language-([a-z0-9_-]+)/i);
+  return match ? normalizeLanguageName(match[1]) : '';
+}
+
+function normalizeLanguageName(languageName) {
+  return languageName
+      .split(/[-_]/)
+      .filter((part) => part.length > 0)
+      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+      .join(' ');
+}
+
+function slugify(value) {
+  return value
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+}
+
+function loadCodePreference(storageKey) {
+  try {
+    return window.localStorage.getItem(storageKey);
+  } catch (error) {
+    return null;
+  }
+}
+
+function storeCodePreference(storageKey, label) {
+  try {
+    window.localStorage.setItem(storageKey, label);
+  } catch (error) {
+  }
+}
+
 $(document).ready(function() {
   setNavClosedByDefault();
   buildCollapsibles();
+  initCodeSwitchers();
   addTargetToExternalLinks();
 });

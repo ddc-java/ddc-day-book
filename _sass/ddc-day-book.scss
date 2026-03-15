@@ -350,6 +350,60 @@ pre {
 
 }
 
+.code-switcher {
+
+  margin: 0 0 1em 0;
+  border: 1px solid $base-dark-color;
+  border-radius: 3px;
+  background-color: $base-dark-color;
+  overflow: hidden;
+
+  .code-switcher__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    background-color: mix($base-dark-color, $base-light-color, 85%);
+  }
+
+  .code-switcher__tab {
+    appearance: none;
+    margin: 0;
+    padding: 0.5em 0.9em;
+    border: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    background-color: transparent;
+    color: $base-light-color;
+    font-family: $body-fonts;
+    font-size: 0.95em;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+      background-color: rgba(255, 255, 255, 0.08);
+      outline: 0;
+    }
+
+    &.is-active {
+      background-color: $base-dark-color;
+      color: $deep-dive-yellow;
+      font-weight: 600;
+    }
+  }
+
+  .code-switcher__panel {
+    padding: 0;
+
+    > div,
+    > pre {
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+    }
+  }
+
+}
+
 .success {
 
   pre {
