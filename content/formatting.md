@@ -174,7 +174,22 @@ For example, this Markdown:
     ```
     {: data-code-group="minute-hand" data-code-label="Kotlin" }
 
-will be rendered as a tabbed code block with **Java** and **Kotlin** tabs. If JavaScript is unavailable, the code blocks will still be displayed in sequence.
+will be rendered as a tabbed code block with **Java** and **Kotlin** tabs:
+
+```java
+public static double minuteHandRadians(double minutes) {
+  return (15.0 - minutes) * Math.PI / 30.0;
+}
+```
+{: data-code-group="minute-hand" data-code-label="Java" }
+
+```kotlin
+fun minuteHandRadians(minutes: Double): Double =
+    (15.0 - minutes) * Math.PI / 30.0
+```
+{: data-code-group="minute-hand" data-code-label="Kotlin" }
+
+If JavaScript is unavailable, the code blocks will still be displayed in sequence.
 
 To ensure that the theme recognizes a multi-language group correctly:
 
