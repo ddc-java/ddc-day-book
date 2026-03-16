@@ -22,6 +22,8 @@ One general guideline, applicable to all of the rules that follow, is this:
 
 > If an identical (and desirable) formatting result can be produced with either Markdown or HTML, the former should be used. In other words, content should be written using Markdown when possible, mixed Markdown & HTML when necessary, and pure HTML as a last resort.
 
+This guideline also applies when presenting equivalent examples in multiple languages: prefer ordinary fenced code blocks with kramdown attribute lists, rather than writing custom HTML for tabs or toggles.
+
 ## Abbreviations
 
 All but the most widely known abbreviations (e.g., HTML) should be defined _on first use,_ with the definition in italics; this definition should only appear once in the module, unless the module includes a glossary. In addition, a Markdown abbreviation should be defined, in every page that uses the abbreviation, to associate the definition (as tooltip text) with the abbreviation. The abbreviation syntax supported by the kramdown parser is 
@@ -150,6 +152,35 @@ This is rendered as:
 > ```
 > {:.failure}
 {:.render-example}
+
+#### Multi-language code blocks
+
+When the same example should be shown in multiple programming languages, use consecutive fenced code blocks with kramdown block IALs that specify a shared `data-code-group` value and a visible `data-code-label`. The theme will automatically convert such groups into a tabbed code switcher.
+
+Do not write custom HTML wrappers, buttons, or radio inputs for this purpose.
+
+For example, this Markdown:
+
+    ```java
+    public static double minuteHandRadians(double minutes) {
+      return (15.0 - minutes) * Math.PI / 30.0;
+    }
+    ```
+    {: data-code-group="minute-hand" data-code-label="Java" }
+
+    ```kotlin
+    fun minuteHandRadians(minutes: Double): Double =
+        (15.0 - minutes) * Math.PI / 30.0
+    ```
+    {: data-code-group="minute-hand" data-code-label="Kotlin" }
+
+will be rendered as a tabbed code block with **Java** and **Kotlin** tabs. If JavaScript is unavailable, the code blocks will still be displayed in sequence.
+
+To ensure that the theme recognizes a multi-language group correctly:
+
+* All blocks in the group should be consecutive.
+* All blocks in the group should have the same `data-code-group` value.
+* Each block should have a `data-code-label` value appropriate for the displayed language or format.
 
 ## Blockquotes
 
