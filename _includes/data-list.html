@@ -16,7 +16,7 @@
         {{ item_prefix }}
         {%- if value.first -%}
           {{ content_prefix }}{{ key }}{{ content_suffix }}{%- include data-list.html hash_list=value -%}
-        {%- else -%}
+        {%- elsif value != blank -%}
           {{ content_prefix }}{{ key }}: {{ value | markdownify}}{{ content_suffix }}
         {%- endif -%}
         {{ item_suffix }}
