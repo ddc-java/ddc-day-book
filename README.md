@@ -6,8 +6,8 @@
 
 [Instructions &amp; usage guidelines](https://ddc-java.github.io/ddc-day-book/)
 
-## Credits & copyright
+## Credits and copyright
 
-This theme was written by [Nick Bennett](mailto:nick@nickbenn.com), based originally on [Leap Day](https://pages-themes.github.io/leap-day/) by [Matt Graham](https://twitter.com/mattgraham), significantly modified, and incorporating ideas from [Jason Grimes'](https://grimesit.com) [Jekyll Chapterbook](https://github.com/jasongrimes/jekyll-chapterbook).
+This theme was written by [Nick Bennett](mailto:nick@nickbenn.com), incorporating ideas and elements from [Leap Day](https://pages-themes.github.io/leap-day/) by [Matt Graham](https://twitter.com/mattgraham), and from [Jason Grimes'](https://grimesit.com) [Jekyll Chapterbook](https://github.com/jasongrimes/jekyll-chapterbook).
 
 &copy; 2026 CNM Ingenuity, Inc. All rights reserved.

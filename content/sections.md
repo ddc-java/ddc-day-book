@@ -25,7 +25,7 @@ The kramdown parser used by default in this theme supports the usual Markdown he
 
 ## Table of contents
 
-For pages with more than a handful of headings, or with a deeply-nested headline structure, a table of contents (TOC) for the page should be considered.
+For pages with more than a handful of headings or with a deeply nested headline structure, a table of contents (TOC) for the page should be considered.
 
 ### Inclusion
 
@@ -78,7 +78,7 @@ This section should appear no more than once in a module (even if there are mult
 
 #### Overview
 
-The key differences between this section and [Introduction](#introduction) is that the content in **Overview** should be re-presented (in more detail) later in the module, and an **Overview** section may appear on multiple pages (though no more than once per page) in a module, always at or near the top. Its purpose is to provide a high-level introduction to the content that will be covered by the rest of the page.
+The key differences between this section and [Introduction](#introduction) are that the content in **Overview** should be re-presented (in more detail) later in the module, and an **Overview** section may appear on multiple pages (though no more than once per page) in a module, always at or near the top. Its purpose is to provide a high-level introduction to the content that will be covered by the rest of the page.
 
 If a module needs **Introduction** and **Overview** sections, they should not appear on the same page. In that case, it is sometimes best to make the site default page (`index.md` or `README.md`) an introduction page; if such a page contains only an introduction section, then leave the section heading out.
 
@@ -100,17 +100,15 @@ For example, assume that `_config.yml` contains the following `assignment` prope
 
 ```text
 assignment:
-- Format: Java Gradle project
-- Value:
   - Basic goals:
-    - Pseudocode: 5
-    - Implementation: 10
-    - Tests: 5
+      - Pseudocode: 5
+      - Implementation: 10
+      - Tests: 5
   - Stretch goals:
-    - Implementation:
-      - Functionality: 10
-      - Efficiency: 10
-    - Tests: 5
+      - Implementation:
+        - Functionality: 10
+        - Efficiency: 10
+      - Tests: 5
 ```
 
 Further, assume the following script statement in a page of the site:

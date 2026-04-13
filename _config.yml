@@ -16,20 +16,18 @@ page_navigator: # Omit for default value (false) of page_navigator.enabled.
   enabled: true # Set this to false if an inter-page navigator is not wanted.
 
 prev_next_navigation:
-- bottom
+  - bottom
 
 google_analytics: # Tracking ID, e.g. "UA-000000-01"; ignore if Google Analytics not needed.
 
 # Example data hash list used in documentation
 assignment:
-- Format: "Java Gradle project"
-- Value:
   - Basic goals:
-    - Pseudocode: 5
-    - Implementation: 10
-    - Tests: 5
+      - Pseudocode: 5
+      - Implementation: 10
+      - Tests: 5
   - Stretch goals:
-    - Implementation:
-      - Functionality: 10
-      - Efficiency: 10
-    - Tests: 5
+      - Implementation:
+          - Functionality: 10
+          - Efficiency: 10
+      - Tests: 5
