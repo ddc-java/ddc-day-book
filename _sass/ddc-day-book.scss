@@ -1142,6 +1142,78 @@ footer {
   width: 16.67%;
 }
 
+// Unselectable text — applied to <section> via no_select in front matter or _config.yml
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+// Shared copy button — base style (absolute, hover-revealed) for tables and standalone code blocks
+.copy-btn {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  padding: 0.25rem 0.4rem;
+  background-color: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, background-color 0.1s ease;
+  z-index: 10;
+  line-height: 1;
+
+  .fa {
+    display: block;
+    font-size: 0.9rem;
+    color: $base-light-color;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-color: rgba(255, 255, 255, 0.45);
+  }
+
+  &.copied {
+    background-color: $success-color;
+    border-color: darken($success-color, 15%);
+
+    .fa { color: white; }
+  }
+}
+
+// Wrapper divs added by JS around copyable tables and standalone code blocks
+.copyable-table-wrapper,
+.copyable-code-wrapper {
+  position: relative;
+
+  &:hover .copy-btn,
+  &:focus-within .copy-btn {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+// Copy button in code-switcher tabs bar: override to be in-flow, always visible
+.code-switcher__tabs .copy-btn {
+  position: static;
+  margin-left: auto;
+  align-self: stretch;
+  opacity: 0.55;
+  pointer-events: auto;
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.15);
+  border-radius: 0;
+  top: unset;
+  right: unset;
+
+  &:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+}
 
 @media print, screen and (max-width: 1300px) {
 

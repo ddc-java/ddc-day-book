@@ -128,6 +128,9 @@ function enhanceCodeGroup(group, groupIndex, storageKey) {
   const buttons = [];
 
   switcher.className = 'code-switcher';
+  if (group.blocks.some((block) => block.classList.contains('copyable'))) {
+    switcher.classList.add('copyable');
+  }
   switcher.dataset.codeGroup = group.groupName;
   tabs.className = 'code-switcher__tabs';
   tabs.setAttribute('role', 'tablist');
@@ -253,6 +256,77 @@ function slugify(value) {
       .replace(/^-+|-+$/g, '');
 }
 
+function createCopyButton(label) {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'copy-btn';
+  btn.setAttribute('aria-label', label);
+  btn.innerHTML = '<i class="fa fa-copy" aria-hidden="true"></i>';
+  return btn;
+}
+
+function copyToClipboard(btn, text) {
+  navigator.clipboard.writeText(text).then(function() {
+    btn.classList.add('copied');
+    btn.querySelector('i').className = 'fa fa-check';
+    setTimeout(function() {
+      btn.classList.remove('copied');
+      btn.querySelector('i').className = 'fa fa-copy';
+    }, 1500);
+  });
+}
+
+function getTableAsTsv(table) {
+  return Array.from(table.querySelectorAll('tr')).map(function(row) {
+    return Array.from(row.querySelectorAll('th, td'))
+        .map(function(cell) { return cell.innerText.replace(/[\t\n]+/g, ' ').trim(); })
+        .join('\t');
+  }).join('\n');
+}
+
+function initCopyableTables() {
+  document.querySelectorAll('table.copyable').forEach(function(table) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'copyable-table-wrapper';
+    table.parentNode.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+    const btn = createCopyButton('Copy table as tab-separated values');
+    btn.addEventListener('click', function() {
+      copyToClipboard(btn, getTableAsTsv(table));
+    });
+    wrapper.appendChild(btn);
+  });
+}
+
+function initCopyableCodeBlocks() {
+  // Multi-language switchers: button goes in the tabs bar, always visible
+  document.querySelectorAll('.code-switcher.copyable').forEach(function(switcher) {
+    const tabs = switcher.querySelector('.code-switcher__tabs');
+    const btn = createCopyButton('Copy code');
+    btn.addEventListener('click', function() {
+      const activePanel = switcher.querySelector('.code-switcher__panel:not([hidden])');
+      const code = activePanel && activePanel.querySelector('code');
+      if (code) copyToClipboard(btn, code.innerText);
+    });
+    tabs.appendChild(btn);
+  });
+
+  // Standalone copyable code blocks: wrap and add floating button
+  document.querySelectorAll('div.copyable').forEach(function(block) {
+    if (block.closest('.code-switcher')) return;
+    const wrapper = document.createElement('div');
+    wrapper.className = 'copyable-code-wrapper';
+    block.parentNode.insertBefore(wrapper, block);
+    wrapper.appendChild(block);
+    const btn = createCopyButton('Copy code');
+    btn.addEventListener('click', function() {
+      const code = block.querySelector('code');
+      if (code) copyToClipboard(btn, code.innerText);
+    });
+    wrapper.appendChild(btn);
+  });
+}
+
 function loadCodePreference(storageKey) {
   try {
     return window.localStorage.getItem(storageKey);
@@ -273,4 +347,6 @@ $(document).ready(function() {
   buildCollapsibles();
   initCodeSwitchers();
   addTargetToExternalLinks();
+  initCopyableTables();
+  initCopyableCodeBlocks();
 });

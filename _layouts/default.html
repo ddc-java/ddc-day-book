@@ -138,7 +138,8 @@
         <span id="nav-default-closed-flag"/></span>
       {% endif %}
 
-      <section>
+      {%- assign no_select = page.no_select | default: site.no_select -%}
+      <section{% if no_select %} class="no-select"{% endif %}>
 
         {%- assign prev_next_navigation = page.prev_next_navigation | default: site.prev_next_navigation -%}
         {%- for pos in prev_next_navigation -%}
