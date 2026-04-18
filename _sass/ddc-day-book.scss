@@ -386,6 +386,7 @@ pre {
 
     &.is-active {
       background-color: mix($base-dark-color, $base-light-color, 7%);
+      border-bottom: none;
       color: $medium-dark-color;
       font-weight: 600;
     }
