@@ -392,17 +392,15 @@ pre {
   }
 
   .lang-switcher__panel {
+
     padding: 0;
 
-    > div,
-    > pre {
-      margin: 0;
-      border: 0;
-      border-radius: 0;
-    }
-
-    > pre {
-      background-color: $base-dark-color;
+    div.highlight {
+      > pre.highlight {
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+      }
     }
   }
 
