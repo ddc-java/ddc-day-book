@@ -355,15 +355,15 @@ pre {
   margin: 0 0 1em 0;
   border: 1px solid $base-dark-color;
   border-radius: 3px;
-  background-color: $base-dark-color;
+  background-color: mix($base-dark-color, $base-light-color, 15%);
   overflow: hidden;
 
   .lang-switcher__tabs {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-    background-color: mix($base-dark-color, $base-light-color, 85%);
+    border-bottom: 1px solid mix($base-dark-color, $base-light-color, 30%);
+    background-color: mix($base-dark-color, $base-light-color, 25%);
   }
 
   .lang-switcher__tab {
@@ -371,22 +371,22 @@ pre {
     margin: 0;
     padding: 0.5em 0.9em;
     border: 0;
-    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    border-right: 1px solid mix($base-dark-color, $base-light-color, 30%);
     background-color: transparent;
-    color: $base-light-color;
+    color: $base-dark-color;
     font-family: $body-fonts;
     font-size: 0.95em;
     cursor: pointer;
 
     &:hover,
     &:focus-visible {
-      background-color: rgba(255, 255, 255, 0.08);
+      background-color: mix($base-dark-color, $base-light-color, 10%);
       outline: 0;
     }
 
     &.is-active {
-      background-color: $base-dark-color;
-      color: $deep-dive-yellow;
+      background-color: mix($base-dark-color, $base-light-color, 15%);
+      color: $medium-dark-color;
       font-weight: 600;
     }
   }
@@ -399,6 +399,14 @@ pre {
       margin: 0;
       border: 0;
       border-radius: 0;
+    }
+
+    > div {
+      padding: 1em;
+    }
+
+    > pre {
+      background-color: $base-dark-color;
     }
   }
 
