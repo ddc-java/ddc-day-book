@@ -400,6 +400,10 @@ pre {
 
     padding: 0;
 
+    &:not(:has(> div.highlighter-rouge)) {
+      padding-top: 0.5em;
+    }
+
     div.highlight {
       > pre.highlight {
         margin: 0;
