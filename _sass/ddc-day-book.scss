@@ -350,7 +350,7 @@ pre {
 
 }
 
-.code-switcher {
+.lang-switcher {
 
   margin: 0 0 1em 0;
   border: 1px solid $base-dark-color;
@@ -358,7 +358,7 @@ pre {
   background-color: $base-dark-color;
   overflow: hidden;
 
-  .code-switcher__tabs {
+  .lang-switcher__tabs {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
@@ -366,7 +366,7 @@ pre {
     background-color: mix($base-dark-color, $base-light-color, 85%);
   }
 
-  .code-switcher__tab {
+  .lang-switcher__tab {
     appearance: none;
     margin: 0;
     padding: 0.5em 0.9em;
@@ -391,7 +391,7 @@ pre {
     }
   }
 
-  .code-switcher__panel {
+  .lang-switcher__panel {
     padding: 0;
 
     > div,
@@ -1195,8 +1195,8 @@ footer {
   }
 }
 
-// Copy button in code-switcher tabs bar: override to be in-flow, always visible
-.code-switcher__tabs .copy-btn {
+// Copy button in lang-switcher tabs bar: override to be in-flow, always visible
+.lang-switcher__tabs .copy-btn {
   position: static;
   margin-left: auto;
   align-self: stretch;
