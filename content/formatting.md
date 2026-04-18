@@ -253,7 +253,7 @@ To ensure that the theme recognizes a multi-language group correctly:
 
 ### Synchronized language selection
 
-If there are multiple, separate groups of block-level elements with `data-lang-group` specified in accompanying IALs on the same page, language selection will be synchronized across groups. For example, below the code blocks shown above, we might have these unordered lists:
+If there are multiple, separate groups of block-level elements with `data-lang-group` specified in accompanying IALs on the same page, language selection will be synchronized across groups. For example, on the same page as the code blocks shown above, we might have these unordered lists:
 
 ```markdown
 #### What to notice
