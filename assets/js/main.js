@@ -170,6 +170,9 @@ function enhanceLangGroup(group, groupIndex, storageKey) {
     panel.id = panelId;
     panel.setAttribute('role', 'tabpanel');
     panel.setAttribute('aria-labelledby', tabId);
+    if (block.classList.contains('highlighter-rouge')) {
+      panel.classList.add('lang-switcher__panel--code');
+    }
 
     block.removeAttribute('data-lang-group');
     block.removeAttribute('data-lang-label');
