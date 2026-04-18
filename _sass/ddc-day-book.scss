@@ -355,14 +355,14 @@ pre {
   margin: 0 0 1em 0;
   border: 1px solid $base-dark-color;
   border-radius: 3px;
-  background-color: mix($deep-dive-gray, $base-light-color, 25%);
+  background-color: mix($medium-light-color, $base-light-color, 25%);
   overflow: hidden;
 
   .lang-switcher__tabs {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
-    background-color: mix($deep-dive-gray, $base-light-color, 75%);
+    background-color: $medium-light-color;
   }
 
   .lang-switcher__tab {
