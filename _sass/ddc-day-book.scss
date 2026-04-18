@@ -362,8 +362,7 @@ pre {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
-    border-bottom: 1px solid mix($base-dark-color, $base-light-color, 30%);
-    background-color: mix($base-dark-color, $base-light-color, 25%);
+    background-color: mix($deep-dive-gray, $base-light-color, 75%);
   }
 
   .lang-switcher__tab {
@@ -371,7 +370,7 @@ pre {
     margin: 0;
     padding: 0.5em 0.9em;
     border: 0;
-    border-right: 1px solid mix($base-dark-color, $base-light-color, 30%);
+    border-right: 1px solid $deep-dive-gray;
     background-color: transparent;
     color: $base-dark-color;
     font-family: $body-fonts;
@@ -399,8 +398,6 @@ pre {
     div.highlight {
       > pre.highlight {
         margin: 0;
-        border: 0;
-        border-radius: 0;
       }
     }
   }
