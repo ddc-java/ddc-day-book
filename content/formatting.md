@@ -197,6 +197,34 @@ To ensure that the theme recognizes a multi-language group correctly:
 * All blocks in the group should have the same `data-lang-group` value.
 * Each block should have a `data-lang-label` value appropriate for the displayed language or format (or omitting it should correctly detect it).
 
+If there are multiple, separate groups of block-level elements with `data-lang-group` specified in accompanying IALs on the same page, language selection will be synchronized across elements. For example, below the code blocks shown above, we might have these unordered lists:
+
+```markdown
+##### What to notice
+{:.no_toc}
+
+- In method, field, and variable declarations in Java, the _type_ **always** comes before the _name_.
+- Every class, interface, and method must have its implementation body enclosed in braces.
+{: data-lang-group="syntax" data-lang-label="Java" }
+
+- In method, field, and variable declarations in Kotlin, the _type_ **follows** the _name_, separated from it by the colon character (`-`).
+- If the return value of a Kotlin function can be expressed in a single statement, the function body can be written without braces, and with an equal sign between the declaration and the body statement.
+{: data-lang-group="syntax" data-lang-label="Kotlin" }
+```
+
+This will be rendered as:
+
+##### What to notice
+{:.no_toc}
+
+- In method, field, and variable declarations in Java, the _type_ **always** comes before the _name_.
+- Every class, interface, and method must have its implementation body enclosed in braces.
+{: data-lang-group="syntax" data-lang-label="Java" }
+
+- In method, field, and variable declarations in Kotlin, the _type_ **follows** the _name_, separated from it by the colon character (`-`).
+- If the return value of a Kotlin function can be expressed in a single statement, the function body can be written without braces, and with an equal sign between the declaration and the body statement.
+{: data-lang-group="syntax" data-lang-label="Kotlin" }
+
 ## Blockquotes
 
 ### General
