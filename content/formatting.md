@@ -176,18 +176,19 @@ For example, this Markdown:
 
 will be rendered as a tabbed code block with **Java** and **Kotlin** tabs:
 
-```java
-public static double minuteHandRadians(double minutes) {
-  return (15.0 - minutes) * Math.PI / 30.0;
-}
-```
-{: data-lang-group="minute-hand" data-lang-label="Java" }
-
-```kotlin
-fun minuteHandRadians(minutes: Double): Double =
-    (15.0 - minutes) * Math.PI / 30.0
-```
-{: data-lang-group="minute-hand" data-lang-label="Kotlin" }
+> ```java
+> public static double minuteHandRadians(double minutes) {
+>   return (15.0 - minutes) * Math.PI / 30.0;
+> }
+> ```
+> {: data-lang-group="minute-hand" data-lang-label="Java" }
+> 
+> ```kotlin
+> fun minuteHandRadians(minutes: Double): Double =
+>     (15.0 - minutes) * Math.PI / 30.0
+> ```
+> {: data-lang-group="minute-hand" data-lang-label="Kotlin" }
+{:.render-example}
 
 If JavaScript is unavailable, the blocks will still be displayed in sequence.
 
@@ -205,13 +206,15 @@ If there are multiple, separate groups of block-level elements with `data-lang-g
 ##### What to notice
 {:.no_toc}
 
-- In method, field, and variable declarations in Java, the _type_ **always** comes before the _name_.
-- Every class, interface, and method must have its implementation body enclosed in braces.
 {: data-lang-group="syntax" data-lang-label="Java" }
+- In method, field, and variable declarations in Java, the _type_ **always** comes before the _name_.
 
-- In method, field, and variable declarations in Kotlin, the _type_ **follows** the _name_, separated from it by the colon character (`-`).
-- If the return value of a Kotlin function can be expressed in a single statement, the function body can be written without braces, and with an equal sign between the declaration and the body statement.
+- Every class, interface, and method must have its implementation body enclosed in braces.
+
 {: data-lang-group="syntax" data-lang-label="Kotlin" }
+- In method, field, and variable declarations in Kotlin, the _type_ **follows** the _name_, separated from it by the colon character (`-`).
+
+- If the return value of a Kotlin function can be expressed in a single statement, the function body can be written without braces, and with an equal sign between the declaration and the body statement.
 ```
 
 This will be rendered as:
