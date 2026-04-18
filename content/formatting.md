@@ -155,7 +155,7 @@ This is rendered as:
 
 #### Multi-language content blocks
 
-When the same example or instructions should be shown in multiple programming languages, use consecutive blocks with kramdown block IALs that specify a shared `data-lang-group` value and a visible `data-lang-label` (if omitting it would not result in the desired label, e.g., if language cannot be detected). The theme will automatically convert such groups into a tabbed language switcher.
+When the same example or instructions should be shown in multiple programming languages, use consecutive blocks with kramdown block IALs that specify a shared `data-lang-group` value and a visible `data-lang-label`. The theme will automatically convert such groups into a tabbed language switcher.
 
 Do not write custom HTML wrappers, buttons, or radio inputs for this purpose.
 
@@ -193,11 +193,13 @@ If JavaScript is unavailable, the blocks will still be displayed in sequence.
 
 To ensure that the theme recognizes a multi-language group correctly:
 
-* All blocks in the group should be consecutive.
-* All blocks in the group should have the same `data-lang-group` value.
-* Each block should have a `data-lang-label` value appropriate for the displayed language or format (or omitting it should correctly detect it).
+* All blocks in the group must be consecutive.
 
-If there are multiple, separate groups of block-level elements with `data-lang-group` specified in accompanying IALs on the same page, language selection will be synchronized across elements. For example, below the code blocks shown above, we might have these unordered lists:
+* All blocks in the group must have the same `data-lang-group` value.
+
+* Each block must have a `data-lang-label` value appropriate for the displayed language or format.
+
+If there are multiple, separate groups of block-level elements with `data-lang-group` specified in accompanying IALs on the same page, language selection will be synchronized across groups. For example, below the code blocks shown above, we might have these unordered lists:
 
 ```markdown
 ##### What to notice
@@ -226,6 +228,8 @@ This will be rendered as:
 - In method, field, and variable declarations in Kotlin, the _type_ **follows** the _name_, separated from it by the colon character (`:`).
 
 - If the return value of a Kotlin function can be expressed in a single statement, the function body can be written without braces, and with an equal sign (`=`) between the declaration and the body statement.
+
+Notice that changing the language on either the tabbed code block or the tabbed "What to notice" block automatically changes the language on the other. 
 
 ## Blockquotes
 
