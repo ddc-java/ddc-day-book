@@ -370,8 +370,8 @@ pre {
     margin: 0;
     padding: 0.5em 0.9em;
     border: 0;
-    border-right: 1px solid mix($base-dark-color, $deep-dive-gray, 50%);
-    border-left: 1px mix($base-dark-color, $deep-dive-gray, 50%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     background-color: transparent;
     color: $base-dark-color;
     font-family: $body-fonts;
@@ -380,15 +380,17 @@ pre {
 
     &:hover,
     &:focus-visible {
+      border-right: 1px solid mix($base-dark-color, $deep-dive-gray, 50%);
+      border-left: 1px mix($base-dark-color, $deep-dive-gray, 50%);
       background-color: $deep-dive-gray;
+      font-weight: 700;
       outline: 0;
     }
 
     &.is-active {
       background-color: mix($deep-dive-gray, $base-light-color, 25%);
-      border-bottom: none;
       color: $medium-dark-color;
-      font-weight: 600;
+      font-weight: 700;
     }
   }
 
