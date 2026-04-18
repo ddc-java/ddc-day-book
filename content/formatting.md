@@ -157,88 +157,6 @@ This is rendered as:
 
 Even if `no_select` has been set to `true` in the site or the page, thus preventing selection of text in general, it may be desirable to allow selection of text in a code block. This can be done by specifying the `copyable` CSS class for a code block; for this, use a kramdown IAL such as `{: .copyable }`.
 
-#### Multi-language content blocks
-
-When the same example or instructions should be shown in multiple programming languages, use consecutive blocks with kramdown block IALs that specify a shared `data-lang-group` value and a visible `data-lang-label`. The theme will automatically convert such groups into a tabbed language switcher.
-
-Do not write custom HTML wrappers, buttons, or radio inputs for this purpose.
-
-For example, this Markdown:
-
-    ```java
-    public static double minuteHandRadians(double minutes) {
-      return (15.0 - minutes) * Math.PI / 30.0;
-    }
-    ```
-    {: data-lang-group="minute-hand" data-lang-label="Java" }
-
-    ```kotlin
-    fun minuteHandRadians(minutes: Double): Double =
-        (15.0 - minutes) * Math.PI / 30.0
-    ```
-    {: data-lang-group="minute-hand" data-lang-label="Kotlin" }
-
-will be rendered as a tabbed code block with **Java** and **Kotlin** tabs:
-
-> ```java
-> public static double minuteHandRadians(double minutes) {
->   return (15.0 - minutes) * Math.PI / 30.0;
-> }
-> ```
-> {: data-lang-group="minute-hand" data-lang-label="Java" }
-> 
-> ```kotlin
-> fun minuteHandRadians(minutes: Double): Double =
->     (15.0 - minutes) * Math.PI / 30.0
-> ```
-> {: data-lang-group="minute-hand" data-lang-label="Kotlin" }
-{: .render-example }
-
-If JavaScript is unavailable, the blocks will still be displayed in sequence.
-
-To ensure that the theme recognizes a multi-language group correctly:
-
-* All blocks in the group must be consecutive.
-
-* All blocks in the group must have the same `data-lang-group` value.
-
-* Each block must have a `data-lang-label` value appropriate for the displayed language or format.
-
-If there are multiple, separate groups of block-level elements with `data-lang-group` specified in accompanying IALs on the same page, language selection will be synchronized across groups. For example, below the code blocks shown above, we might have these unordered lists:
-
-```markdown
-##### What to notice
-{:.no_toc}
-
-{: data-lang-group="syntax" data-lang-label="Java" }
-- In method, field, and variable declarations in Java, the _type_ **always** comes before the _name_.
-
-- Every class, interface, and method must have its implementation body enclosed in braces.
-
-{: data-lang-group="syntax" data-lang-label="Kotlin" }
-- In method, field, and variable declarations in Kotlin, the _type_ **follows** the _name_, separated from it by the colon character (`-`).
-
-- If the return value of a Kotlin function can be expressed in a single statement, the function body can be written without braces, and with an equal sign between the declaration and the body statement.
-```
-
-This will be rendered as:
-
-> ##### What to notice
-> {:.no_toc}
-> 
-> {: data-lang-group="syntax" data-lang-label="Java" }
-> - In method, field, and variable declarations in Java, the _type_ **always** comes before the _name_.
-> 
-> - Every `class`, `interface`, and method must have its implementation body enclosed in braces.
-> 
-> {: data-lang-group="syntax" data-lang-label="Kotlin" }
-> - In method, field, and variable declarations in Kotlin, the _type_ **follows** the _name_, separated from it by the colon character (`:`).
-> 
-> - If the return value of a Kotlin function can be expressed in a single statement, the function body can be written without braces, and with an equal sign (`=`) between the declaration and the body statement.
-{: .render-example }
-
-Notice that changing the language on either the tabbed code block or the tabbed "What to notice" block automatically changes the language on the other. 
-
 ## Blockquotes
 
 ### General
@@ -283,6 +201,92 @@ This will be rendered as:
 Did you spot the difference between the rendering of the [first](#first-blockquote) and [second](#second-blockquote) blockquote?
 
 If we were using the George Box quote in a module about computational modeling, we'd probably use the [first form](#first-blockquote); here, since we're using it to illustrate the use of blockquotes in module content, it would be more appropriate to use the [second form](#second-blockquote) when displaying the rendered output that results from our Markdown.
+
+## Multi-language content blocks
+
+### Basics
+
+When the same example or instructions should be shown in multiple programming languages, use consecutive blocks with kramdown block IALs that specify a shared `data-lang-group` value and a visible `data-lang-label`. The theme will automatically convert such groups into a tabbed language switcher.
+
+Do not write custom HTML wrappers, buttons, or radio inputs for this purpose.
+
+For example, this Markdown:
+
+    ```java
+    public static double minuteHandRadians(double minutes) {
+      return (15.0 - minutes) * Math.PI / 30.0;
+    }
+    ```
+    {: data-lang-group="minute-hand" data-lang-label="Java" }
+
+    ```kotlin
+    fun minuteHandRadians(minutes: Double): Double =
+        (15.0 - minutes) * Math.PI / 30.0
+    ```
+    {: data-lang-group="minute-hand" data-lang-label="Kotlin" }
+
+will be rendered as a tabbed code block with **Java** and **Kotlin** tabs:
+
+> ```java
+> public static double minuteHandRadians(double minutes) {
+>   return (15.0 - minutes) * Math.PI / 30.0;
+> }
+> ```
+> {: data-lang-group="minute-hand" data-lang-label="Java" }
+>
+> ```kotlin
+> fun minuteHandRadians(minutes: Double): Double =
+>     (15.0 - minutes) * Math.PI / 30.0
+> ```
+> {: data-lang-group="minute-hand" data-lang-label="Kotlin" }
+{: .render-example }
+
+If JavaScript is unavailable, the blocks will still be displayed in sequence.
+
+To ensure that the theme recognizes a multi-language group correctly:
+
+* All blocks in the group must be consecutive.
+
+* All blocks in the group must have the same `data-lang-group` value.
+
+* Each block must have a `data-lang-label` value appropriate for the displayed language or format.
+
+### Synchronized language selection
+
+If there are multiple, separate groups of block-level elements with `data-lang-group` specified in accompanying IALs on the same page, language selection will be synchronized across groups. For example, below the code blocks shown above, we might have these unordered lists:
+
+```markdown
+#### What to notice
+{:.no_toc}
+
+{: data-lang-group="syntax" data-lang-label="Java" }
+- In method, field, and variable declarations in Java, the _type_ **always** comes before the _name_.
+
+- Every class, interface, and method must have its implementation body enclosed in braces.
+
+{: data-lang-group="syntax" data-lang-label="Kotlin" }
+- In method, field, and variable declarations in Kotlin, the _type_ **follows** the _name_, separated from it by the colon character (`-`).
+
+- If the return value of a Kotlin function can be expressed in a single statement, the function body can be written without braces, and with an equal sign between the declaration and the body statement.
+```
+
+This will be rendered as:
+
+> #### What to notice
+> {:.no_toc}
+>
+> {: data-lang-group="syntax" data-lang-label="Java" }
+> - In method, field, and variable declarations in Java, the _type_ **always** comes before the _name_.
+>
+> - Every `class`, `interface`, and method must have its implementation body enclosed in braces.
+>
+> {: data-lang-group="syntax" data-lang-label="Kotlin" }
+> - In method, field, and variable declarations in Kotlin, the _type_ **follows** the _name_, separated from it by the colon character (`:`).
+>
+> - If the return value of a Kotlin function can be expressed in a single statement, the function body can be written without braces, and with an equal sign (`=`) between the declaration and the body statement.
+    {: .render-example }
+
+Notice that changing the language on either the tabbed code block or the tabbed "What to notice" block automatically changes the language on the other.
 
 ## Footnotes
 
