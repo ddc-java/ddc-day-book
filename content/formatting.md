@@ -265,7 +265,7 @@ If there are multiple, separate groups of block-level elements with `data-lang-g
 - Every class, interface, and method must have its implementation body enclosed in braces.
 
 {: data-lang-group="syntax" data-lang-label="Kotlin" }
-- In method, field, and variable declarations in Kotlin, the _type_ **follows** the _name_, separated from it by the colon character (`-`).
+- In function, property, and variable declarations in Kotlin, the _type_ **follows** the _name_, separated from it by the colon character (`-`).
 
 - If the return value of a Kotlin function can be expressed in a single statement, the function body can be written without braces, and with an equal sign between the declaration and the body statement.
 ```
@@ -281,7 +281,7 @@ This will be rendered as:
 > - Every `class`, `interface`, and method must have its implementation body enclosed in braces.
 >
 > {: data-lang-group="syntax" data-lang-label="Kotlin" }
-> - In method, field, and variable declarations in Kotlin, the _type_ **follows** the _name_, separated from it by the colon character (`:`).
+> - In function, property, and variable declarations in Kotlin, the _type_ **follows** the _name_, separated from it by the colon character (`:`).
 >
 > - If the return value of a Kotlin function can be expressed in a single statement, the function body can be written without braces, and with an equal sign (`=`) between the declaration and the body statement.
     {: .render-example }
