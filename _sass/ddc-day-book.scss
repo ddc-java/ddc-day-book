@@ -380,15 +380,17 @@ pre {
 
     &:hover,
     &:focus-visible {
-      border-right: 1px solid mix($base-dark-color, $deep-dive-gray, 50%);
-      border-left: 1px mix($base-dark-color, $deep-dive-gray, 50%);
-      background-color: $deep-dive-gray;
+      border-right: 1px solid mix($base-dark-color, $medium-light-color, 50%);
+      border-left: 1px mix($base-dark-color, $medium-light-color, 50%);
+      background-color: $medium-light-color;
       font-weight: 700;
       outline: 0;
     }
 
     &.is-active {
-      background-color: mix($deep-dive-gray, $base-light-color, 25%);
+      border-right: 1px solid mix($base-dark-color, $medium-light-color, 50%);
+      border-left: 1px mix($base-dark-color, $medium-light-color, 50%);
+      background-color: mix($medium-light-color, $base-light-color, 25%);
       color: $medium-dark-color;
       font-weight: 700;
     }

@@ -153,6 +153,10 @@ This is rendered as:
 > {:.failure}
 {:.render-example}
 
+#### Selection
+
+Even if `no_select` has been set to `true` in the site or the page, thus preventing selection of text in general, it may be desirable to allow selection of text in a code block. This can be done by specifying the `copyable` CSS class for a code block; for this, use a kramdown IAL such as `{: .copyable }`.
+
 #### Multi-language content blocks
 
 When the same example or instructions should be shown in multiple programming languages, use consecutive blocks with kramdown block IALs that specify a shared `data-lang-group` value and a visible `data-lang-label`. The theme will automatically convert such groups into a tabbed language switcher.
@@ -535,7 +539,7 @@ Steps in an algorithm or computational process should be specified as _pseudocod
 
 Test cases should be written using tables, with clear and concise column headers indicating inputs, expected outputs, and expected exceptions. The guidelines for [code fragments](#code-fragments) apply here: input and output values should be formatted as Java expressions, using inline code.
 
-Inline code Markdown tables are easy to write, and usually work well for this purpose. However, if a table cell needs to contain a block element, that's not directly supported in Markdown; HTML may be required, or a combination of Markdown, HTML, and kramdown options.
+Inline code Markdown tables are straightforward to write and usually work well for this purpose. However, if a table cell needs to contain a block element, that's not directly supported in Markdown; HTML may be required, or a combination of Markdown, HTML, and kramdown options.
 
 ### Example
 
@@ -559,6 +563,10 @@ The above Markdown is rendered as
 > | `12` | `30` | `1.3089969389957474` | `4.71238898038469` |
 > | `19` | `42` | `3.822271061867582` | `3.4557519189487724` |
 {:.render-example}
+
+### Selection
+
+Even if `no_select` has been set to `true` in the site or the page, thus preventing selection of text in general, it may be desirable to allow selection of text in tables---especially when a table contains test cases. This can be done by specifying the `copyable` CSS class for the table; for this, use a kramdown IAL such as `{: .copyable }`.
 
 ## UI controls
 

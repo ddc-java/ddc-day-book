@@ -25,7 +25,7 @@ Repositories used for curriculum GitHub Pages sites follow one primary structure
             * *{Subdirectories and files for repository-specific graphic assets, attachments, etc.}*
         * `api/` (Include only if needed.)
             * *{Subdirectories and files for generated Javadoc documentation.}*
-        * `_config.yml`
+        * `_config.yaml`
         * `index.md`
         * *{Additional Markdown or HTML files, as needed}*
     * `README.md` (Not used in GitHub Pages website, but displayed in GitHub repository view.)
@@ -40,7 +40,7 @@ If a repository does not contain any Java code, but only the instructional conte
 * `/` (repository root)
     * `assets/` (Include only if needed.)
         * *{Subdirectories and files for repository-specific graphic assets, attachments, etc.}*
-    * `_config.yml`
+    * `_config.yaml`
     * `index.md`
     * `README.md` (Not used as default page in GitHub Pages website, but displayed in GitHub repository view.)
     * *{Additional Markdown or HTML files, as needed}*

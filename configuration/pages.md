@@ -55,6 +55,10 @@ Page-level configuration is done in the front matter (a YAML block preceding the
 
 : In general, this property should be set in every page.
 
+`no_select`
+
+: This is a Boolean-valued property that, when set to `true`, makes text in the main page content unselectable. If not set, this defaults to the value of `site.no_select`, if present, or `false` otherwise.
+
 Additional properties may be defined in the front matter, and referenced (with the `page.` prefix) from Liquid expressions in the page.
 
 ### Example
