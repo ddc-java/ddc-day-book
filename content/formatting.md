@@ -153,9 +153,9 @@ This is rendered as:
 > {:.failure}
 {:.render-example}
 
-#### Multi-language code blocks
+#### Multi-language content blocks
 
-When the same example should be shown in multiple programming languages, use consecutive fenced code blocks with kramdown block IALs that specify a shared `data-code-group` value and a visible `data-code-label`. The theme will automatically convert such groups into a tabbed code switcher.
+When the same example or instructions should be shown in multiple programming languages, use consecutive blocks with kramdown block IALs that specify a shared `data-lang-group` value and a visible `data-lang-label` (if omitting it would not result in the desired label, e.g., if language cannot be detected). The theme will automatically convert such groups into a tabbed language switcher.
 
 Do not write custom HTML wrappers, buttons, or radio inputs for this purpose.
 
@@ -166,13 +166,13 @@ For example, this Markdown:
       return (15.0 - minutes) * Math.PI / 30.0;
     }
     ```
-    {: data-code-group="minute-hand" data-code-label="Java" }
+    {: data-lang-group="minute-hand" data-lang-label="Java" }
 
     ```kotlin
     fun minuteHandRadians(minutes: Double): Double =
         (15.0 - minutes) * Math.PI / 30.0
     ```
-    {: data-code-group="minute-hand" data-code-label="Kotlin" }
+    {: data-lang-group="minute-hand" data-lang-label="Kotlin" }
 
 will be rendered as a tabbed code block with **Java** and **Kotlin** tabs:
 
@@ -181,21 +181,21 @@ public static double minuteHandRadians(double minutes) {
   return (15.0 - minutes) * Math.PI / 30.0;
 }
 ```
-{: data-code-group="minute-hand" data-code-label="Java" }
+{: data-lang-group="minute-hand" data-lang-label="Java" }
 
 ```kotlin
 fun minuteHandRadians(minutes: Double): Double =
     (15.0 - minutes) * Math.PI / 30.0
 ```
-{: data-code-group="minute-hand" data-code-label="Kotlin" }
+{: data-lang-group="minute-hand" data-lang-label="Kotlin" }
 
-If JavaScript is unavailable, the code blocks will still be displayed in sequence.
+If JavaScript is unavailable, the blocks will still be displayed in sequence.
 
 To ensure that the theme recognizes a multi-language group correctly:
 
 * All blocks in the group should be consecutive.
-* All blocks in the group should have the same `data-code-group` value.
-* Each block should have a `data-code-label` value appropriate for the displayed language or format.
+* All blocks in the group should have the same `data-lang-group` value.
+* Each block should have a `data-lang-label` value appropriate for the displayed language or format (or omitting it should correctly detect it).
 
 ## Blockquotes
 
