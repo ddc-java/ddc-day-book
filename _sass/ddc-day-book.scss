@@ -355,7 +355,7 @@ pre {
   margin: 0 0 1em 0;
   border: 1px solid $base-dark-color;
   border-radius: 3px;
-  background-color: mix($base-dark-color, $base-light-color, 7%);
+  background-color: mix($deep-dive-gray, $base-light-color, 25%);
   overflow: hidden;
 
   .lang-switcher__tabs {
@@ -370,7 +370,8 @@ pre {
     margin: 0;
     padding: 0.5em 0.9em;
     border: 0;
-    border-right: 1px solid $deep-dive-gray;
+    border-right: 1px solid mix($base-dark-color, $deep-dive-gray, 50%);
+    border-left: 1px mix($base-dark-color, $deep-dive-gray, 50%);
     background-color: transparent;
     color: $base-dark-color;
     font-family: $body-fonts;
@@ -379,12 +380,12 @@ pre {
 
     &:hover,
     &:focus-visible {
-      background-color: mix($base-dark-color, $base-light-color, 15%);
+      background-color: $deep-dive-gray;
       outline: 0;
     }
 
     &.is-active {
-      background-color: mix($base-dark-color, $base-light-color, 7%);
+      background-color: mix($deep-dive-gray, $base-light-color, 25%);
       border-bottom: none;
       color: $medium-dark-color;
       font-weight: 600;
