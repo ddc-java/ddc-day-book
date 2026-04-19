@@ -14,12 +14,7 @@
 name: "Build and deploy GitHub Pages site w/o Javadocs"
 
 on:
-
   push:
-    branches:
-    - main
-    - docs
-
   workflow_dispatch:
 
 permissions:

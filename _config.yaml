@@ -4,7 +4,7 @@ description: "Theme for Deep Dive Coding Java + Android Bootcamp curricular cont
 author: # Author information displayed/linked in the footer, alongside DDC link.
   name: Nick Bennett
   email: nick@nickbenn.com # Omit or leave blank if an e-mail link is not desired.
-version: 22.5.0
+version: 23.0.0
 
 icon: # Set a value to override the Deep Dive Coding dive helmet logo.
 favicon: # Set a value to override the Deep Dive Coding dive helmet logo
