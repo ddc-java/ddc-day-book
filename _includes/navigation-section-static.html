@@ -24,7 +24,7 @@
           {%- capture content_path %}{{ include.parent_dir_path | default: page.dir }}{{ p.content_dir }}/{% endcapture -%}
           
           <li>{{ item_text }}
-            {%- include navigation-section.html parent_dir_path=content_path -%}
+            {%- include navigation-section-static.html parent_dir_path=content_path -%}
           </li>
 
         {%- endunless -%}
