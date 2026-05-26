@@ -70,7 +70,7 @@ function initLangSwitchers() {
   const allButtons = [];
 
   groups.forEach((group, index) => {
-    if (group.blocks.length > 1) {
+    if (group.panels.length > 1) {
       const { buttons } = enhanceLangGroup(group, index, storageKey);
       allButtons.push(...buttons);
     }
@@ -102,16 +102,26 @@ function collectLangGroups(candidates) {
     const group = {
       groupName: groupName,
       parent: block.parentElement,
-      blocks: [block]
+      panels: []
     };
     consumed.add(block);
+    let currentLabel = getLang(block, 0);
+    let currentBlocks = [block];
     let sibling = nextRelevantSibling(block);
     while (sibling && sibling.dataset.langGroup?.trim() === groupName &&
         sibling.parentElement === group.parent) {
-      group.blocks.push(sibling);
+      const sibLabel = getLang(sibling, group.panels.length);
       consumed.add(sibling);
+      if (sibLabel === currentLabel) {
+        currentBlocks.push(sibling);
+      } else {
+        group.panels.push({ label: currentLabel, blocks: currentBlocks });
+        currentLabel = sibLabel;
+        currentBlocks = [sibling];
+      }
       sibling = nextRelevantSibling(sibling);
     }
+    group.panels.push({ label: currentLabel, blocks: currentBlocks });
     groups.push(group);
   });
   return groups;
@@ -140,7 +150,7 @@ function enhanceLangGroup(group, groupIndex, storageKey) {
   const buttons = [];
 
   switcher.className = 'lang-switcher';
-  if (group.blocks.some((block) => block.classList.contains('copyable'))) {
+  if (group.panels.some((panelData) => panelData.blocks.some((block) => block.classList.contains('copyable')))) {
     switcher.classList.add('copyable');
   }
   switcher.dataset.langGroup = group.groupName;
@@ -148,11 +158,11 @@ function enhanceLangGroup(group, groupIndex, storageKey) {
   tabs.setAttribute('role', 'tablist');
   tabs.setAttribute('aria-label', 'Language examples');
   switcher.appendChild(tabs);
-  group.blocks[0].before(switcher);
+  group.panels[0].blocks[0].before(switcher);
 
-  group.blocks.forEach((block, blockIndex) => {
-    const lang = getLang(block, blockIndex);
-    const key = slugify(group.groupName + '-' + lang + '-' + groupIndex + '-' + blockIndex);
+  group.panels.forEach((panelData, panelIndex) => {
+    const lang = panelData.label;
+    const key = slugify(group.groupName + '-' + lang + '-' + groupIndex + '-' + panelIndex);
     const tabId = 'lang-switcher-tab-' + key;
     const panelId = 'lang-switcher-panel-' + key;
     const button = document.createElement('button');
@@ -170,13 +180,15 @@ function enhanceLangGroup(group, groupIndex, storageKey) {
     panel.id = panelId;
     panel.setAttribute('role', 'tabpanel');
     panel.setAttribute('aria-labelledby', tabId);
-    if (block.classList.contains('highlighter-rouge')) {
+    if (panelData.blocks.length === 1 && panelData.blocks[0].classList.contains('highlighter-rouge')) {
       panel.classList.add('lang-switcher__panel--code');
     }
 
-    block.removeAttribute('data-lang-group');
-    block.removeAttribute('data-lang-label');
-    panel.appendChild(block);
+    panelData.blocks.forEach((block) => {
+      block.removeAttribute('data-lang-group');
+      block.removeAttribute('data-lang-label');
+      panel.appendChild(block);
+    });
 
     button.addEventListener('click', () => {
       storeLangPreference(storageKey, lang);
