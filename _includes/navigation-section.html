@@ -34,8 +34,20 @@
         {%- assign dest_url = p.url | relative_url -%}
         
         <li>
-          {%- if p.href -%}
-            <a href="{{ p.href }}" class="external">{{ item_text }}</a>
+          {%- if p.href_site_path or p.href -%}
+            {%- if p.href_site_path -%}
+              {%- assign _parts = p.href_site_path | split: "." -%}
+              {%- assign _dest = site -%}
+              {%- for _part in _parts -%}
+                {%- assign _dest = _dest[_part] -%}
+              {%- endfor -%}
+              {%- if p.href_suffix -%}{%- assign _dest = _dest | append: p.href_suffix -%}{%- endif -%}
+            {%- elsif p.href contains "://" -%}
+              {%- assign _dest = p.href -%}
+            {%- else -%}
+              {%- assign _dest = p.href | relative_url -%}
+            {%- endif -%}
+            <a href="{{ _dest }}" class="external">{{ item_text }}</a>
           {%- elsif dest_url == current_url -%}
             <strong>{{ item_text }}</strong>
           {%- else -%}
