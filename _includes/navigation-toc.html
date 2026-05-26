@@ -13,7 +13,9 @@
   <ul>
 
     {%- for p in pages_in_section -%}
-    
+
+      {%- if p.divider_above %}<li class="toc-divider" role="separator"></li>{%- endif -%}
+
       {%- if p.content_dir -%}
       
         {%- unless p.content_dir contains "/" -%}
