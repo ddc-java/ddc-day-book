@@ -23,6 +23,10 @@ This theme may be used for a site with a single page, or multiple pages. Optiona
 
 Page-level configuration is done in the front matter (a YAML block preceding the page content), and supports the following properties (listed in alphabetical order, not in order of importance):
 
+`breadcrumb_title`
+
+: Short page title used in the header breadcrumb trail when `page_navigator.enabled` is `true`. If omitted, the page `title` is used. This is useful when the full page title is clear in the page heading or sidebar, but too long for the hierarchical breadcrumb trail.
+
 `content_dir`
 
 : In this theme, some pages may be used to define a hierarchical section (i.e., group of pages) within the module site, rather than including any Markdown content themselves. This type of page must include a `content_dir` property and a `title` property (described below). 
@@ -68,6 +72,7 @@ Of course, values of the above properties must be specified as properly formatte
 ```yaml
 ---
 title: Lists & links
+breadcrumb_title: Lists
 description: "Creating unordered lists and links in Markdown"
 order: 30
 ---

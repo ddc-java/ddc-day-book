@@ -8,26 +8,34 @@
       | where_exp: 'p', 'p.dir == terminated_parent_path' 
       | where_exp: 'p', 'p.content_dir == content_dir' 
       | first -%}
+  {%- assign section_title = section_page.title -%}
+  {%- assign section_breadcrumb_title = section_page.breadcrumb_title | default: section_title -%}
+  {%- capture section_url -%}{{ section_page.dir }}{{ section_page.content_dir }}/{{ section_page.default_page }}{%- endcapture -%}
 
   {%- capture components -%}
-    {{ section_page.title }}|{{ section_page.dir }}{{ section_page.content_dir }}/{{ section_page.default_page }}
+    {{ section_title }}|{{ section_url }}|{{ section_breadcrumb_title }}
     {%- if parent_path != '' -%}
       ||{%- include navigation-location.html path=parent_path -%}
     {%- else -%}
-      ||{{ site.title | default: site.github.repository_name }}|/
+      {%- assign site_title = site.title | default: site.github.repository_name -%}
+      {%- assign site_breadcrumb_title = site.breadcrumb_title | default: site_title -%}
+      ||{{ site_title }}|/|{{ site_breadcrumb_title }}
     {%- endif -%}
   {%- endcapture -%}
 
 {%- else -%}
 
   {% assign path = page.dir | split: '/' | join: '/' %}
+  {%- assign page_breadcrumb_title = page.breadcrumb_title | default: page.title -%}
 
   {%- capture components -%}
-    {{ page.title }}
+    {{ page.title }}|{{ page.url }}|{{ page_breadcrumb_title }}
     {%- if path != '' -%}
       ||{%- include navigation-location.html path=path -%}
     {%- else -%}
-      ||{{ site.title | default: site.github.repository_name }}|/
+      {%- assign site_title = site.title | default: site.github.repository_name -%}
+      {%- assign site_breadcrumb_title = site.breadcrumb_title | default: site_title -%}
+      ||{{ site_title }}|/|{{ site_breadcrumb_title }}
     {%- endif -%}
   {%- endcapture -%}
 

@@ -33,6 +33,10 @@ Site-level configuration is done in `_config.yaml`, and supports the following p
 
 : If a value is provided, it will be displayed in a "Written by" credit in the site's page footers.
 
+`breadcrumb_title`
+
+: Short site title used as the root entry in the header breadcrumb trail when `page_navigator.enabled` is `true`. If omitted, the site `title` is used.
+
 `description`
 
 : Description displayed under the page heading. Setting this property at the page level overrides the site-level setting. If not set at the site or page level, the GitHub repository description (if any) is displayed.
@@ -86,6 +90,7 @@ Of course, values of the above properties must be specified as properly formatte
 ```yaml
 remote_theme: ddc-java/ddc-day@v1
 title: Recursion
+breadcrumb_title: Recursion
 author:
   name: Nick Bennett
   email: nick@nickbenn.com
