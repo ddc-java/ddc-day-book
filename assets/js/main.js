@@ -70,10 +70,8 @@ function initLangSwitchers() {
   const allButtons = [];
 
   groups.forEach((group, index) => {
-    if (group.panels.length > 1) {
-      const { buttons } = enhanceLangGroup(group, index, storageKey);
-      allButtons.push(...buttons);
-    }
+    const { buttons } = enhanceLangGroup(group, index, storageKey);
+    allButtons.push(...buttons);
   });
 
   if (allButtons.length > 0) {
@@ -144,12 +142,16 @@ function nextRelevantSibling(element) {
 }
 
 function enhanceLangGroup(group, groupIndex, storageKey) {
+  const isSingle = group.panels.length === 1;
   const switcher = document.createElement('div');
   const tabs = document.createElement('div');
   const panels = [];
   const buttons = [];
 
   switcher.className = 'lang-switcher';
+  if (isSingle) {
+    switcher.classList.add('lang-switcher--single');
+  }
   if (group.panels.some((panelData) => panelData.blocks.some((block) => block.classList.contains('copyable')))) {
     switcher.classList.add('copyable');
   }
@@ -190,36 +192,44 @@ function enhanceLangGroup(group, groupIndex, storageKey) {
       panel.appendChild(block);
     });
 
-    button.addEventListener('click', () => {
-      storeLangPreference(storageKey, lang);
-      document.dispatchEvent(new CustomEvent('ddc-lang-switch', { detail: { lang } }));
-    });
-    button.addEventListener('keydown',
-        (event) => handleLangTabKeydown(event, lang, buttons, storageKey));
+    if (isSingle) {
+      button.classList.add('is-active');
+      button.setAttribute('aria-selected', 'true');
+      button.tabIndex = 0;
+    } else {
+      button.addEventListener('click', () => {
+        storeLangPreference(storageKey, lang);
+        document.dispatchEvent(new CustomEvent('ddc-lang-switch', { detail: { lang } }));
+      });
+      button.addEventListener('keydown',
+          (event) => handleLangTabKeydown(event, lang, buttons, storageKey));
+      buttons.push({lang: lang, element: button});
+    }
 
-    buttons.push({lang: lang, element: button});
     panels.push({lang: lang, element: panel});
     tabs.appendChild(button);
     switcher.appendChild(panel);
   });
 
-  const updateView = (lang) => {
-    const langInGroup = buttons.some(b => b.lang === lang);
-    if (!langInGroup) {
-      return;
-    }
-    buttons.forEach((button) => {
-      const isSelected = button.lang === lang;
-      button.element.classList.toggle('is-active', isSelected);
-      button.element.setAttribute('aria-selected', String(isSelected));
-      button.element.tabIndex = isSelected ? 0 : -1;
-    });
-    panels.forEach((panel) => {
-      panel.element.hidden = panel.lang !== lang;
-    });
-  };
+  if (!isSingle) {
+    const updateView = (lang) => {
+      const langInGroup = buttons.some(b => b.lang === lang);
+      if (!langInGroup) {
+        return;
+      }
+      buttons.forEach((button) => {
+        const isSelected = button.lang === lang;
+        button.element.classList.toggle('is-active', isSelected);
+        button.element.setAttribute('aria-selected', String(isSelected));
+        button.element.tabIndex = isSelected ? 0 : -1;
+      });
+      panels.forEach((panel) => {
+        panel.element.hidden = panel.lang !== lang;
+      });
+    };
 
-  document.addEventListener('ddc-lang-switch', (e) => updateView(e.detail.lang));
+    document.addEventListener('ddc-lang-switch', (e) => updateView(e.detail.lang));
+  }
 
   return { buttons, switcher };
 }
