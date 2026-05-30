@@ -411,6 +411,35 @@ pre {
     }
   }
 
+  &.lang-switcher--single {
+    border-color: rgba($base-dark-color, 0.35);
+
+    .lang-switcher__tabs {
+      background-color: transparent;
+    }
+
+    .lang-switcher__tab {
+      font-size: 0.8em;
+      font-weight: normal;
+      color: rgba($base-dark-color, 0.6);
+      cursor: default;
+
+      &.is-active {
+        border-color: transparent;
+        background-color: transparent;
+        font-weight: normal;
+        color: rgba($base-dark-color, 0.6);
+      }
+
+      &:hover,
+      &:focus-visible {
+        border-color: transparent;
+        background-color: transparent;
+        font-weight: normal;
+      }
+    }
+  }
+
 }
 
 .success {
