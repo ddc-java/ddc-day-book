@@ -202,6 +202,34 @@ Did you spot the difference between the rendering of the [first](#first-blockquo
 
 If we were using the George Box quote in a module about computational modeling, we'd probably use the [first form](#first-blockquote); here, since we're using it to illustrate the use of blockquotes in module content, it would be more appropriate to use the [second form](#second-blockquote) when displaying the rendered output that results from our Markdown.
 
+### TDD prompts and hints
+
+Two blockquote classes support interleaved test-driven development (TDD) content: `.tdd-prompt` and `.tdd-hint`. Both use a blue left border and a light blue background tint; `.tdd-prompt` uses a solid border, and `.tdd-hint` uses a dashed border.
+
+Use `.tdd-prompt` to present a testing task that students should complete before reading further. The blockquote is prefixed automatically with a 🧪 (test tube) character.
+
+```markdown
+> Write a test that verifies `draw` returns an array of exactly 20 elements.
+{:.tdd-prompt}
+```
+
+This is rendered as:
+
+> Write a test that verifies `draw` returns an array of exactly 20 elements.
+{:.tdd-prompt}
+
+Use `.tdd-hint` when the TDD task may need a nudge---for example, to name the JUnit 5 assertion method to use, or to point out a relevant API class. The blockquote is prefixed automatically with a 💡 (lightbulb) character.
+
+```markdown
+> Consider using `assertArrayEquals` rather than `assertEquals` when comparing array contents element by element.
+{:.tdd-hint}
+```
+
+This is rendered as:
+
+> Consider using `assertArrayEquals` rather than `assertEquals` when comparing array contents element by element.
+{:.tdd-hint}
+
 ## Multi-language content blocks
 
 ### Basics

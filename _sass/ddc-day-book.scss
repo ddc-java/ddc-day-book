@@ -37,6 +37,8 @@ $code-highlight-color: $deep-dive-gray;
 $medium-light-color: $deep-dive-gray;
 $success-color: $deep-dive-green;
 $failure-color: #D64541;
+$tdd-color: $deep-dive-blue;
+$tdd-background: rgba($deep-dive-blue, 0.08);
 
 $title-fonts: 'Roboto Slab', Aleo, Rockwell, serif;
 $heading-fonts: $title-fonts;
@@ -293,6 +295,28 @@ blockquote {
     border-left: none;
   }
 
+  &.tdd-prompt {
+    border-left: 4px solid $tdd-color;
+    background-color: $tdd-background;
+    font-style: normal;
+    padding: 8px 12px 8px 16px;
+
+    &::before {
+      content: '\1F9EA\00A0';
+    }
+  }
+
+  &.tdd-hint {
+    border-left: 2px dashed $tdd-color;
+    background-color: $tdd-background;
+    font-style: normal;
+    padding: 8px 12px 8px 20px;
+
+    &::before {
+      content: '\1F4A1\00A0';
+    }
+  }
+
 }
 
 code {
@@ -469,6 +493,24 @@ pre {
   pre {
     border-left: 4px solid $deep-dive-yellow;
     border-right: 4px solid $deep-dive-yellow;
+  }
+
+}
+
+.tdd-prompt {
+
+  pre {
+    border-left: 4px solid $tdd-color;
+    border-right: 4px solid $tdd-color;
+  }
+
+}
+
+.tdd-hint {
+
+  pre {
+    border-left: 2px dashed $tdd-color;
+    border-right: 2px dashed $tdd-color;
   }
 
 }
