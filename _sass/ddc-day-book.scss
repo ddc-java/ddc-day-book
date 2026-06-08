@@ -272,7 +272,7 @@ blockquote {
 
   border-left: 2px solid $deep-dive-yellow;
   margin: 0 0 1em 0;
-  padding: 0 0 0 20px;
+  padding: 4px 8px 4px 20px;
   font-style: italic;
 
   &.render-example {
@@ -298,8 +298,7 @@ blockquote {
   &.tdd-prompt {
     border-left: 4px solid $tdd-color;
     background-color: $tdd-background;
-    font-style: normal;
-    padding: 8px 12px 8px 16px;
+    padding-left: 18px;
 
     &::before {
       content: '\1F9EA\00A0';
@@ -309,8 +308,6 @@ blockquote {
   &.tdd-hint {
     border-left: 2px dashed $tdd-color;
     background-color: $tdd-background;
-    font-style: normal;
-    padding: 8px 12px 8px 20px;
 
     &::before {
       content: '\1F4A1\00A0';
