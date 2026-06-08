@@ -230,6 +230,20 @@ This is rendered as:
 > Consider using `assertArrayEquals` rather than `assertEquals` when comparing array contents element by element.
 {:.tdd-hint}
 
+### Exploration questions
+
+Use `.explore` when a description or example is followed by open-ended questions that ask students to reason about implications, trade-offs, or design alternatives. The blockquote uses a dark goldenrod left border, a light amber background tint, and is prefixed automatically with a 🔍 (magnifying glass) character.
+
+```markdown
+> Under what conditions might this approach take much longer than expected to finish?
+{:.explore}
+```
+
+This is rendered as:
+
+> Under what conditions might this approach take much longer than expected to finish?
+{:.explore}
+
 ## Multi-language content blocks
 
 ### Basics

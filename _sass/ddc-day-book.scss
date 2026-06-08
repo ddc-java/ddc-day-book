@@ -39,6 +39,8 @@ $success-color: $deep-dive-green;
 $failure-color: #D64541;
 $tdd-color: $deep-dive-blue;
 $tdd-background: rgba($deep-dive-blue, 0.08);
+$explore-color: #B8860B;
+$explore-background: rgba($explore-color, 0.08);
 
 $title-fonts: 'Roboto Slab', Aleo, Rockwell, serif;
 $heading-fonts: $title-fonts;
@@ -314,6 +316,15 @@ blockquote {
     }
   }
 
+  &.explore {
+    border-left: 2px solid $explore-color;
+    background-color: $explore-background;
+
+    &::before {
+      content: '\1F50D\00A0';
+    }
+  }
+
 }
 
 code {
@@ -508,6 +519,15 @@ pre {
   pre {
     border-left: 2px dashed $tdd-color;
     border-right: 2px dashed $tdd-color;
+  }
+
+}
+
+.explore {
+
+  pre {
+    border-left: 2px solid $explore-color;
+    border-right: 2px solid $explore-color;
   }
 
 }
