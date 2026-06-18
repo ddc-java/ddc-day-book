@@ -442,7 +442,7 @@ pre {
       }
     }
 
-    > div.highlighter-rouge:not(:last-child) {
+    > div.highlighter-rouge:not(:only-child) {
       margin-bottom: 1em;
     }
   }
