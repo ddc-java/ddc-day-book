@@ -532,6 +532,60 @@ pre {
 
 }
 
+.assignment-workflow {
+
+  margin: 1.5em 0 1em;
+  padding: 0.85em 1em 0.25em;
+  border-left: 4px solid rgba($deep-dive-blue, 0.8);
+  background-color: rgba($deep-dive-blue, 0.06);
+
+  h2 {
+    margin-top: 0!important;
+  }
+
+  details {
+    margin: 0 0 0.75em 0;
+    padding: 0.15em 0 0 0;
+
+    &[open] {
+      summary {
+        margin-bottom: 0.5em;
+      }
+    }
+  }
+
+  summary {
+    color: $deep-dive-blue;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
+
+  &__button {
+    display: inline-block;
+    padding: 0.25em 0.65em;
+    border: 1px solid rgba($deep-dive-blue, 0.55);
+    border-radius: 3px;
+    background-color: rgba($deep-dive-blue, 0.08);
+    font-weight: 600;
+
+    &:hover {
+      background-color: rgba($deep-dive-blue, 0.16);
+    }
+  }
+
+  &--complete {
+    border-left-color: rgba($success-color, 0.8);
+    background-color: rgba($success-color, 0.08);
+  }
+
+}
+
 table {
 
   width: 100%;
