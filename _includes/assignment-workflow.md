@@ -42,7 +42,8 @@
   </details>
 </aside>
 
-<h2>Exercise contents</h2>
+## Exercise contents
+
 {% include navigation-section.html %}
 
 {% endif %}
@@ -81,7 +82,7 @@
   <p>When {{ work_done_text }}, commit your work and push to GitHub, even if you've been committing along the way.</p>
   <details>
     <summary>Submission and workflow details</summary>
-    <p>As described in <a href="index.md#repository-and-workflow">Repository and Workflow</a>, pushing committed changes will trigger automated workflow jobs in GitHub. These jobs will check your implementation and tests, and if the required checks pass, this website will be updated.</p>
+    <p>As described in <a href="index.html#repository-and-workflow">Repository and Workflow</a>, pushing committed changes will trigger automated workflow jobs in GitHub. These jobs will check your implementation and tests, and if the required checks pass, this website will be updated.</p>
     <p>If all of your tests are passing locally, but the automated workflow jobs are failing, contact an instructor for assistance.</p>
   </details>
 </aside>
