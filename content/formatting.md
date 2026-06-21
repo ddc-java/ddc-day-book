@@ -153,49 +153,9 @@ This is rendered as:
 > {:.failure}
 {:.render-example}
 
-#### Multi-language code blocks
+#### Selection
 
-When the same example should be shown in multiple programming languages, use consecutive fenced code blocks with kramdown block IALs that specify a shared `data-code-group` value and a visible `data-code-label`. The theme will automatically convert such groups into a tabbed code switcher.
-
-Do not write custom HTML wrappers, buttons, or radio inputs for this purpose.
-
-For example, this Markdown:
-
-    ```java
-    public static double minuteHandRadians(double minutes) {
-      return (15.0 - minutes) * Math.PI / 30.0;
-    }
-    ```
-    {: data-code-group="minute-hand" data-code-label="Java" }
-
-    ```kotlin
-    fun minuteHandRadians(minutes: Double): Double =
-        (15.0 - minutes) * Math.PI / 30.0
-    ```
-    {: data-code-group="minute-hand" data-code-label="Kotlin" }
-
-will be rendered as a tabbed code block with **Java** and **Kotlin** tabs:
-
-```java
-public static double minuteHandRadians(double minutes) {
-  return (15.0 - minutes) * Math.PI / 30.0;
-}
-```
-{: data-code-group="minute-hand" data-code-label="Java" }
-
-```kotlin
-fun minuteHandRadians(minutes: Double): Double =
-    (15.0 - minutes) * Math.PI / 30.0
-```
-{: data-code-group="minute-hand" data-code-label="Kotlin" }
-
-If JavaScript is unavailable, the code blocks will still be displayed in sequence.
-
-To ensure that the theme recognizes a multi-language group correctly:
-
-* All blocks in the group should be consecutive.
-* All blocks in the group should have the same `data-code-group` value.
-* Each block should have a `data-code-label` value appropriate for the displayed language or format.
+Even if `no_select` has been set to `true` in the site or the page, thus preventing selection of text in general, it may be desirable to allow selection of text in a code block. This can be done by specifying the `copyable` CSS class for a code block; for this, use a kramdown IAL such as `{: .copyable }`.
 
 ## Blockquotes
 
@@ -241,6 +201,134 @@ This will be rendered as:
 Did you spot the difference between the rendering of the [first](#first-blockquote) and [second](#second-blockquote) blockquote?
 
 If we were using the George Box quote in a module about computational modeling, we'd probably use the [first form](#first-blockquote); here, since we're using it to illustrate the use of blockquotes in module content, it would be more appropriate to use the [second form](#second-blockquote) when displaying the rendered output that results from our Markdown.
+
+### TDD prompts and hints
+
+Two blockquote classes support interleaved test-driven development (TDD) content: `.tdd-prompt` and `.tdd-hint`. Both use a blue left border and a light blue background tint; `.tdd-prompt` uses a solid border, and `.tdd-hint` uses a dashed border.
+
+Use `.tdd-prompt` to present a testing task that students should complete before reading further. The blockquote is prefixed automatically with a 🧪 (test tube) character.
+
+```markdown
+> Write a test that verifies `draw` returns an array of exactly 20 elements.
+{:.tdd-prompt}
+```
+
+This is rendered as:
+
+> Write a test that verifies `draw` returns an array of exactly 20 elements.
+{:.tdd-prompt}
+
+Use `.tdd-hint` when the TDD task may need a nudge---for example, to name the JUnit 5 assertion method to use, or to point out a relevant API class. The blockquote is prefixed automatically with a 💡 (lightbulb) character.
+
+```markdown
+> Consider using `assertArrayEquals` rather than `assertEquals` when comparing array contents element by element.
+{:.tdd-hint}
+```
+
+This is rendered as:
+
+> Consider using `assertArrayEquals` rather than `assertEquals` when comparing array contents element by element.
+{:.tdd-hint}
+
+### Exploration questions
+
+Use `.explore` when a description or example is followed by open-ended questions that ask students to reason about implications, trade-offs, or design alternatives. The blockquote uses a dark goldenrod left border, a light amber background tint, and is prefixed automatically with a 🔍 (magnifying glass) character.
+
+```markdown
+> Under what conditions might this approach take much longer than expected to finish?
+{:.explore}
+```
+
+This is rendered as:
+
+> Under what conditions might this approach take much longer than expected to finish?
+{:.explore}
+
+## Multi-language content blocks
+
+### Basics
+
+When the same example or instructions should be shown in multiple programming languages, use consecutive blocks with kramdown block IALs that specify a shared `data-lang-group` value and a visible `data-lang-label`. The theme will automatically convert such groups into a tabbed language switcher.
+
+Do not write custom HTML wrappers, buttons, or radio inputs for this purpose.
+
+For example, this Markdown:
+
+    ```java
+    public static double minuteHandRadians(double minutes) {
+      return (15.0 - minutes) * Math.PI / 30.0;
+    }
+    ```
+    {: data-lang-group="minute-hand" data-lang-label="Java" }
+
+    ```kotlin
+    fun minuteHandRadians(minutes: Double): Double =
+        (15.0 - minutes) * Math.PI / 30.0
+    ```
+    {: data-lang-group="minute-hand" data-lang-label="Kotlin" }
+
+will be rendered as a tabbed code block with **Java** and **Kotlin** tabs:
+
+> ```java
+> public static double minuteHandRadians(double minutes) {
+>   return (15.0 - minutes) * Math.PI / 30.0;
+> }
+> ```
+> {: data-lang-group="minute-hand" data-lang-label="Java" }
+>
+> ```kotlin
+> fun minuteHandRadians(minutes: Double): Double =
+>     (15.0 - minutes) * Math.PI / 30.0
+> ```
+> {: data-lang-group="minute-hand" data-lang-label="Kotlin" }
+{: .render-example }
+
+If JavaScript is unavailable, the blocks will still be displayed in sequence.
+
+To ensure that the theme recognizes a multi-language group correctly:
+
+* All blocks in the group must be consecutive.
+
+* All blocks in the group must have the same `data-lang-group` value.
+
+* Each block must have a `data-lang-label` value appropriate for the displayed language or format.
+
+### Synchronized language selection
+
+If there are multiple, separate groups of block-level elements with `data-lang-group` specified in accompanying IALs on the same page, language selection will be synchronized across groups. For example, on the same page as the code blocks shown above, we might have these unordered lists:
+
+```markdown
+#### What to notice
+{:.no_toc}
+
+{: data-lang-group="syntax" data-lang-label="Java" }
+- In method, field, and variable declarations in Java, the _type_ **always** comes before the _name_.
+
+- Every class, interface, and method must have its implementation body enclosed in braces.
+
+{: data-lang-group="syntax" data-lang-label="Kotlin" }
+- In function, property, and variable declarations in Kotlin, the _type_ **follows** the _name_, separated from it by the colon character (`-`).
+
+- If the return value of a Kotlin function can be expressed in a single statement, the function body can be written without braces, and with an equal sign between the declaration and the body statement.
+```
+
+This will be rendered as:
+
+> #### What to notice
+> {:.no_toc}
+>
+> {: data-lang-group="syntax" data-lang-label="Java" }
+> - In method, field, and variable declarations in Java, the _type_ **always** comes before the _name_.
+>
+> - Every `class`, `interface`, and method must have its implementation body enclosed in braces.
+>
+> {: data-lang-group="syntax" data-lang-label="Kotlin" }
+> - In function, property, and variable declarations in Kotlin, the _type_ **follows** the _name_, separated from it by the colon character (`:`).
+>
+> - If the return value of a Kotlin function can be expressed in a single statement, the function body can be written without braces, and with an equal sign (`=`) between the declaration and the body statement.
+    {: .render-example }
+
+Notice that changing the language on either the tabbed code block or the tabbed "What to notice" block automatically changes the language on the other.
 
 ## Footnotes
 
@@ -497,7 +585,7 @@ Steps in an algorithm or computational process should be specified as _pseudocod
 
 Test cases should be written using tables, with clear and concise column headers indicating inputs, expected outputs, and expected exceptions. The guidelines for [code fragments](#code-fragments) apply here: input and output values should be formatted as Java expressions, using inline code.
 
-Inline code Markdown tables are easy to write, and usually work well for this purpose. However, if a table cell needs to contain a block element, that's not directly supported in Markdown; HTML may be required, or a combination of Markdown, HTML, and kramdown options.
+Inline code Markdown tables are straightforward to write and usually work well for this purpose. However, if a table cell needs to contain a block element, that's not directly supported in Markdown; HTML may be required, or a combination of Markdown, HTML, and kramdown options.
 
 ### Example
 
@@ -521,6 +609,10 @@ The above Markdown is rendered as
 > | `12` | `30` | `1.3089969389957474` | `4.71238898038469` |
 > | `19` | `42` | `3.822271061867582` | `3.4557519189487724` |
 {:.render-example}
+
+### Selection
+
+Even if `no_select` has been set to `true` in the site or the page, thus preventing selection of text in general, it may be desirable to allow selection of text in tables---especially when a table contains test cases. This can be done by specifying the `copyable` CSS class for the table; for this, use a kramdown IAL such as `{: .copyable }`.
 
 ## UI controls
 

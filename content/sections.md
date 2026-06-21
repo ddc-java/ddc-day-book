@@ -94,9 +94,9 @@ Alternatively, **Summary** may be used at the end of a page or module, recapitul
 
 If the module is an assignment or practical exam problem, this section (at or near the top---usually even above an [overview](#overview) or [summary](#summary)) can be used to show the point value---broken down into separate components, if appropriate.
 
-The `data-list.html` include file is well-suited for use in this section of a page. The script code in this include reads the specified property from `_config.yml`, rendering the key-value pairs in an unordered, potentially nested list.
+The `data-list.html` include file is well-suited for use in this section of a page. The script code in this include reads the specified property from `_config.yaml`, rendering the key-value pairs in an unordered, potentially nested list.
 
-For example, assume that `_config.yml` contains the following `assignment` property:
+For example, assume that `_config.yaml` contains the following `assignment` property:
 
 ```text
 assignment:

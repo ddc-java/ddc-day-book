@@ -1,7 +1,7 @@
 function copyNodeStyle(sourceNode, targetNode) {
   const computedStyle = window.getComputedStyle(sourceNode);
-  Array.from(computedStyle).forEach((key) => 
-      targetNode.style.setProperty(key, computedStyle.getPropertyValue(key), 
+  Array.from(computedStyle).forEach((key) =>
+      targetNode.style.setProperty(key, computedStyle.getPropertyValue(key),
                                    computedStyle.getPropertyPriority(key)));
 }
 
@@ -63,19 +63,29 @@ function buildCollapsibles() {
   });
 }
 
-function initCodeSwitchers() {
-  const storageKey = 'ddc-day-book-code-language';
-  const candidates = Array.from(document.querySelectorAll('[data-code-group]'));
-  const groups = collectCodeGroups(candidates);
+function initLangSwitchers() {
+  const storageKey = 'ddc-day-book-lang';
+  const candidates = Array.from(document.querySelectorAll('[data-lang-group]'));
+  const groups = collectLangGroups(candidates);
+  const allButtons = [];
 
   groups.forEach((group, index) => {
-    if (group.blocks.length > 1) {
-      enhanceCodeGroup(group, index, storageKey);
-    }
+    const { buttons } = enhanceLangGroup(group, index, storageKey);
+    allButtons.push(...buttons);
   });
+
+  if (allButtons.length > 0) {
+    const initialLang = selectInitialLang(allButtons, storageKey);
+    if (initialLang) {
+      storeLangPreference(storageKey, initialLang);
+      document.dispatchEvent(new CustomEvent('ddc-lang-switch', {
+        detail: { lang: initialLang }
+      }));
+    }
+  }
 }
 
-function collectCodeGroups(candidates) {
+function collectLangGroups(candidates) {
   const groups = [];
   const consumed = new Set();
 
@@ -83,23 +93,33 @@ function collectCodeGroups(candidates) {
     if (consumed.has(block)) {
       return;
     }
-    const groupName = block.dataset.codeGroup?.trim();
+    const groupName = block.dataset.langGroup?.trim();
     if (!groupName) {
       return;
     }
     const group = {
       groupName: groupName,
       parent: block.parentElement,
-      blocks: [block]
+      panels: []
     };
     consumed.add(block);
+    let currentLabel = getLang(block, 0);
+    let currentBlocks = [block];
     let sibling = nextRelevantSibling(block);
-    while (sibling && sibling.dataset.codeGroup?.trim() === groupName &&
+    while (sibling && sibling.dataset.langGroup?.trim() === groupName &&
         sibling.parentElement === group.parent) {
-      group.blocks.push(sibling);
+      const sibLabel = getLang(sibling, group.panels.length);
       consumed.add(sibling);
+      if (sibLabel === currentLabel) {
+        currentBlocks.push(sibling);
+      } else {
+        group.panels.push({ label: currentLabel, blocks: currentBlocks });
+        currentLabel = sibLabel;
+        currentBlocks = [sibling];
+      }
       sibling = nextRelevantSibling(sibling);
     }
+    group.panels.push({ label: currentLabel, blocks: currentBlocks });
     groups.push(group);
   });
   return groups;
@@ -121,63 +141,101 @@ function nextRelevantSibling(element) {
   return null;
 }
 
-function enhanceCodeGroup(group, groupIndex, storageKey) {
+function enhanceLangGroup(group, groupIndex, storageKey) {
+  const isSingle = group.panels.length === 1;
   const switcher = document.createElement('div');
   const tabs = document.createElement('div');
   const panels = [];
   const buttons = [];
 
-  switcher.className = 'code-switcher';
-  if (group.blocks.some((block) => block.classList.contains('copyable'))) {
+  switcher.className = 'lang-switcher';
+  if (isSingle) {
+    switcher.classList.add('lang-switcher--single');
+  }
+  if (group.panels.some((panelData) => panelData.blocks.some((block) => block.classList.contains('copyable')))) {
     switcher.classList.add('copyable');
   }
-  switcher.dataset.codeGroup = group.groupName;
-  tabs.className = 'code-switcher__tabs';
+  switcher.dataset.langGroup = group.groupName;
+  tabs.className = 'lang-switcher__tabs';
   tabs.setAttribute('role', 'tablist');
-  tabs.setAttribute('aria-label', 'Code examples');
+  tabs.setAttribute('aria-label', 'Language examples');
   switcher.appendChild(tabs);
-  group.blocks[0].before(switcher);
+  group.panels[0].blocks[0].before(switcher);
 
-  group.blocks.forEach((block, blockIndex) => {
-    const label = getCodeLabel(block, blockIndex);
-    const key = slugify(group.groupName + '-' + label + '-' + groupIndex + '-' + blockIndex);
-    const tabId = 'code-switcher-tab-' + key;
-    const panelId = 'code-switcher-panel-' + key;
+  group.panels.forEach((panelData, panelIndex) => {
+    const lang = panelData.label;
+    const key = slugify(group.groupName + '-' + lang + '-' + groupIndex + '-' + panelIndex);
+    const tabId = 'lang-switcher-tab-' + key;
+    const panelId = 'lang-switcher-panel-' + key;
     const button = document.createElement('button');
     const panel = document.createElement('div');
 
     button.type = 'button';
-    button.className = 'code-switcher__tab';
+    button.className = 'lang-switcher__tab';
     button.id = tabId;
     button.setAttribute('role', 'tab');
     button.setAttribute('aria-controls', panelId);
-    button.dataset.codeLabel = label;
-    button.textContent = label;
+    button.dataset.lang = lang;
+    button.textContent = lang;
 
-    panel.className = 'code-switcher__panel';
+    panel.className = 'lang-switcher__panel';
     panel.id = panelId;
     panel.setAttribute('role', 'tabpanel');
     panel.setAttribute('aria-labelledby', tabId);
+    if (panelData.blocks.length === 1 && panelData.blocks[0].classList.contains('highlighter-rouge')) {
+      panel.classList.add('lang-switcher__panel--code');
+    }
 
-    block.removeAttribute('data-code-group');
-    block.removeAttribute('data-code-label');
-    panel.appendChild(block);
+    panelData.blocks.forEach((block) => {
+      block.removeAttribute('data-lang-group');
+      block.removeAttribute('data-lang-label');
+      panel.appendChild(block);
+    });
 
-    button.addEventListener('click', () => activateCodeTab(label, buttons, panels, storageKey));
-    button.addEventListener('keydown',
-        (event) => handleCodeTabKeydown(event, label, buttons, panels, storageKey));
+    if (isSingle) {
+      button.classList.add('is-active');
+      button.setAttribute('aria-selected', 'true');
+      button.tabIndex = 0;
+    } else {
+      button.addEventListener('click', () => {
+        storeLangPreference(storageKey, lang);
+        document.dispatchEvent(new CustomEvent('ddc-lang-switch', { detail: { lang } }));
+      });
+      button.addEventListener('keydown',
+          (event) => handleLangTabKeydown(event, lang, buttons, storageKey));
+      buttons.push({lang: lang, element: button});
+    }
 
-    buttons.push({label: label, element: button});
-    panels.push({label: label, element: panel});
+    panels.push({lang: lang, element: panel});
     tabs.appendChild(button);
     switcher.appendChild(panel);
   });
 
-  activateCodeTab(selectInitialCodeLabel(buttons, storageKey), buttons, panels, storageKey);
+  if (!isSingle) {
+    const updateView = (lang) => {
+      const langInGroup = buttons.some(b => b.lang === lang);
+      if (!langInGroup) {
+        return;
+      }
+      buttons.forEach((button) => {
+        const isSelected = button.lang === lang;
+        button.element.classList.toggle('is-active', isSelected);
+        button.element.setAttribute('aria-selected', String(isSelected));
+        button.element.tabIndex = isSelected ? 0 : -1;
+      });
+      panels.forEach((panel) => {
+        panel.element.hidden = panel.lang !== lang;
+      });
+    };
+
+    document.addEventListener('ddc-lang-switch', (e) => updateView(e.detail.lang));
+  }
+
+  return { buttons, switcher };
 }
 
-function handleCodeTabKeydown(event, label, buttons, panels, storageKey) {
-  const currentIndex = buttons.findIndex((button) => button.label === label);
+function handleLangTabKeydown(event, lang, buttons, storageKey) {
+  const currentIndex = buttons.findIndex((button) => button.lang === lang);
   let nextIndex = currentIndex;
 
   switch (event.key) {
@@ -200,48 +258,37 @@ function handleCodeTabKeydown(event, label, buttons, panels, storageKey) {
   }
 
   event.preventDefault();
-  const nextLabel = buttons[nextIndex].label;
-  activateCodeTab(nextLabel, buttons, panels, storageKey);
+  const nextLang = buttons[nextIndex].lang;
+  storeLangPreference(storageKey, nextLang);
+  document.dispatchEvent(new CustomEvent('ddc-lang-switch', { detail: { lang: nextLang } }));
   buttons[nextIndex].element.focus();
 }
 
-function activateCodeTab(label, buttons, panels, storageKey) {
-  buttons.forEach((button) => {
-    const isSelected = button.label === label;
-    button.element.classList.toggle('is-active', isSelected);
-    button.element.setAttribute('aria-selected', String(isSelected));
-    button.element.tabIndex = isSelected ? 0 : -1;
-  });
-  panels.forEach((panel) => {
-    panel.element.hidden = panel.label !== label;
-  });
-  storeCodePreference(storageKey, label);
-}
-
-function selectInitialCodeLabel(buttons, storageKey) {
-  const storedLabel = loadCodePreference(storageKey);
-  if (storedLabel && buttons.some((button) => button.label === storedLabel)) {
-    return storedLabel;
+function selectInitialLang(buttons, storageKey) {
+  const storedLang = loadLangPreference(storageKey);
+  const availableLangs = [...new Set(buttons.map(b => b.lang))];
+  if (storedLang && availableLangs.includes(storedLang)) {
+    return storedLang;
   }
-  return buttons[0].label;
+  return availableLangs.length > 0 ? availableLangs[0] : null;
 }
 
-function getCodeLabel(block, blockIndex) {
-  return block.dataset.codeLabel?.trim() ||
-      detectCodeLanguage(block) ||
+function getLang(block, blockIndex) {
+  return block.dataset.langLabel?.trim() ||
+      detectLang(block) ||
       'Option ' + (blockIndex + 1);
 }
 
-function detectCodeLanguage(block) {
+function detectLang(block) {
   const classNames = [
     block.className,
     block.querySelector('code')?.className ?? ''
   ].join(' ');
   const match = classNames.match(/language-([a-z0-9_-]+)/i);
-  return match ? normalizeLanguageName(match[1]) : '';
+  return match ? normalizeLangName(match[1]) : '';
 }
 
-function normalizeLanguageName(languageName) {
+function normalizeLangName(languageName) {
   return languageName
       .split(/[-_]/)
       .filter((part) => part.length > 0)
@@ -300,11 +347,11 @@ function initCopyableTables() {
 
 function initCopyableCodeBlocks() {
   // Multi-language switchers: button goes in the tabs bar, always visible
-  document.querySelectorAll('.code-switcher.copyable').forEach(function(switcher) {
-    const tabs = switcher.querySelector('.code-switcher__tabs');
+  document.querySelectorAll('.lang-switcher.copyable').forEach(function(switcher) {
+    const tabs = switcher.querySelector('.lang-switcher__tabs');
     const btn = createCopyButton('Copy code');
     btn.addEventListener('click', function() {
-      const activePanel = switcher.querySelector('.code-switcher__panel:not([hidden])');
+      const activePanel = switcher.querySelector('.lang-switcher__panel:not([hidden])');
       const code = activePanel && activePanel.querySelector('code');
       if (code) copyToClipboard(btn, code.innerText);
     });
@@ -313,7 +360,7 @@ function initCopyableCodeBlocks() {
 
   // Standalone copyable code blocks: wrap and add floating button
   document.querySelectorAll('div.copyable').forEach(function(block) {
-    if (block.closest('.code-switcher')) return;
+    if (block.closest('.lang-switcher')) return;
     const wrapper = document.createElement('div');
     wrapper.className = 'copyable-code-wrapper';
     block.parentNode.insertBefore(wrapper, block);
@@ -327,7 +374,7 @@ function initCopyableCodeBlocks() {
   });
 }
 
-function loadCodePreference(storageKey) {
+function loadLangPreference(storageKey) {
   try {
     return window.localStorage.getItem(storageKey);
   } catch (error) {
@@ -335,9 +382,9 @@ function loadCodePreference(storageKey) {
   }
 }
 
-function storeCodePreference(storageKey, label) {
+function storeLangPreference(storageKey, lang) {
   try {
-    window.localStorage.setItem(storageKey, label);
+    window.localStorage.setItem(storageKey, lang);
   } catch (error) {
   }
 }
@@ -345,7 +392,7 @@ function storeCodePreference(storageKey, label) {
 $(document).ready(function() {
   setNavClosedByDefault();
   buildCollapsibles();
-  initCodeSwitchers();
+  initLangSwitchers();
   addTargetToExternalLinks();
   initCopyableTables();
   initCopyableCodeBlocks();

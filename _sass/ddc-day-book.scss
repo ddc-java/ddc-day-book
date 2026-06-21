@@ -37,6 +37,10 @@ $code-highlight-color: $deep-dive-gray;
 $medium-light-color: $deep-dive-gray;
 $success-color: $deep-dive-green;
 $failure-color: #D64541;
+$tdd-color: $deep-dive-blue;
+$tdd-background: rgba($deep-dive-blue, 0.08);
+$explore-color: #B8860B;
+$explore-background: rgba($explore-color, 0.08);
 
 $title-fonts: 'Roboto Slab', Aleo, Rockwell, serif;
 $heading-fonts: $title-fonts;
@@ -269,8 +273,8 @@ abbr[title] {
 blockquote {
 
   border-left: 2px solid $deep-dive-yellow;
-  margin: 0;
-  padding: 0 0 0 20px;
+  margin: 0 0 1em 0;
+  padding: 8px 8px 2px 20px;
   font-style: italic;
 
   &.render-example {
@@ -291,6 +295,34 @@ blockquote {
 
   &.borderless {
     border-left: none;
+  }
+
+  &.tdd-prompt {
+    border-left: 4px solid $tdd-color;
+    background-color: $tdd-background;
+    padding-left: 18px;
+
+    &::before {
+      content: '\1F9EA\00A0';
+    }
+  }
+
+  &.tdd-hint {
+    border-left: 2px dashed $tdd-color;
+    background-color: $tdd-background;
+
+    &::before {
+      content: '\1F4A1\00A0';
+    }
+  }
+
+  &.explore {
+    border-left: 2px solid $explore-color;
+    background-color: $explore-background;
+
+    &::before {
+      content: '\1F50D\00A0';
+    }
   }
 
 }
@@ -350,55 +382,97 @@ pre {
 
 }
 
-.code-switcher {
+.lang-switcher {
 
   margin: 0 0 1em 0;
   border: 1px solid $base-dark-color;
   border-radius: 3px;
-  background-color: $base-dark-color;
+  background-color: mix($medium-light-color, $base-light-color, 25%);
   overflow: hidden;
 
-  .code-switcher__tabs {
+  .lang-switcher__tabs {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-    background-color: mix($base-dark-color, $base-light-color, 85%);
+    background-color: $medium-light-color;
   }
 
-  .code-switcher__tab {
+  .lang-switcher__tab {
     appearance: none;
     margin: 0;
     padding: 0.5em 0.9em;
-    border: 0;
-    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     background-color: transparent;
-    color: $base-light-color;
+    color: $base-dark-color;
     font-family: $body-fonts;
     font-size: 0.95em;
     cursor: pointer;
 
     &:hover,
     &:focus-visible {
-      background-color: rgba(255, 255, 255, 0.08);
+      border-right: 1px solid mix($base-dark-color, $medium-light-color, 50%);
+      border-left: 1px mix($base-dark-color, $medium-light-color, 50%);
+      background-color: $medium-light-color;
+      font-weight: 700;
       outline: 0;
     }
 
     &.is-active {
-      background-color: $base-dark-color;
-      color: $deep-dive-yellow;
-      font-weight: 600;
+      border-right: 1px solid mix($base-dark-color, $medium-light-color, 50%);
+      border-left: 1px mix($base-dark-color, $medium-light-color, 50%);
+      background-color: mix($medium-light-color, $base-light-color, 25%);
+      color: $medium-dark-color;
+      font-weight: 700;
     }
   }
 
-  .code-switcher__panel {
-    padding: 0;
+  .lang-switcher__panel {
 
-    > div,
-    > pre {
-      margin: 0;
-      border: 0;
-      border-radius: 0;
+    padding: 0.75em 0.75em 0;
+
+    &.lang-switcher__panel--code {
+      padding: 0;
+    }
+
+    div.highlight {
+      > pre.highlight {
+        margin: 0;
+      }
+    }
+
+    > div.highlighter-rouge:not(:only-child) {
+      margin-bottom: 0.75em;
+    }
+  }
+
+  &.lang-switcher--single {
+    border-color: rgba($base-dark-color, 0.35);
+
+    .lang-switcher__tabs {
+      background-color: transparent;
+    }
+
+    .lang-switcher__tab {
+      font-size: 0.8em;
+      font-weight: normal;
+      color: rgba($base-dark-color, 0.6);
+      cursor: default;
+
+      &.is-active {
+        border-color: transparent;
+        background-color: transparent;
+        font-weight: normal;
+        color: rgba($base-dark-color, 0.6);
+      }
+
+      &:hover,
+      &:focus-visible {
+        border-color: transparent;
+        background-color: transparent;
+        font-weight: normal;
+      }
     }
   }
 
@@ -427,6 +501,33 @@ pre {
   pre {
     border-left: 4px solid $deep-dive-yellow;
     border-right: 4px solid $deep-dive-yellow;
+  }
+
+}
+
+.tdd-prompt {
+
+  pre {
+    border-left: 4px solid $tdd-color;
+    border-right: 4px solid $tdd-color;
+  }
+
+}
+
+.tdd-hint {
+
+  pre {
+    border-left: 2px dashed $tdd-color;
+    border-right: 2px dashed $tdd-color;
+  }
+
+}
+
+.explore {
+
+  pre {
+    border-left: 2px solid $explore-color;
+    border-right: 2px solid $explore-color;
   }
 
 }
@@ -702,6 +803,26 @@ header {
     -ms-text-overflow: ellipsis;
     z-index: 250;
 
+    &.breadcrumbs {
+      display: flex;
+      align-items: baseline;
+      gap: 0.35em;
+      min-width: 0;
+
+      .crumb {
+        flex: 0 1 auto;
+        min-width: 1.5em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .separator {
+        flex: 0 0 auto;
+      }
+
+    }
+
     a {
 
       font-family: unset;
@@ -833,6 +954,13 @@ div.wrapper {
 
         ul {
           margin-left: 1.5ch;
+        }
+
+        &.toc-divider {
+          height: 0;
+          margin: 0.35em 0;
+          border-top: 2px solid rgba($base-dark-color, 0.25);
+          pointer-events: none;
         }
 
         &.toc-section {
@@ -1195,8 +1323,8 @@ footer {
   }
 }
 
-// Copy button in code-switcher tabs bar: override to be in-flow, always visible
-.code-switcher__tabs .copy-btn {
+// Copy button in lang-switcher tabs bar: override to be in-flow, always visible
+.lang-switcher__tabs .copy-btn {
   position: static;
   margin-left: auto;
   align-self: stretch;
@@ -1492,6 +1620,19 @@ footer {
       top: 5px;
       color: $deep-dive-yellow;
       margin-right: 10px;
+
+      &.breadcrumbs {
+
+        &.multi-parent {
+
+          .root,
+          .root + .separator {
+            display: none;
+          }
+
+        }
+
+      }
     }
 
     > p {
@@ -1522,6 +1663,36 @@ footer {
 
       *[id], a[name] {
         scroll-margin-top: 45px;
+      }
+
+    }
+
+  }
+
+}
+
+@media print, screen and (max-width: 480px) {
+
+  header {
+
+    > h2 {
+
+      &.breadcrumbs {
+
+        &.multi-parent {
+
+          .crumb:not(:last-of-type),
+          .separator {
+            display: none;
+          }
+
+          &::before {
+            content: "... ";
+          }
+
+        }
+
+
       }
 
     }

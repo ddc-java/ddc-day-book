@@ -23,6 +23,10 @@ This theme may be used for a site with a single page, or multiple pages. Optiona
 
 Page-level configuration is done in the front matter (a YAML block preceding the page content), and supports the following properties (listed in alphabetical order, not in order of importance):
 
+`breadcrumb_title`
+
+: Short page title used in the header breadcrumb trail when `page_navigator.enabled` is `true`. If omitted, the page `title` is used. This is useful when the full page title is clear in the page heading or sidebar, but too long for the hierarchical breadcrumb trail.
+
 `content_dir`
 
 : In this theme, some pages may be used to define a hierarchical section (i.e., group of pages) within the module site, rather than including any Markdown content themselves. This type of page must include a `content_dir` property and a `title` property (described below). 
@@ -39,7 +43,19 @@ Page-level configuration is done in the front matter (a YAML block preceding the
 
 `exclude_from_toc`
 
-: This is a Boolean-valued property, used to control the inclusion (by default) or exclusion of the page from a sidebar displaying the table of contents of the site. If omitted, left without a value, or set to `false`, the page will be included in the table of contents (assuming that `site.page_navigator.enabled` is set to `true`); if explicitly set to `false`, the page will be excluded from the table of contents.
+: This is a Boolean-valued property, used to control the inclusion (by default) or exclusion of the page from a sidebar displaying the table of contents of the site. If omitted, left without a value, or set to `false`, the page will be included in the table of contents (assuming that `site.page_navigator.enabled` is set to `true`); if explicitly set to `true`, the page will be excluded from the table of contents.
+
+`exclude_from_local_nav`
+
+: This is a Boolean-valued property, used to exclude a page from local page navigation while leaving it available for the site-level table of contents. If explicitly set to `true`, the page will be excluded from section contents lists and previous/next page links.
+
+`exclude_from_prev_next`
+
+: This is a Boolean-valued property, used to exclude a page from previous/next page links while leaving its table of contents and section contents behavior unchanged. Use `exclude_from_local_nav` instead when the page should also be excluded from section contents lists.
+
+`exclude_from_section_nav`
+
+: This is a Boolean-valued property, used to exclude a page from section contents lists while leaving its table of contents and previous/next behavior unchanged. Use `exclude_from_local_nav` instead when the page should also be excluded from previous/next page links.
 
 `order`
 
@@ -55,6 +71,10 @@ Page-level configuration is done in the front matter (a YAML block preceding the
 
 : In general, this property should be set in every page.
 
+`no_select`
+
+: This is a Boolean-valued property that, when set to `true`, makes text in the main page content unselectable. If not set, this defaults to the value of `site.no_select`, if present, or `false` otherwise.
+
 Additional properties may be defined in the front matter, and referenced (with the `page.` prefix) from Liquid expressions in the page.
 
 ### Example
@@ -64,6 +84,7 @@ Of course, values of the above properties must be specified as properly formatte
 ```yaml
 ---
 title: Lists & links
+breadcrumb_title: Lists
 description: "Creating unordered lists and links in Markdown"
 order: 30
 ---

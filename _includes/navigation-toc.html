@@ -13,7 +13,9 @@
   <ul>
 
     {%- for p in pages_in_section -%}
-    
+
+      {%- if p.divider_above %}<li class="toc-divider" role="separator"></li>{%- endif -%}
+
       {%- if p.content_dir -%}
       
         {%- unless p.content_dir contains "/" -%}
@@ -40,8 +42,20 @@
 
         {%- assign dest_url = p.url | relative_url -%}
         
-        {%- if p.href -%}
-          <li class="toc-page external"><a href="{{ p.href | relative_url }}" class="external">{{p.title}}</a></li>
+        {%- if p.href_site_path or p.href -%}
+          {%- if p.href_site_path -%}
+            {%- assign _parts = p.href_site_path | split: "." -%}
+            {%- assign _dest = site -%}
+            {%- for _part in _parts -%}
+              {%- assign _dest = _dest[_part] -%}
+            {%- endfor -%}
+            {%- if p.href_suffix -%}{%- assign _dest = _dest | append: p.href_suffix -%}{%- endif -%}
+          {%- elsif p.href contains "://" -%}
+            {%- assign _dest = p.href -%}
+          {%- else -%}
+            {%- assign _dest = p.href | relative_url -%}
+          {%- endif -%}
+          <li class="toc-page external"><a href="{{ _dest }}" class="external">{{p.title}}</a></li>
         {%- elsif dest_url == current_url -%}
           <li class="toc-page current">{{p.title}}</li>
         {%- else -%}

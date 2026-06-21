@@ -32,11 +32,11 @@
     {%- endcapture -%}
     {%- assign current_location = locations | last | split: '|' | first -%}
     {%- assign parent_locations = locations | pop -%}
-    {%- capture parent_links -%}
+    {%- assign parent_location_count = parent_locations | size -%}
+    {%- capture parent_names -%}
       {%- for location in parent_locations -%}
         {%- assign location_parts = location | split: '|' -%}
-        {%- assign location_name = location_parts | first -%}
-        <a href="{{ location_parts | last | relative_url }}">{{ location_name }}</a>|
+        {{ location_parts | first }}|
       {%- endfor -%}
     {%- endcapture -%}
 
@@ -119,7 +119,18 @@
 
       {% if show_page_navigator -%}
         <h1>{{ current_location }}</h1>
-        <h2>{{ parent_links | split: '|' | join: ': '}}</h2>
+        <h2 class="breadcrumbs{% if parent_location_count > 1 %} multi-parent{% endif %}" aria-label="{{ parent_names | split: '|' | join: ': ' | strip | strip_html | escape }}">
+          {%- for location in parent_locations -%}
+            {%- assign location_parts = location | split: '|' -%}
+            {%- assign location_name = location_parts[0] -%}
+            {%- assign location_url = location_parts[1] -%}
+            {%- assign breadcrumb_name = location_parts[2] | default: location_name -%}
+            <a class="crumb{% if forloop.first %} root{% endif %}" href="{{ location_url | relative_url }}" title="{{ location_name | strip_html | escape }}">{{ breadcrumb_name }}</a>
+            {%- unless forloop.last -%}
+              <span class="separator" aria-hidden="true">:</span>
+            {%- endunless -%}
+          {%- endfor -%}
+        </h2>
       {%- else -%}
         <h1 class="no-nav">{{ current_location }}</h1>
         <h2>{{ site.title }}</h2>
