@@ -29,11 +29,7 @@
 
 <aside class="assignment-workflow assignment-workflow--overview">
   <h2 id="repository-and-workflow">Repository and Workflow</h2>
-  <p>Your repository, workflow status, and published exercise contents are available from this page without leaving the assignment instructions.</p>
-  <p class="assignment-workflow__actions">
-    <a class="assignment-workflow__button" href="{{ site.github.repository_url | absolute_url }}">Repository</a>
-    <a class="assignment-workflow__button external" href="{{ site.github.repository_url | absolute_url }}/actions">Actions</a>
-  </p>
+  <p>Your repository and workflow status are available from the navigation sidebar; these will open in separate tabs from this one, so that the assignment instructions remain readily available.</p>
   <details>
     <summary>Automated workflow details</summary>
     <p>When you push committed changes from your local repository to GitHub, 2--3 workflow jobs will start automatically:</p>
@@ -44,11 +40,12 @@
     </ol>
     <p>The "GitHub/Actions" link in the left sidebar is a direct link to the GitHub <a href="{{ site.github.repository_url | absolute_url }}/actions">workflow actions page for the repository</a>, where you can monitor the progress of the workflow jobs described above.</p>
   </details>
-  <details>
-    <summary>Exercise contents</summary>
-    {% include navigation-section.html %}
-  </details>
 </aside>
+
+<details>
+    <summary>Exercise contents</summary>
+{% include navigation-section.html %}
+</details>
 
 {% endif %}
 
