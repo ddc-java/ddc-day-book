@@ -550,6 +550,10 @@ pre {
     &[open] {
       summary {
         margin-bottom: 0.5em;
+
+        &::after {
+          content: url("../images/chevron-up.svg");
+        }
       }
     }
   }
@@ -558,6 +562,29 @@ pre {
     color: $deep-dive-blue;
     cursor: pointer;
     font-weight: 600;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      display: inline-block;
+      position: relative;
+      content: url("../images/chevron-down.svg");
+      width: 1ch;
+      height: 1ch;
+      padding-left: 0.5ch;
+      vertical-align: -20%;
+      opacity: 0.35;
+    }
+
+    &:hover,
+    &:focus-visible {
+      &::after {
+        opacity: 1.0;
+      }
+    }
   }
 
   &__actions {
