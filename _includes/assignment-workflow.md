@@ -7,8 +7,10 @@
 
 {% if site.creator_view or state.current %}
 
-<aside class="assignment-workflow assignment-workflow--overview">
-  <h2>Repository Access</h2>
+<aside class="assignment-workflow assignment-workflow--overview" markdown="1">
+
+## Repository Access
+
   <p>After this exercise is released, use GitHub to find and clone your individual repository, then choose either the Java or Kotlin assignment branch.</p>
   <details>
     <summary>Individual repository and website steps</summary>
@@ -27,8 +29,10 @@
 
 {% if site.creator_view or show_next %}
 
-<aside class="assignment-workflow assignment-workflow--overview">
-  <h2 id="repository-and-workflow">Repository and Workflow</h2>
+<aside class="assignment-workflow assignment-workflow--overview" markdown="1">
+
+## Repository and Workflow
+
   <p>Your repository and workflow status are available from the navigation sidebar; these will open in separate tabs from this one, so that the assignment instructions remain readily available.</p>
   <details>
     <summary>Automated workflow details</summary>
@@ -52,8 +56,10 @@
 
 {% if site.creator_view or state.current %}
 
-<aside class="assignment-workflow assignment-workflow--submission">
-  <h2>Submitting Your Work</h2>
+<aside class="assignment-workflow assignment-workflow--submission" markdown="1">
+
+## Submitting Your Work
+
   <p>When {{ work_done_text }}, commit your work and push to GitHub, even if you've been committing along the way.</p>
   <details>
     <summary>Submission and workflow details</summary>
@@ -67,8 +73,10 @@
 
 {% if site.creator_view or show_next %}
 
-<aside class="assignment-workflow assignment-workflow--next">
-  <h2>Next Steps</h2>
+<aside class="assignment-workflow assignment-workflow--next" markdown="1">
+
+## Next Steps
+
   <p>{{ include.next_text | default: "After the current goals are complete and the automated checks pass, the next set of goals will be published on this site." }}</p>
 </aside>
 
@@ -78,8 +86,10 @@
 
 {% if site.creator_view or state.current %}
 
-<aside class="assignment-workflow assignment-workflow--submission">
-  <h2>Submitting Your Work</h2>
+<aside class="assignment-workflow assignment-workflow--submission" markdown="1">
+
+## Submitting Your Work
+
   <p>When {{ work_done_text }}, commit your work and push to GitHub, even if you've been committing along the way.</p>
   <details>
     <summary>Submission and workflow details</summary>
@@ -93,8 +103,10 @@
 
 {% if site.creator_view or show_next %}
 
-<aside class="assignment-workflow assignment-workflow--complete">
-  <h2>Congratulations!</h2>
+<aside class="assignment-workflow assignment-workflow--complete" markdown="1">
+
+## Congratulations!
+
   <p>{{ include.complete_text | default: "Your work has passed the grading tests for this assignment! The instructor will also review your code for any requirements that are not checked automatically." }}</p>
 </aside>
 
