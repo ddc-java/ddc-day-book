@@ -63,10 +63,11 @@
   <p>When {{ work_done_text }}, commit your work and push to GitHub, even if you've been committing along the way.</p>
   <details>
     <summary>Submission and workflow details</summary>
-    <p>As described in <a href="index.md#repository-and-workflow">Repository and Workflow</a>, pushing committed changes triggers automated workflow jobs in GitHub. These jobs build your implementation, build and run your tests (if any), and run grading tests against your implementation. If the grading tests pass, this website is updated.</p>
+    <p>As described in <a href="index.html#repository-and-workflow">Repository and Workflow</a>, pushing committed changes triggers automated workflow jobs in GitHub. These jobs build your implementation, build and run your tests (if any), and run grading tests against your implementation. If the grading tests pass, this website is updated.</p>
     <p>The "GitHub/Actions" link in the left sidebar is a direct link to the GitHub <a href="{{ site.github.repository_url | absolute_url }}/actions">workflow actions page for the repository</a>, where you can monitor the progress of the workflow jobs described above.</p>
     <p>If all of your tests are passing locally, but the automated workflow jobs are failing, contact an instructor for assistance.</p>
   </details>
+
 </aside>
 
 {% endif %}
@@ -77,7 +78,8 @@
 
 ## Next Steps
 
-  <p>{{ include.next_text | default: "After the current goals are complete and the automated checks pass, the next set of goals will be published on this site." }}</p>
+  <p>{{ include.next_text | default: "Your implementation code has passed the grading tests for the basic goals, and the stretch goal specifications are now available." }}</p>
+
 </aside>
 
 {% endif %}
@@ -90,13 +92,16 @@
 
 ## Submitting Your Work
 
+## Submitting Your Work
+
   <p>When {{ work_done_text }}, commit your work and push to GitHub, even if you've been committing along the way.</p>
   <details>
     <summary>Submission and workflow details</summary>
-    <p>As described in <a href="index.md#repository-and-workflow">Repository and Workflow</a>, pushing committed changes triggers automated workflow jobs in GitHub. These jobs build your implementation, build and run your tests (if any), and run grading tests against your implementation. If the grading tests pass, this website is updated.</p>
+    <p>As described in <a href="index.html#repository-and-workflow">Repository and Workflow</a>, pushing committed changes triggers automated workflow jobs in GitHub. These jobs build your implementation, build and run your tests (if any), and run grading tests against your implementation. If the grading tests pass, this website is updated.</p>
     <p>The "GitHub/Actions" link in the left sidebar is a direct link to the GitHub <a href="{{ site.github.repository_url | absolute_url }}/actions">workflow actions page for the repository</a>, where you can monitor the progress of the workflow jobs described above.</p>
     <p>If all of your tests are passing locally, but the automated workflow jobs are failing, contact an instructor for assistance.</p>
   </details>
+
 </aside>
 
 {% endif %}
@@ -107,7 +112,8 @@
 
 ## Congratulations!
 
-  <p>{{ include.complete_text | default: "Your work has passed the grading tests for this assignment! The instructor will also review your code for any requirements that are not checked automatically." }}</p>
+  <p>{{ include.complete_text | default: "Your implementation code has passed the grading tests for the basic and stretch goals! The instructor will also review your code to verify the correctness and completeness of your unit tests." }}</p>
+
 </aside>
 
 {% endif %}
