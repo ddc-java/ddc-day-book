@@ -92,8 +92,6 @@
 
 ## Submitting Your Work
 
-## Submitting Your Work
-
   <p>When {{ work_done_text }}, commit your work and push to GitHub, even if you've been committing along the way.</p>
   <details>
     <summary>Submission and workflow details</summary>
