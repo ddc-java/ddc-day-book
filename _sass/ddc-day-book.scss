@@ -1404,6 +1404,16 @@ footer {
   }
 }
 
+.copyable-table-wrapper .copy-btn {
+  opacity: 0.6;
+  pointer-events: auto;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 1;
+  }
+}
+
 // Copy button in lang-switcher tabs bar: override to be in-flow, always visible
 .lang-switcher__tabs .copy-btn {
   position: static;
