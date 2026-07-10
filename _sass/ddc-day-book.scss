@@ -1409,18 +1409,23 @@ footer {
   position: static;
   margin-left: auto;
   align-self: stretch;
-  opacity: 0.55;
+  opacity: 0.75;
   pointer-events: auto;
   background-color: transparent;
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba($base-dark-color, 0.2);
   border-radius: 0;
   top: unset;
   right: unset;
 
-  &:hover {
+  .fa {
+    color: $base-dark-color;
+  }
+
+  &:hover,
+  &:focus-visible {
     opacity: 1;
-    background-color: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba($base-dark-color, 0.08);
+    border-color: rgba($base-dark-color, 0.45);
   }
 }
 
