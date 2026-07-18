@@ -9,7 +9,7 @@
 
 <aside class="assignment-workflow assignment-workflow--overview" markdown="1">
 
-## Repository Access
+## Repository access
 
   <p>After this exercise is released, use GitHub to find and clone your individual repository, then choose either the Java or Kotlin assignment branch.</p>
   <details>
@@ -31,7 +31,7 @@
 
 <aside class="assignment-workflow assignment-workflow--overview" markdown="1">
 
-## Repository and Workflow
+## Repository and workflow
 
   <p>Your repository and workflow status are available from the navigation sidebar; these will open in separate tabs from this one, so that the assignment instructions remain readily available.</p>
   <details>
@@ -58,7 +58,7 @@
 
 <aside class="assignment-workflow assignment-workflow--submission" markdown="1">
 
-## Submitting Your Work
+## Submitting your work
 
   <p>When {{ work_done_text }}, commit your work and push to GitHub, even if you've been committing along the way.</p>
   <details>
@@ -76,7 +76,7 @@
 
 <aside class="assignment-workflow assignment-workflow--next" markdown="1">
 
-## Next Steps
+## Next steps
 
   <p>{{ include.next_text | default: "Your implementation code has passed the grading tests for the basic goals, and the stretch goal specifications are now available." }}</p>
 
@@ -90,7 +90,7 @@
 
 <aside class="assignment-workflow assignment-workflow--submission" markdown="1">
 
-## Submitting Your Work
+## Submitting your work
 
   <p>When {{ work_done_text }}, commit your work and push to GitHub, even if you've been committing along the way.</p>
   <details>
