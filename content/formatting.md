@@ -157,6 +157,27 @@ This is rendered as:
 
 Even if `no_select` has been set to `true` in the site or the page, thus preventing selection of text in general, it may be desirable to allow selection of text in a code block. This can be done by specifying the `copyable` CSS class for a code block; for this, use a kramdown IAL such as `{: .copyable }`.
 
+For example, this Markdown creates a code block with a copy button:
+
+    ```java
+    int sum = 0;
+    for (int value : values) {
+      sum += value;
+    }
+    ```
+    {: .copyable }
+
+This is rendered as:
+
+> ```java
+> int sum = 0;
+> for (int value : values) {
+>   sum += value;
+> }
+> ```
+> {: .copyable }
+{:.render-example}
+
 ## Blockquotes
 
 ### General
