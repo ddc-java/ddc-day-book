@@ -352,7 +352,10 @@ function initCopyableCodeBlocks() {
     const btn = createCopyButton('Copy code');
     btn.addEventListener('click', function() {
       const activePanel = switcher.querySelector('.lang-switcher__panel:not([hidden])');
-      const code = activePanel && activePanel.querySelector('code');
+      const code = activePanel && (
+        activePanel.querySelector('.copyable pre code') ||
+        activePanel.querySelector('pre code')
+      );
       if (code) copyToClipboard(btn, code.innerText);
     });
     tabs.appendChild(btn);
