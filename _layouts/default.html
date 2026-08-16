@@ -42,9 +42,14 @@
 
     <title>{{ name_components | split: '|' | reverse | join: ' | ' | strip_html }}</title>
 
-    {% capture cache_bypass %}v={{ site.github.build_revision }}&r={{ site.time | date: '%s' }}{% endcapture %}
+    {% capture cache_bypass -%}
+      v={{ site.github.build_revision }}
+      {%- if site.bypass_theme_cache -%}
+        &r={{ site.time | date: '%s' }}
+      {%- endif -%}
+    {%- endcapture %}
     
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: cache_bypass | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?' | append: cache_bypass | relative_url }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ site.favicon | default: '/assets/images/favicon.ico' | relative_url }}">
 
     <script
@@ -58,7 +63,7 @@
 
     <script src="https://use.fontawesome.com/c858e278cf.js"></script>
 
-    <script src="{{ '/assets/js/main.js?v=' | append: cache_bypass | relative_url }}"></script>
+    <script src="{{ '/assets/js/main.js?' | append: cache_bypass | relative_url }}"></script>
 
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
