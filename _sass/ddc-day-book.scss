@@ -987,8 +987,8 @@ div.wrapper {
 
     position: fixed;
     right: 50%;
-    max-width: 230px;
-    margin: -39px 425px 0 0;
+    max-width: 240px;
+    margin: -39px 403px 0 0;
     padding: 5px;
     z-index: 500;
 
@@ -1028,7 +1028,7 @@ div.wrapper {
 
       list-style-type: none;
       margin: 0;
-      padding: 0 12px 0 8px;
+      padding: 0 10px 0 8px;
 
       li {
 
@@ -1474,7 +1474,7 @@ footer {
   }
 }
 
-@media print, screen and (max-width: 1300px) {
+@media print, screen and (max-width: 1310px) {
 
   h1 {
 
@@ -1585,7 +1585,7 @@ footer {
 
     nav.toc {
 
-      margin-right: 335px;
+      margin-right: 314px;
       margin-top: -35px;
 
       > input[type="checkbox"] {
@@ -1613,7 +1613,7 @@ footer {
 
 }
 
-@media print, screen and (max-width: 1070px) {
+@media print, screen and (max-width: 1120px) {
 
   body {
     padding-bottom: 5px;
@@ -1657,7 +1657,7 @@ footer {
 
       > ul {
         position: relative;
-        padding: 5px 17px 5px 5px;
+        padding: 5px 8px 5px 5px;
         margin-top: -2px;
         margin-left: -5px;
         background-color: $base-light-color;
