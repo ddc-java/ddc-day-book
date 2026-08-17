@@ -265,6 +265,81 @@ This is rendered as:
 > Under what conditions might this approach take much longer than expected to finish?
 {:.explore}
 
+## Asides
+
+### General
+
+Blockquotes work well for callouts that are a few lines long. Some content, though---a worked example, a set of workflow instructions---consists of several block-level elements: prose, code blocks, lists, and (potentially) multi-language content blocks. For these, use an HTML `aside` element with the `markdown="1"` attribute, so that the content itself can still be written in Markdown.
+
+Aside classes differ from the blockquote classes in two ways that matter for example content: they don't italicize their content, and they don't add borders to the `pre` elements they contain. The latter is what keeps a code fragment inside an aside from being framed twice.
+
+### Worked examples
+
+Use the `worked-example` class for an extended example that supports the surrounding discussion, but which a reader who already follows the material can skip. The aside uses a neutral gray left border and a very light background tint; examples are frequent enough that they shouldn't compete visually with the semantically colored blockquotes described in ["Blockquotes"](#blockquotes).
+
+In the simplest form, the content is always visible:
+
+```markdown
+<aside class="worked-example" markdown="1">
+
+#### Example: Two dice, not one
+
+The sum of two dice isn't uniformly distributed: there are 6 ways to roll a 7, but only one way to roll a 2.
+
+</aside>
+```
+
+This is rendered as:
+
+<aside class="worked-example" markdown="1">
+
+#### Example: Two dice, not one
+{:.no_toc}
+
+The sum of two dice isn't uniformly distributed: there are 6 ways to roll a 7, but only one way to roll a 2.
+
+</aside>
+
+To make the example collapsible, wrap the content in `details` and `summary` elements. No modifier class is needed---the presence of the `details` element is what makes the example collapsible.
+
+```markdown
+<aside class="worked-example" markdown="1">
+<details markdown="1">
+<summary>Example: Two dice, not one</summary>
+
+The sum of two dice isn't uniformly distributed: there are 6 ways to roll a 7, but only one way to roll a 2.
+
+</details>
+</aside>
+```
+
+This is rendered as:
+
+<aside class="worked-example" markdown="1">
+<details markdown="1">
+<summary>Example: Two dice, not one</summary>
+
+The sum of two dice isn't uniformly distributed: there are 6 ways to roll a 7, but only one way to roll a 2.
+
+</details>
+</aside>
+
+Add the `open` attribute to the `details` element for an example that starts expanded, but which the reader can collapse.
+
+A few practical notes:
+
+- Prefer the `summary` text---rather than a heading---as the label of a collapsible example. Headings inside an aside are parsed as Markdown, so they receive IDs and appear in the page contents list; a heading that's hidden inside a collapsed example is usually not one the reader is looking for in that list. If a heading is needed anyway, add a `{:.no_toc}` IAL to it.
+
+- The `summary` element's content is parsed as a block, not a span, so inline Markdown in a summary requires `markdown="span"` rather than `markdown="1"`.
+
+- Multi-language content blocks (see ["Multi-language content blocks"](#multi-language-content-blocks)) and copyable code blocks work normally inside a collapsed example; the theme's JavaScript doesn't measure element dimensions, so nothing is disrupted by the content being initially hidden.
+
+- The `details` and `summary` elements are keyboard-accessible without any additional attributes; don't add ARIA roles or click handlers to them.
+
+### Assignment workflow
+
+The `assignment-workflow` class styles the asides produced by the `assignment-workflow.md` include: a blue left border, a light blue background tint, and the same collapsible `summary` treatment used by worked examples. Module content should apply this class through the include, rather than writing the asides directly.
+
 ## Multi-language content blocks
 
 ### Basics

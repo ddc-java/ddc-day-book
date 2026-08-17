@@ -41,6 +41,8 @@ $tdd-color: $deep-dive-blue;
 $tdd-background: rgba($deep-dive-blue, 0.08);
 $explore-color: #B8860B;
 $explore-background: rgba($explore-color, 0.08);
+$example-color: rgba($deep-dive-black, 0.45);
+$example-background: rgba($deep-dive-black, 0.04);
 
 $title-fonts: 'Roboto Slab', Aleo, Rockwell, serif;
 $heading-fonts: $title-fonts;
@@ -532,6 +534,37 @@ pre {
 
 }
 
+@mixin collapsible-summary($color: $medium-dark-color) {
+
+  color: $color;
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &::after {
+    display: inline-block;
+    position: relative;
+    content: url("../images/chevron-down.svg");
+    width: 1ch;
+    height: 1ch;
+    padding-left: 0.5ch;
+    vertical-align: -20%;
+    opacity: 0.35;
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::after {
+      opacity: 1.0;
+    }
+  }
+
+}
+
 .assignment-workflow {
 
   margin: 1.5em 0 1em;
@@ -547,44 +580,17 @@ pre {
     margin: 0 0 0.75em 0;
     padding: 0.15em 0 0 0;
 
-    &[open] {
-      summary {
-        margin-bottom: 0.5em;
+    &[open] > summary {
+      margin-bottom: 0.5em;
 
-        &::after {
-          content: url("../images/chevron-up.svg");
-        }
+      &::after {
+        content: url("../images/chevron-up.svg");
       }
     }
   }
 
   summary {
-    color: $deep-dive-blue;
-    cursor: pointer;
-    font-weight: 600;
-    list-style: none;
-
-    &::-webkit-details-marker {
-      display: none;
-    }
-
-    &::after {
-      display: inline-block;
-      position: relative;
-      content: url("../images/chevron-down.svg");
-      width: 1ch;
-      height: 1ch;
-      padding-left: 0.5ch;
-      vertical-align: -20%;
-      opacity: 0.35;
-    }
-
-    &:hover,
-    &:focus-visible {
-      &::after {
-        opacity: 1.0;
-      }
-    }
+    @include collapsible-summary($deep-dive-blue);
   }
 
   &__actions {
@@ -609,6 +615,35 @@ pre {
   &--complete {
     border-left-color: rgba($success-color, 0.8);
     background-color: rgba($success-color, 0.08);
+  }
+
+}
+
+.worked-example {
+
+  margin: 1.5em 0 1em;
+  padding: 0.85em 1em 0.25em;
+  border-left: 2px solid $example-color;
+  background-color: $example-background;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  details {
+    margin: 0 0 0.75em 0;
+
+    &[open] > summary {
+      margin-bottom: 0.5em;
+
+      &::after {
+        content: url("../images/chevron-up.svg");
+      }
+    }
+  }
+
+  summary {
+    @include collapsible-summary;
   }
 
 }
