@@ -1288,6 +1288,27 @@ div.wrapper {
 
     }
 
+    ol.ieee-references {
+
+      list-style: none;
+      counter-reset: ieee-reference;
+      padding-left: 0;
+
+      li {
+        position: relative;
+        padding-left: 2.5em;
+        counter-increment: ieee-reference;
+
+        &::before {
+          content: "[" counter(ieee-reference) "]";
+          position: absolute;
+          left: 0;
+        }
+
+      }
+
+    }
+
     p.figure-block {
 
       text-align: center;
